@@ -1,0 +1,48 @@
+.welcome {
+    display: flex;
+    background-color: #FFB902;
+    height: 70vh;
+}
+
+.welcome-image {
+    max-width: 100vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.welcome-text {
+    position: absolute;
+    top: 0;
+    padding: 2vh 18vw 2vh;
+    font-size: 70px;
+    font-weight: 900;
+    text-align: center;
+    color: white;
+}
+
+.pharmacies {
+    display: flex;
+    position: relative;
+    text-align: center;
+    flex-flow: row wrap;
+}
+
+.pharmacy {
+    width: 12vw;
+    margin: auto;
+}
+
+.pharmacy-image {
+    display: block;
+    max-width: 12vw;
+    max-height: 12vh;
+    width: auto;
+    height: auto;
+}
+
+.parceiros {
+    margin-left: 1vw;
+    font-weight: 700;
+}

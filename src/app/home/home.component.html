@@ -1,0 +1,12 @@
+<div class="welcome">
+  <img class="welcome-image" src="assets/pharmacies/logo.jpg">
+  <h1 class="welcome-text">Bem vindo ao site que conecta você com as principais farmácias.</h1>
+</div>
+
+
+<h4 class="parceiros">Nossos principais parceiros:</h4>
+<div class="pharmacies">
+  <div class="pharmacy" *ngFor="let pharmacy of pharmacies">
+    <img class="pharmacy-image" [src]="pharmacy.image">
+  </div>
+</div>

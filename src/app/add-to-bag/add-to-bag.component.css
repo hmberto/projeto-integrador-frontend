@@ -1,0 +1,45 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3vh;
+}
+
+.product-image {
+    max-width: 20vw;
+    max-height: 20vh;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.name {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.price {
+    font-size: 3rem;
+}
+
+.description {
+    padding: 2vh 20vw 2vh;
+    font-size: 2rem;
+    line-height: 4rem;
+    text-align: justify;
+}
+
+
+.buttons {
+    display: flex;
+    height: 10vh;
+}
+
+button {
+    width: 20vw;
+    height: 10vh;
+    margin: 2vh 2vw 0;
+    font-size: 2rem;
+    background-color: #ee6e73;
+    color: white;
+}

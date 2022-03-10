@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    position: relative;
+    flex-flow: row wrap;
+    width: 100%;
+    max-width: none;
+    margin: auto;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    width: 23vw;
+    height: 30vh;
+}
+
+.button-info {
+    text-align: center;
+    background-color: white;
+    width: 25vw;
+    height: 30vh;
+}
+
+.product-image {
+    display: block;
+    max-width: 12vw;
+    max-height: 20vh;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.product-name {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.product-price {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.pharmacy-name {
+    margin-left: 1vw;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
