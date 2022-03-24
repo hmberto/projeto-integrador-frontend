@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './guards/auth.guard';
 import { ProductsComponent } from './products/products.component';
 import { AddToBagComponent } from './add-to-bag/add-to-bag.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { AddToBagComponent } from './add-to-bag/add-to-bag.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [
