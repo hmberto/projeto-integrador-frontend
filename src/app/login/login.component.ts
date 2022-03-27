@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   }
 
   makeLogin() {
-    console.log(this.user);
     this.authService.makeLogin(this.user);
   }
 

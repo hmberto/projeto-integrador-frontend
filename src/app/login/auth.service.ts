@@ -15,18 +15,31 @@ export class AuthService {
   constructor(private router: Router, private http: HttpClient) { }
 
   async makeLogin(user: User) {
+    var newLogin = window.localStorage.getItem("newLogin");
+    if(newLogin == "false") {
+      newLogin = "false";
+    }
+    else {
+      newLogin = "true"
+    }
+
     const loginEndPoint = 'https://pharmacy-delivery.herokuapp.com/client/login';
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     const body = JSON.stringify({
-      email: "humbertoodantas@gmail.com",
-      pass: "123",
-      ip: "192.168.0.1",
-      newLogin: "true"
+      email: user.name,
+      pass: user.password,
+      newLogin: newLogin
     });
-
+    
     const response = await this.http.post(loginEndPoint, body, {headers: headers}).toPromise();
-    console.log(response);
 
+    let session = response['session'];
+
+    if(session.length == 100) {
+      window.localStorage.setItem("session", session);
+      window.localStorage.setItem("newLogin", "false");
+      window.location.replace("/");
+    }
 
     if (user.name === 'test@test.com' && user.password === '123456') {
       this.isUserAuthenticated = true;

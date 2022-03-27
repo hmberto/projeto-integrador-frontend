@@ -1,16 +1,36 @@
-<nav>
+<nav id="hide-nav-1">
     <div class="nav-wrapper">
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            
+        <img id="nav-menu-logo-1" class="" src="assets/pharmacies/ico.png">
+        <ul id="nav-mobile" class="left testando">
             <li routerLinkActive="active"><a routerLink="">Início</a></li>
-            <li routerLinkActive="active"><a routerLink="/products">Produtos</a></li>
-            <li routerLinkActive="active"><a routerLink="/notFound" >Contato</a></li> 
-            <li routerLinkActive="active"><a routerLink="/notFound" >Sobre</a></li>
+            <li routerLinkActive="active"><a routerLink="/notFound">Farmácias</a></li>
+            <li routerLinkActive="active"><a routerLink="/products">Produtos</a></li> 
         </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li routerLinkActive="active"><a routerLink="/login">Autenticação</a></li>
+        <ul id="nav-mobile" class="right">
             <li routerLinkActive="active"><a routerLink="/notFound">Meus Pedidos</a></li>
             <li routerLinkActive="active"><a routerLink="/notFound">Cesta</a></li>
+            <li routerLinkActive="active"><a id="logged1" routerLink="/login">Login</a></li>
+            <li routerLinkActive="active"><a id="logged2" class="show-cadastro" routerLink="/notFound">Cadastro</a></li>
+            <li routerLinkActive="active"><a id="logged5" class="show-cadastro" routerLink="/logout">Sair</a></li>
+        </ul>
+    </div>
+</nav>
+
+<nav id="hide-nav-2">
+    <div id="nav-imgs">
+        <img id="nav-menu-ico" class="" src="assets/pharmacies/img-manu1.png">
+        <img id="nav-menu-logo" class="" src="assets/pharmacies/ico.png">
+    </div>
+    <div class="nav-wrapper-2">
+        <ul id="nav-mobile-2" class="hide-menu-mobile">
+            <li class="li-menu-mobile" routerLinkActive="active"><a id="logged3" routerLink="/login">Login</a></li>
+            <li routerLinkActive="active"><a id="logged4" class="show-cadastro" routerLink="/notFound">Cadastro</a></li>
+            <li routerLinkActive="active"><a id="logged6" class="show-cadastro" routerLink="/logout">Sair</a></li>
+            <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="">Início</a></li>
+            <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/notFound">Farmácias</a></li> 
+            <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/products">Produtos</a></li>
+            <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/notFound">Meus Pedidos</a></li>
+            <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/notFound">Cesta</a></li>
         </ul>
     </div>
 </nav>
