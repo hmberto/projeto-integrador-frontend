@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { CadastroComponent } from './register/cadastro.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProductsComponent } from './products/products.component';
@@ -12,6 +13,7 @@ import { AddToBagComponent } from './add-to-bag/add-to-bag.component';
 const appRoutes: Routes = [
     { path: 'products', component: ProductsComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'logout', component: LogoutComponent },
     { path: 'register', component: CadastroComponent },
     { path: 'addToBag', component: AddToBagComponent },
     { path: '', component: HomeComponent },
