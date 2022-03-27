@@ -1,100 +1,107 @@
-<h5>Criar nova conta</h5>
+<div id="register-box">
+  <h5 class="pad">Criar nova conta</h5>
 
-<div class="row">
-  <div class="input-field col s12">
-    <input [(ngModel)]="register.name" id="name" type="text" class="validate">
-    <label class="active" for="name">Nome</label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="input-field col s12">
-    <input [(ngModel)]="register.email" id="email" type="text" class="validate">
-    <label class="active" for="email">E-mail</label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="input-field col s12">
-    <input [(ngModel)]="register.pass" id="pass" type="password" class="validate">
-    <label class="active" for="pass">Senha</label>
-  </div>
-</div>
-
-<div class="row cep">
-  <div class="input-field col s12">
-    <input [(ngModel)]="register.zipCode" id="zipcode" type="text" class="validate">
-    <label class="active" for="zipcode">CEP</label>
-  </div>
-</div>
-
-<div class="row">
-  <div style="display: flex;">
+  <div class="row">
     <div class="input-field col s12">
-      <input [(ngModel)]="register.street" id="street" type="text" class="validate" disabled>
-      <label class="active" for="street">Rua</label>
-    </div>
-    <div class="input-field col s12">
-      <input [(ngModel)]="register.district" id="district" type="text" class="validate" disabled>
-      <label class="active" for="district">Bairro</label>
+      <input [(ngModel)]="register.name" id="name" type="text" class="validate">
+      <label class="active" for="name">Nome</label>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div style="display: flex;">
+  <div class="row">
     <div class="input-field col s12">
-      <input [(ngModel)]="register.city" id="city" type="text" class="validate" disabled>
-      <label class="active" for="city">Cidade</label>
-    </div>
-    <div class="input-field col s12">
-      <input [(ngModel)]="register.state" id="state" type="text" class="validate" disabled>
-      <label class="active" for="state">Estado</label>
+      <input [(ngModel)]="register.email" id="email" type="text" class="validate">
+      <label class="active" for="email">E-mail</label>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div style="display: flex;">
+  <div class="row">
     <div class="input-field col s12">
-      <input [(ngModel)]="register.number" id="number" type="text" class="validate">
-      <label class="active" for="number">Número</label>
-    </div>
-    <div class="input-field col s12">
-      <input [(ngModel)]="register.complement" id="complement" type="text" class="validate">
-      <label class="active" for="complement">Complemento</label>
+      <input [(ngModel)]="register.pass" id="pass" type="password" class="validate">
+      <label class="active" for="pass">Senha</label>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="input-field col s12">
-    <input [(ngModel)]="register.cpf" id="cpf" type="text" class="validate">
-    <label class="active" for="cpf">CPF</label>
-  </div>
-</div>
-
-<div class="row">
-  <div style="display: flex;">
+  <div class="row cep">
     <div class="input-field col s12">
-      <input [(ngModel)]="register.birthDate" id="birthdate" type="text" class="validate">
-      <label class="active" for="birthdate">Data de Nascimento</label>
-    </div>
-    <div class="input-field col s12">
-      <input [(ngModel)]="register.sex" id="sex" type="text" class="validate">
-      <label class="active" for="sex">Sexo</label>
+      <input [(ngModel)]="register.zipCode" id="zipcode" type="text" class="validate">
+      <label class="active" for="zipcode">CEP</label>
     </div>
   </div>
-</div>
 
-<button class="btn waves-effect waves-light" type="submit" name="action" (click)="makeLogin()">
-  Criar
-  <i class="material-icons right">send</i>
-</button>
+  <div class="row">
+    <div style="display: flex;">
+      <div class="input-field col s12">
+        <input [(ngModel)]="register.street" id="street" type="text" class="validate" disabled>
+        <label class="active" for="street">Rua</label>
+      </div>
+      <div class="input-field col s12">
+        <input [(ngModel)]="register.district" id="district" type="text" class="validate" disabled>
+        <label class="active" for="district">Bairro</label>
+      </div>
+    </div>
+  </div>
 
-<div class="row">
-  <div class="input-field col s12">
-    <span>Já tem uma conta? </span>
-    <a href="/login">Entre aqui</a>
+  <div class="row">
+    <div style="display: flex;">
+      <div class="input-field col s12">
+        <input [(ngModel)]="register.city" id="city" type="text" class="validate" disabled>
+        <label class="active" for="city">Cidade</label>
+      </div>
+      <div class="input-field col s12">
+        <input [(ngModel)]="register.state" id="state" type="text" class="validate" disabled>
+        <label class="active" for="state">Estado</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div style="display: flex;">
+      <div class="input-field col s12">
+        <input [(ngModel)]="register.number" id="number" type="text" class="validate">
+        <label class="active" for="number">Número</label>
+      </div>
+      <div class="input-field col s12">
+        <input [(ngModel)]="register.complement" id="complement" type="text" class="validate">
+        <label class="active" for="complement">Complemento</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input [(ngModel)]="register.cpf" id="cpf" type="text" class="validate">
+      <label class="active" for="cpf">CPF</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div style="display: flex;">
+      <div class="input-field col s12">
+        <input [(ngModel)]="register.birthDate" id="birthdate" type="date" class="validate">
+        <label class="active" for="birthdate">Data de Nascimento</label>
+      </div>
+      <div class="input-field col s12">
+        <select [(ngModel)]="register.sex" id="sex" type="text" class="validate">
+          <option value="1" [value]="'1'">Não informar</option>
+          <option value="2">Masculino</option>
+          <option value="3">Feminino</option>
+          <option value="4">Outros</option>
+        </select>
+        <label class="active" for="sex">Sexo</label>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn waves-effect waves-light" type="submit" name="action" (click)="makeLogin()">
+    Criar
+    <i class="material-icons right">send</i>
+  </button>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <span>Já tem uma conta? </span>
+      <a href="/login">Entre aqui</a>
+    </div>
   </div>
 </div>
