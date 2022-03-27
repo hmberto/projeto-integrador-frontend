@@ -15,6 +15,8 @@ export class CadastroComponent implements OnInit {
   constructor(private cadastroService: CadastroService) { }
 
   ngOnInit() {
+    this.register.sex = '1';
+
     const fildZipCode = document.getElementById('zipcode');
     fildZipCode.addEventListener("keyup", () => {
       const valueZipCode = (<HTMLSelectElement>document.getElementById('zipcode')).value;
@@ -35,6 +37,10 @@ export class CadastroComponent implements OnInit {
   }
 
   makeLogin() {
+    if(this.cadastroService.calcIdade(this.register.birthDate)['__zone_symbol__value'] == true) {
+      console.log("Menor de idade");
+    }
+
     const cep = (<HTMLSelectElement>document.getElementById('zipcode'));
     const rua = (<HTMLSelectElement>document.getElementById('street'));
     const bairro = (<HTMLSelectElement>document.getElementById('district'));
