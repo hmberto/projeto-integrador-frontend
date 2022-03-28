@@ -16,6 +16,11 @@
     display: none;
 }
 
+.nav-wrapper {
+    max-width: 1366px;
+    margin: auto;
+}
+
 #nav-menu-logo-1 {
     float: left;
     margin-left: 50px;
