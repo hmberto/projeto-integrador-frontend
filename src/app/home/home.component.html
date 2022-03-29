@@ -1,12 +1,22 @@
-<div class="welcome">
-  <img class="welcome-image" src="assets/pharmacies/logo.jpg">
-  <h1 class="welcome-text">Bem vindo ao site que conecta você com as principais farmácias.</h1>
+<div class="max-width-banner">
+  <div class="welcome">
+    <img class="welcome-image" src="assets/pharmacies/logo.jpg">
+    <h1 class="welcome-text">Bem vindo ao site que conecta você com as principais farmácias.</h1>
+  </div>
 </div>
 
-
-<h4 class="parceiros">Nossos principais parceiros:</h4>
-<div class="pharmacies">
-  <div class="pharmacy" *ngFor="let pharmacy of pharmacies">
-    <img class="pharmacy-image" [src]="pharmacy.image">
+<div class="max-width-parceiros">
+  <h4 class="parceiros">Lojas</h4>
+  <div class="pharmacies equalHMVWrap eqWrap">
+    <div class="pharmacy equalHMV eq" *ngFor="let pharmacy of pharmacies">
+      <div class="pharmacy-box">
+        <img class="pharmacy-image" [src]="pharmacy.image">
+        <div class="pharmacy-info">
+          <span class="pharmacy-name">{{pharmacy.name}}</span>
+          <span class="pharmacy-distance">{{pharmacy.time}} | {{pharmacy.distance}}</span>
+          <span class="pharmacy-tax">R$ {{pharmacy.tax}}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
