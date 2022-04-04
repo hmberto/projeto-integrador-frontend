@@ -37,11 +37,14 @@ export class AddToBagComponent implements OnInit, OnDestroy {
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
-    window.alert('Seu produto foi adicionado no carrinho. Continue comprando mais produtos e aproveitando os melhores preços');
-    this.router.navigate(['products']);
+    this.router.navigate(['produtos']);
+  }
+
+  getItems() {
+    console.log(this.cartService.getItems());
   }
 
   cancelButton(): void {
-    this.router.navigate(['products']);
+    this.router.navigate(['produtos']);
   }
 }

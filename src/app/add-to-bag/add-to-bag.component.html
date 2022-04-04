@@ -1,10 +1,19 @@
 <div class="product" *ngIf="product">
-  <img class="product-image" [src]="product.image">
-  <span class="name">{{ product.name }}</span>
-  <span class="price">{{ product.price }}</span>
-  <span class="description">{{ product.description }}</span>
-  <div class="buttons">
-    <button type="button" (click)="addToCart(product)">Adicionar no carrinho</button>
-    <button type="button" (click)="cancelButton()">Cancelar</button>
+  <div class="contaiver">
+    <div class="img-box">
+      <img class="product-image" [src]="product.image">
+    </div>
+    <div class="product-info">
+      <div class="info-box">
+        <span class="name">{{ product.name }}</span>
+        <span class="description">{{ product.description }}</span>
+        <span class="product-amount">{{product.amount}}</span>
+        <span class="price">{{ product.price }}</span>
+        <div class="buttons">
+          <button class="btn1" type="button" (click)="addToCart(product)">Adicionar</button>
+          <button class="btn2" type="button" (click)="cancelButton()">Cancelar</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
