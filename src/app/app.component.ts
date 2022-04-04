@@ -69,11 +69,11 @@ export class AppComponent {
     });
 
     logoMenu.addEventListener("click", () => {
-      window.location.href = "/";
+      window.location.href = "";
     });
 
     logoMenuA.addEventListener("click", () => {
-      window.location.href = "/";
+      window.location.href = "";
     });
 
     for(let i = 0; i < liMenu.length; i++) {
