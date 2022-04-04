@@ -1,6 +1,10 @@
 <div id="login-box">
   <h5>Iniciar sessão</h5>
 
+  <div id="div-not" class="div-notification hide-div-not">
+    <span id="notification">DADOS INVÁLIDOS</span><br>
+  </div>
+
   <div class="row">
     <div class="input-field col s12">
       <input [(ngModel)]="user.name" id="usuario" type="text" class="validate">
@@ -15,15 +19,15 @@
     </div>
   </div>
 
-  <button class="btn waves-effect waves-light" type="submit" name="action" (click)="makeLogin()">
+  <button id="btn-login" class="btn waves-effect waves-light" type="submit" name="action" (click)="makeLogin()">
     Login
     <i class="material-icons right">send</i>
   </button>
 
   <div class="row">
     <div class="input-field col s12">
-      <span>Ainda não se cadastrou? </span><br>
-      <a href="/register">Registre-se aqui</a>
+      <span>Ainda não se cadastrou?</span><br>
+      <a href="/cadastro">Registre-se aqui</a>
     </div>
   </div>
 </div>

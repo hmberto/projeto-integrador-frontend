@@ -15,11 +15,35 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    const userField = document.getElementById("usuario");
+    const passField = document.getElementById("senha");
+    userField.focus();
 
+    userField.addEventListener('keyup', function(e){
+      var key = e.which || e.keyCode;
+      if (key == 13) {
+        passField.focus();
+      }
+    });
+
+    let handleEvent = (event: KeyboardEvent) => {
+      var key = event.which || event.keyCode;
+      if (key == 13) {
+        if(!(<HTMLSelectElement>document.getElementById('btn-login')).disabled) {
+          this.authService.makeLogin(this.user);
+        }
+      }
+    }
+    
+    passField.addEventListener('keyup', function(e){
+      var key = e.which || e.keyCode;
+      if (key == 13) {
+        handleEvent(<any>e);
+      }
+    });
   }
 
   makeLogin() {
     this.authService.makeLogin(this.user);
   }
-
 }

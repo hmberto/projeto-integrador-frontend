@@ -15,6 +15,63 @@ export class AuthService {
   constructor(private router: Router, private http: HttpClient) { }
 
   async makeLogin(user: User) {
+    const notfication = (<HTMLSelectElement>document.getElementById('div-not'));
+    const notficationText = (<HTMLSelectElement>document.getElementById('notification'));
+    notfication.classList.add("hide-div-not");
+
+    if(user.name == undefined || user.password == undefined || user.name == "" || user.password == "") {
+      notficationText.innerText="PREENCHA TODOS OS CAMPOS";
+      notfication.classList.remove("hide-div-not");
+      return;
+    }
+
+    if(user.name.length <= 10) {
+      notficationText.innerText="E-MAIL MUITO PEQUENO";
+      notfication.classList.remove("hide-div-not");
+      return;
+    }
+
+    var re = /^[A-Za-z0-9-_.]+@[A-Za-z0-9]+\.[a-z]+?$/i;
+    let emailRegex = re.test(user.name);
+    if(!emailRegex) {
+      notficationText.innerText="E-MAIL INVÁLIDO";
+      notfication.classList.remove("hide-div-not");
+      return;
+    }
+
+    if(user.name.length >= 60) {
+      notficationText.innerText="E-MAIL MUITO GRANDE";
+      notfication.classList.remove("hide-div-not");
+      return;
+    }
+
+    if(user.password.length < 8) {
+      notficationText.innerText="SENHA MUITO PEQUENA";
+      notfication.classList.remove("hide-div-not");
+      return;
+    }
+
+    if(user.password.length >= 25) {
+      notficationText.innerText="SENHA MUITO GRANDE";
+      notfication.classList.remove("hide-div-not");
+      return;
+    }
+
+    var re = /^[A-Za-z0-9-_.!@#]+?$/i;
+    let passRegex = re.test(user.password);
+    if(!passRegex) {
+      notficationText.innerText="SENHA INVÁLIDA";
+      notfication.classList.remove("hide-div-not");
+      return;
+    }
+    
+    const usuario = (<HTMLSelectElement>document.getElementById('usuario'));
+    const senha = (<HTMLSelectElement>document.getElementById('senha'));
+    const btnLogin = (<HTMLSelectElement>document.getElementById('btn-login'));
+    usuario.disabled = true;
+    senha.disabled = true;
+    btnLogin.disabled = true;
+
     var newLogin = window.localStorage.getItem("newLogin");
     if(newLogin == "false") {
       newLogin = "false";
@@ -24,35 +81,35 @@ export class AuthService {
     }
 
     const loginEndPoint = 'https://pharmacy-delivery.herokuapp.com/client/login';
-    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     const body = JSON.stringify({
       email: user.name,
       pass: user.password,
       newLogin: newLogin
     });
     
-    const response = await this.http.post(loginEndPoint, body, {headers: headers}).toPromise();
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", loginEndPoint, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(body);
 
-    let session = response['session'];
+    xhttp.addEventListener('loadend', () => {
+      usuario.disabled = false;
+      senha.disabled = false;
+      btnLogin.disabled = false;
+      if(xhttp.status == 200) {
+        console.log("TESTE")
+        let session = JSON.parse(xhttp.response);
 
-    if(session.length == 100) {
-      window.localStorage.setItem("session", session);
-      window.localStorage.setItem("newLogin", "false");
-      window.location.replace("/");
-    }
+        window.localStorage.setItem("session", session['session']);
+        window.localStorage.setItem("newLogin", "false");
 
-    if (user.name === 'test@test.com' && user.password === '123456') {
-      this.isUserAuthenticated = true;
-
-      this.displayMenu.emit(true);
-
-      this.router.navigate(['/']);
-
-    } else {
-      this.isUserAuthenticated = false;
-
-      this.displayMenu.emit(false);
-    }
+        window.location.replace("/");
+      }
+      else {
+        notficationText.innerText="DADOS INVÁLIDOS";
+        notfication.classList.remove("hide-div-not");
+      }
+    });
   }
 
   get userAuthenticated(): boolean {
