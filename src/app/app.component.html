@@ -8,7 +8,7 @@
         </ul>
         <ul id="nav-mobile" class="right">
             <li routerLinkActive="active"><a routerLink="/notFound">Meus Pedidos</a></li>
-            <li routerLinkActive="active"><a routerLink="/carrinho">Carrinho</a></li>
+            <li routerLinkActive="active"><a routerLink="/carrinho">Carrinho <span class="cart-items" *ngFor="let product of getQnt">{{qnt}}</span></a></li>
             <li routerLinkActive="active"><a id="logged1" routerLink="/login">Login</a></li>
             <li routerLinkActive="active"><a id="logged2" class="show-cadastro" routerLink="/usuario">Cadastro</a></li>
             <li routerLinkActive="active"><a id="logged5" class="show-cadastro" routerLink="/logout">Sair</a></li>
@@ -31,7 +31,7 @@
                 <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/notFound">Farmácias</a></li> 
                 <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/produtos">Produtos</a></li>
                 <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/notFound">Meus Pedidos</a></li>
-                <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/carrinho">Carrinho</a></li>
+                <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/carrinho">Carrinho <span class="cart-items" *ngFor="let product of getQnt">{{qnt}}</span></a></li>
             </ul>
         </div>
     </div>

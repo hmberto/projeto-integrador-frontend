@@ -11,6 +11,7 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   newPrice = [];
+  newItems = [];
 
   ngOnInit() {
     this.showEmptycart();
@@ -28,6 +29,10 @@ export class CartComponent implements OnInit {
     }
   }
 
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+  }
+
   removeFromCart(product: Product) {
     this.cartService.removeFromCart(product);
 
@@ -41,6 +46,20 @@ export class CartComponent implements OnInit {
   }
   
   get getCart(): Product[] {
-    return this.cartService.getItems();
+    this.newItems = [];
+    for(let i = 0; i < this.cartService.items.length; i++) {
+      if(!this.newItems.includes(this.cartService.items[i])) {
+        this.newItems.push(this.cartService.items[i])
+        let itemName = "id-" + this.cartService.items[i]['id'];
+        const qntItem = (<HTMLSelectElement>document.getElementById(itemName));
+
+        if(qntItem != null) {
+          let qnt = this.cartService.items.filter((product) => product.name === this.cartService.items[i]['name']).length;
+          qntItem.innerText=qnt + '';
+        }
+      }
+    }
+
+    return this.newItems;
   }
 }

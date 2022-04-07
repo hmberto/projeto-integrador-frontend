@@ -135,6 +135,15 @@
     display: none;
 }
 
+.qnt {
+    font-size: 22px;
+    padding: 10px;
+}
+
+.qnt-add, .qnt-remove {
+    cursor: pointer;
+}
+
 @media(max-width: 900px) {
     .products {
         padding: 20px 20px;
@@ -146,7 +155,7 @@
     }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 600px) {
     .empty-cart-box img {
         width: 100%;
         padding: 20px;
@@ -187,5 +196,9 @@
 
     .product-name {
         padding-top: 10px;
+    }
+
+    .div-add {
+        margin-bottom: 10px;
     }
 }

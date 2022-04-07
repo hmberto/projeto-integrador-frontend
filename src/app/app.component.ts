@@ -1,5 +1,7 @@
 import { AuthService } from './login/auth.service';
 import { Component } from '@angular/core';
+import { Product } from '../models/product';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,17 @@ export class AppComponent {
 
   displayMenu: boolean = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+    private cartService: CartService) {
 
+  }
+
+  qnt = [];
+
+  get getQnt(): Product[] {
+    this.qnt = [];
+    this.qnt.push(this.cartService.items.length);
+    return this.qnt;
   }
 
   ngOnInit(){

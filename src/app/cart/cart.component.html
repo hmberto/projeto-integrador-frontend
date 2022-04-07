@@ -16,6 +16,11 @@
                     {{product.price}}
                 </span>
             </div>
+            <div class="div-remove div-add">
+                <span class="qnt qnt-add" id="id-{{product.id}}-add" (click)="addToCart(product)">+</span>
+                <span class="qnt" id="id-{{product.id}}"></span>
+                <span class="qnt qnt-remove" id="id-{{product.id}}-remove" (click)="removeFromCart(product)">-</span>
+            </div>
             <div class="div-remove">
                 <span class="remove" (click)="removeFromCart(product)">Remover</span>
             </div>
