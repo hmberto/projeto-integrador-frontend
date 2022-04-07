@@ -80,7 +80,7 @@ export class AuthService {
       newLogin = "true"
     }
 
-    const loginEndPoint = 'https://pharmacy-delivery.herokuapp.com/client/login';
+    const loginEndPoint = 'https://projeto-integrador-user.herokuapp.com/user/login';
     const body = JSON.stringify({
       email: user.name,
       pass: user.password,

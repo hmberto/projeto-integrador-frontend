@@ -29,7 +29,7 @@ export class LogoutService {
       window.location.replace("/");
     }
 
-    const url = "https://pharmacy-delivery.herokuapp.com/client/logout/" + id;
+    const url = "https://projeto-integrador-user.herokuapp.com/user/logout/" + id;
     
     var xhttp = new XMLHttpRequest();
     xhttp.open("PUT", url, true);

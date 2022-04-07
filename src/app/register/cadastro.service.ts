@@ -62,7 +62,7 @@ export class CadastroService {
       complement2 = register.complement;
     }
 
-    const url = 'https://pharmacy-delivery.herokuapp.com/client/signup';
+    const url = 'https://projeto-integrador-user.herokuapp.com/user/signup';
     const json = JSON.stringify({
       name:register.name,
       email:register.email,
