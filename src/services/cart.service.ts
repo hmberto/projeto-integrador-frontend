@@ -8,7 +8,9 @@ export class CartService {
   items: Product[] = [];
   
   addToCart(product: Product) {
+    if(this.items.length + 1 <= 20) {
       this.items.push(product);
+    }
   }
 
   removeFromCart(product: Product) {
