@@ -54,7 +54,7 @@ export class CartComponent implements OnInit {
         const qntItem = (<HTMLSelectElement>document.getElementById(itemName));
 
         if(qntItem != null) {
-          let qnt = this.cartService.items.filter((product) => product.name === this.cartService.items[i]['name']).length;
+          let qnt = this.cartService.items.filter((product) => product.id === this.cartService.items[i]['id']).length;
           qntItem.innerText=qnt + '';
         }
       }

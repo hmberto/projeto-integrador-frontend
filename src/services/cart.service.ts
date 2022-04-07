@@ -8,7 +8,7 @@ export class CartService {
   items: Product[] = [];
   
   addToCart(newProduct: Product) {
-    let qnt = this.items.filter((product) => product.name === newProduct.name).length;
+    let qnt = this.items.filter((product) => product.id === newProduct.id).length;
     if(qnt < 10 && this.items.length + 1 <= 20) {
       this.items.push(newProduct);
     }
