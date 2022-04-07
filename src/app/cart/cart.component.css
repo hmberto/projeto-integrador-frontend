@@ -138,6 +138,7 @@
 .qnt {
     font-size: 22px;
     padding: 10px;
+    user-select: none;
 }
 
 .qnt-add, .qnt-remove {
