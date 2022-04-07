@@ -7,9 +7,10 @@ import { Product } from '../models/product';
 export class CartService {
   items: Product[] = [];
   
-  addToCart(product: Product) {
-    if(this.items.length + 1 <= 20) {
-      this.items.push(product);
+  addToCart(newProduct: Product) {
+    let qnt = this.items.filter((product) => product.name === newProduct.name).length;
+    if(qnt < 10 && this.items.length + 1 <= 20) {
+      this.items.push(newProduct);
     }
   }
 

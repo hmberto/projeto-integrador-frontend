@@ -29,12 +29,8 @@ export class CartComponent implements OnInit {
     }
   }
 
-  addToCart(newProduct: Product) {
-    let qnt = this.cartService.items.filter((product) => product.name === newProduct.name).length;
-    console.log(qnt)
-    if(qnt < 10) {
-      this.cartService.addToCart(newProduct);
-    }
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
   }
 
   removeFromCart(product: Product) {
