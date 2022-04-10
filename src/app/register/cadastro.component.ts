@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+
 import { Component, OnInit } from '@angular/core';
 
 import { CadastroService } from './cadastro.service';
@@ -12,9 +14,15 @@ export class CadastroComponent implements OnInit {
 
   register: Register = new Register();
 
-  constructor(private cadastroService: CadastroService) { }
+  constructor(private cadastroService: CadastroService,
+    private router: Router) { }
 
   ngOnInit() {
+    const session = window.localStorage.getItem("session");
+    if(session != null && session != "null") {
+      this.router.navigate(['']);
+    }
+
     const notfication = (<HTMLSelectElement>document.getElementById('div-not'));
     const notficationText = (<HTMLSelectElement>document.getElementById('notification'));
 

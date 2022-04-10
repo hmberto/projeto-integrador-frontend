@@ -65,6 +65,15 @@ export class AuthService {
       return;
     }
     
+    const contaiver = (<HTMLSelectElement>document.getElementById('container'));
+    const loading = (<HTMLSelectElement>document.getElementById('loading'));
+
+    contaiver.classList.remove("class-flex");
+    contaiver.classList.add("class-hide");
+
+    loading.classList.add("class-flex");
+    loading.classList.remove("class-hide");
+
     const usuario = (<HTMLSelectElement>document.getElementById('usuario'));
     const senha = (<HTMLSelectElement>document.getElementById('senha'));
     const btnLogin = (<HTMLSelectElement>document.getElementById('btn-login'));
@@ -93,19 +102,27 @@ export class AuthService {
     xhttp.send(body);
 
     xhttp.addEventListener('loadend', () => {
-      usuario.disabled = false;
-      senha.disabled = false;
-      btnLogin.disabled = false;
       if(xhttp.status == 200) {
-        console.log("TESTE")
         let session = JSON.parse(xhttp.response);
 
         window.localStorage.setItem("session", session['session']);
         window.localStorage.setItem("newLogin", "false");
 
-        window.location.replace("/");
+        this.router.navigate(['']);
       }
       else {
+        usuario.disabled = false;
+        senha.disabled = false;
+        btnLogin.disabled = false;
+
+        contaiver.classList.remove("class-hide");
+        contaiver.classList.add("class-flex");
+
+        loading.classList.remove("class-flex");
+        loading.classList.add("class-hide");
+
+        usuario.focus();
+
         notficationText.innerText="DADOS INVÁLIDOS";
         notfication.classList.remove("hide-div-not");
       }

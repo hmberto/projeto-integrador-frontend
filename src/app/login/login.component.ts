@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './auth.service';
@@ -12,9 +14,15 @@ export class LoginComponent implements OnInit {
 
   user: User = new User();
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
+    const session = window.localStorage.getItem("session");
+    if(session != null && session != "null") {
+      this.router.navigate(['']);
+    }
+
     const userField = document.getElementById("usuario");
     const passField = document.getElementById("senha");
     userField.focus();

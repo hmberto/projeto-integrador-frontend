@@ -26,16 +26,8 @@ export class CadastroService {
     const sexField = (<HTMLSelectElement>document.getElementById('sex'));
     const sendBtn = (<HTMLSelectElement>document.getElementById('sendBtn'));
 
-    nameField.disabled = true;
-    emailField.disabled = true;
-    passField.disabled = true;
-    numberField.disabled = true;
-    complementField.disabled = true;
-    zipCodeField.disabled = true;
-    cpfField.disabled = true;
-    birthDateField.disabled = true;
-    sexField.disabled = true;
-    sendBtn.disabled = true;
+    const contaiver = (<HTMLSelectElement>document.getElementById('register-box'));
+    const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
     const notfication = (<HTMLSelectElement>document.getElementById('div-not'));
     const notficationText = (<HTMLSelectElement>document.getElementById('notification'));
@@ -62,6 +54,23 @@ export class CadastroService {
       complement2 = register.complement;
     }
 
+    contaiver.classList.add("class-hide");
+
+    loading.classList.add("class-flex");
+    loading.classList.remove("class-hide");
+
+    nameField.disabled = true;
+    emailField.disabled = true;
+    passField.disabled = true;
+    numberField.disabled = true;
+    complementField.disabled = true;
+    zipCodeField.disabled = true;
+    cpfField.disabled = true;
+    birthDateField.disabled = true;
+    sexField.disabled = true;
+    sendBtn.disabled = true;
+
+
     const url = 'https://projeto-integrador-user.herokuapp.com/user/signup';
     const json = JSON.stringify({
       name:register.name,
@@ -86,9 +95,14 @@ export class CadastroService {
 
     xhttp.addEventListener('loadend', () => {
       if(xhttp.status == 201) {
-        window.location.replace("/login");
+        this.router.navigate(['login']);
       }
       else {
+        contaiver.classList.remove("class-hide");
+
+        loading.classList.remove("class-flex");
+        loading.classList.add("class-hide");
+
         notficationText.innerText="OCORREU UM ERRO";
         notfication.classList.remove("hide-div-not");
 

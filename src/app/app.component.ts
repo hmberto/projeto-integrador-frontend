@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './login/auth.service';
 import { Component } from '@angular/core';
 import { Product } from '../models/product';
@@ -14,7 +15,8 @@ export class AppComponent {
   displayMenu: boolean = false;
 
   constructor(private authService: AuthService,
-    private cartService: CartService) {
+    private cartService: CartService,
+    private router: Router) {
 
   }
 
@@ -27,6 +29,10 @@ export class AppComponent {
   }
 
   ngOnInit(){
+    this.updateNav();
+  }
+
+  updateNav() {
     const session = window.localStorage.getItem("session");
     if(session != null && session != "null") {
       document.getElementById('logged1').classList.add('show-cadastro');
@@ -80,11 +86,11 @@ export class AppComponent {
     });
 
     logoMenu.addEventListener("click", () => {
-      window.location.href = "";
+      this.router.navigate(['']);
     });
 
     logoMenuA.addEventListener("click", () => {
-      window.location.href = "";
+      this.router.navigate(['']);
     });
 
     for(let i = 0; i < liMenu.length; i++) {
