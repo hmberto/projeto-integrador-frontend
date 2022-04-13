@@ -6,7 +6,7 @@ import { User } from '../../models/user';
 
 
 @Injectable()
-export class AuthService {
+export class RecoveryService {
 
   private isUserAuthenticated: boolean = false;
 
@@ -14,33 +14,17 @@ export class AuthService {
 
   constructor(private router: Router, private http: HttpClient) { }
 
-  async makeLogin(user: User) {
+  async newPass(user: User, email, token) {
     const notfication = (<HTMLSelectElement>document.getElementById('div-not'));
     const notficationText = (<HTMLSelectElement>document.getElementById('notification'));
     notfication.classList.add("hide-div-not");
+    notfication.classList.add("red-c");
+    notfication.classList.remove("green-c");
 
-    if(user.name == undefined || user.password == undefined || user.name == "" || user.password == "") {
+    const senhaC = (<HTMLSelectElement>document.getElementById('senha-c'));
+
+    if(user.password == undefined || user.password == "") {
       notficationText.innerText="PREENCHA TODOS OS CAMPOS";
-      notfication.classList.remove("hide-div-not");
-      return;
-    }
-
-    if(user.name.length <= 10) {
-      notficationText.innerText="E-MAIL MUITO PEQUENO";
-      notfication.classList.remove("hide-div-not");
-      return;
-    }
-
-    var re = /^[A-Za-z0-9-_.]+@[A-Za-z0-9]+\.[a-z]+?$/i;
-    let emailRegex = re.test(user.name);
-    if(!emailRegex) {
-      notficationText.innerText="E-MAIL INVÁLIDO";
-      notfication.classList.remove("hide-div-not");
-      return;
-    }
-
-    if(user.name.length >= 60) {
-      notficationText.innerText="E-MAIL MUITO GRANDE";
       notfication.classList.remove("hide-div-not");
       return;
     }
@@ -64,68 +48,45 @@ export class AuthService {
       notfication.classList.remove("hide-div-not");
       return;
     }
+
+    if(!(user.password == senhaC.value)) {
+      notficationText.innerText="SENHAS DIFERENTES";
+      notfication.classList.remove("hide-div-not");
+      return;
+    }
     
     const contaiver = (<HTMLSelectElement>document.getElementById('container'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
     contaiver.classList.remove("class-flex");
     contaiver.classList.add("class-hide");
-
+    
     loading.classList.add("class-flex");
     loading.classList.remove("class-hide");
-
-    const usuario = (<HTMLSelectElement>document.getElementById('usuario'));
-    const senha = (<HTMLSelectElement>document.getElementById('senha'));
-    const btnLogin = (<HTMLSelectElement>document.getElementById('btn-login'));
-    usuario.disabled = true;
-    senha.disabled = true;
-    btnLogin.disabled = true;
-
-    var newLogin = window.localStorage.getItem("newLogin");
-    if(newLogin == "false") {
-      newLogin = "false";
-    }
-    else {
-      newLogin = "true"
-    }
-
-    const loginEndPoint = 'https://projeto-integrador-user.herokuapp.com/user/login';
-    const body = JSON.stringify({
-      email: user.name,
-      pass: user.password,
-      newLogin: newLogin
-    });
     
+    const pass1 = (<HTMLSelectElement>document.getElementById('senha'));
+    const pass2 = (<HTMLSelectElement>document.getElementById('senha-c'));
+    const btnLogin = (<HTMLSelectElement>document.getElementById('btn-login'));
+    pass1.disabled = true;
+    pass2.disabled = true;
+    btnLogin.disabled = true;
+    
+    const loginEndPoint = 'https://projeto-integrador-user.herokuapp.com/user/change-password';
+    const body = JSON.stringify({
+      email: email,
+      token: token,
+      newPass: user.password
+    });
+
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", loginEndPoint, true);
     xhttp.setRequestHeader("Content-Type", "application/json");
     xhttp.send(body);
 
     xhttp.addEventListener('loadend', () => {
-      if(xhttp.status == 200) {
-        let session = JSON.parse(xhttp.response);
-
-        window.localStorage.setItem("session", session['session']);
-        window.localStorage.setItem("newLogin", "false");
-
-        this.router.navigate(['']);
-      }
-      else {
-        usuario.disabled = false;
-        senha.disabled = false;
-        btnLogin.disabled = false;
-
-        contaiver.classList.remove("class-hide");
-        contaiver.classList.add("class-flex");
-
-        loading.classList.remove("class-flex");
-        loading.classList.add("class-hide");
-
-        usuario.focus();
-
-        notficationText.innerText="DADOS INVÁLIDOS";
-        notfication.classList.remove("hide-div-not");
-      }
+      // if(xhttp.status == 204) {
+        this.router.navigate(['login']);
+      // }
     });
   }
 

@@ -33,10 +33,17 @@
 }
 
 .div-notification {
-    background: #ff6347;
     padding: 10px 20px;
     border-radius: 10px;
     margin: 12px;
+}
+
+.red-c {
+    background: #ff6347;
+}
+
+.green-c {
+    background: #00a65a;
 }
 
 #checkbox {

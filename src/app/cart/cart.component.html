@@ -1,0 +1,45 @@
+<div class="products">
+    <div class="container">
+        <div class="product" *ngFor="let product of getCart">
+            <img class="product-image" [src]="product.image">
+            <div class="info">
+                <span class="product-name">
+                    {{product.name}}
+                </span>
+                <span class="product-shop">
+                    {{product.pharmacy}}
+                </span>
+                <span class="product-amount">
+                    {{product.amount}}
+                </span>
+                <span class="product-price">
+                    {{product.price}}
+                </span>
+            </div>
+            <div class="div-remove div-add">
+                <span class="qnt qnt-add" id="id-{{product.id}}-add" (click)="addToCart(product)">+</span>
+                <span class="qnt" id="id-{{product.id}}"></span>
+                <span class="qnt qnt-remove" id="id-{{product.id}}-remove" (click)="removeFromCart(product)">-</span>
+            </div>
+            <div class="div-remove">
+                <span class="remove" (click)="removeFromCart(product)">Remover</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="empty-cart hide-empty-box">
+    <div class="empty-cart-box">
+        <div class="empty-box">
+            <span class="span1">Sua sacola está vazia</span>
+            <span>Adicione itens</span>
+            <img src="../../assets/pharmacies/cart.png" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="price">
+    <div class="price-box" *ngFor="let total of cartTotal">
+        <span class="price-span">Valor total: R$ {{total}}</span>
+    </div>
+</div>

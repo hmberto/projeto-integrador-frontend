@@ -1,7 +1,7 @@
 <div id="register-box">
-  <h5 class="pad">Criar nova conta</h5>
+  <h5 class="pad">Sua conta</h5>
 
-  <div id="div-not" class="div-notification hide-div-not">
+  <div id="div-not" class="div-notification hide-div-not red-c">
     <span id="notification">DADOS INVÁLIDOS</span><br>
   </div>
 
@@ -14,18 +14,11 @@
 
   <div class="row">
     <div class="input-field col s12">
-      <input [(ngModel)]="register.email" id="email" type="text" class="validate">
+      <input [(ngModel)]="register.email" id="email" type="text" class="validate" disabled>
       <label class="active" for="email">E-mail</label>
     </div>
   </div>
-
-  <div class="row">
-    <div class="input-field col s12">
-      <input [(ngModel)]="register.pass" id="pass" type="password" class="validate">
-      <label class="active" for="pass">Senha</label>
-    </div>
-  </div>
-
+  
   <div class="row cep">
     <div class="input-field col s12">
       <input [(ngModel)]="register.zipCode" id="zipcode" type="text" class="validate">
@@ -74,7 +67,7 @@
 
   <div class="row">
     <div class="input-field col s12">
-      <input [(ngModel)]="register.cpf" id="cpf" type="text" class="validate">
+      <input [(ngModel)]="register.cpf" id="cpf" type="text" class="validate" disabled>
       <label class="active" for="cpf">CPF</label>
     </div>
   </div>
@@ -82,7 +75,7 @@
   <div class="row">
     <div style="display: flex;">
       <div class="input-field col s12">
-        <input [(ngModel)]="register.birthDate" id="birthdate" type="date" class="validate">
+        <input [(ngModel)]="register.birthDate" id="birthdate" type="date" class="validate" disabled>
         <label class="active" for="birthdate">Data de Nascimento</label>
       </div>
       <div class="input-field col s12">
@@ -97,19 +90,11 @@
     </div>
   </div>
 
-  <button id="sendBtn" class="btn waves-effect waves-light" type="submit" name="action" (click)="makeSignup()">
-    Criar
+  <button id="sendBtn" class="btn waves-effect waves-light" type="submit" name="action" (click)="saveUser()">
+    ATUALIZAR
     <i class="material-icons right"></i>
-  </button>
-
-  <div class="row">
-    <div class="input-field col s12">
-      <span>Já tem uma conta? </span>
-      <a routerLink="/login">Entre aqui</a>
-    </div>
-  </div>
+  </button><br><br><br>
 </div>
-
 <div id="loading" class="class-hide">
   <div class="loading">
       <img src="assets/pharmacies/loading_icon.gif" alt="">

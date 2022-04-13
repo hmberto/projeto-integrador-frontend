@@ -1,0 +1,19 @@
+#loading {
+    min-height: 100vh;
+    margin: auto;
+    width: auto;
+    display: flex;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.loading img {
+    margin: auto;
+    width: 200px;
+    display: block;
+}

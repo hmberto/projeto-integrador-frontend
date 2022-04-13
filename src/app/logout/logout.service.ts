@@ -26,10 +26,10 @@ export class LogoutService {
       id = session;
     }
     else {
-      window.location.replace("/");
+      this.router.navigate(['']);
     }
 
-    const url = "https://pharmacy-delivery.herokuapp.com/client/logout/" + id;
+    const url = "https://projeto-integrador-user.herokuapp.com/user/logout/" + id;
     
     var xhttp = new XMLHttpRequest();
     xhttp.open("PUT", url, true);
@@ -38,8 +38,8 @@ export class LogoutService {
     xhttp.addEventListener('loadend', () => {
       if(xhttp.status == 204) {
         window.localStorage.setItem("session", null);
-        window.location.replace("/");
       }
+      this.router.navigate(['']);
     });
   }
 

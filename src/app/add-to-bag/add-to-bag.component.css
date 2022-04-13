@@ -1,21 +1,22 @@
 .product {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 3vh;
-}
-
-.product-image {
-    max-width: 20vw;
-    max-height: 20vh;
-    width: auto;
-    height: auto;
-    margin: auto;
+    align-items: left;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    background: #fff;
+    padding: 50px 0;
 }
 
 .name {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 28px;
+    display: block;
+    font-weight: bold;
+    width: 100%;
+    border-bottom: #9700a552 solid 2px;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
 }
 
 .price {
@@ -23,23 +24,118 @@
 }
 
 .description {
-    padding: 2vh 20vw 2vh;
-    font-size: 2rem;
-    line-height: 4rem;
-    text-align: justify;
+    font-size: 18px;
+    text-align: left;
+    display: block;
 }
 
+.product-amount {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.price {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+}
 
 .buttons {
-    display: flex;
-    height: 10vh;
+    text-align: left;
+    margin-top: 20px;
 }
 
 button {
-    width: 20vw;
-    height: 10vh;
-    margin: 2vh 2vw 0;
-    font-size: 2rem;
-    background-color: #ee6e73;
-    color: white;
+    border: none;
+    font-weight: bold;
+    background-color: #9700a5;
+    color: #fff;
+    font-size: 16px;
+    width: 48%;
+    padding: 20px 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn1 {
+    float: left;
+}
+
+.btn2 {
+    float: right;
+}
+
+.contaiver {
+    display: flex;
+    margin: auto 0;
+    width: 100vw;
+}
+
+.img-box {
+    width: 50vw;
+    margin: auto;
+    max-width: 683px;
+    padding-bottom: 50px;
+}
+
+.product-image {
+    width: 50%;
+    max-width: 400px;
+    height: 50%;
+    max-height: 400px;
+    margin: auto;
+    background-color: #fff;
+    display: block;
+    object-fit: contain;
+}
+
+.product-info {
+    width: 50vw;
+    margin: auto;
+    max-width: 683px;
+}
+
+.info-box {
+    padding-right: 100px;
+}
+
+@media(max-width: 800px) {
+    .product {
+        display: block;
+    }
+
+    .contaiver {
+        display: block;
+    }
+
+    .product-info {
+        width: 100vw;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .img-box {
+        width: 100vw;
+    }
+
+    .info-box {
+        padding-right: 0;
+    }
+
+    .product-image {
+        max-height: 30vh;
+    }
+}
+
+@media(max-width: 450px) {
+    .product-info {
+        width: 100vw;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .product-image {
+        width: 100%;
+    }
 }

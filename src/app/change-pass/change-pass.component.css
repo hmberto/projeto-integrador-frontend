@@ -1,25 +1,13 @@
-#register-box {
-    width: 100%;
-    max-width: 700px;
-    text-align: center;
+#container {
+    min-height: 100vh;
     margin: auto;
 }
 
-.pad {
-    padding: 0 10px;
-}
-
-.btn {
-    margin: 0 10px;
-}
-
-#sex {
-    display: block;
-    border: none;
-    border-bottom: 1px solid #9e9e9e;
-    text-decoration: none;
-    box-shadow: none;
-    outline: none;
+#login-box {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
 }
 
 .hide-div-not {
@@ -33,38 +21,40 @@
 }
 
 .div-notification {
-    background: #ff6347;
     padding: 10px 20px;
     border-radius: 10px;
     margin: 12px;
 }
 
-#checkbox {
-    color: black;
-    border: black solid 2px;
+.red-c {
+    background: #ff6347;
 }
 
-#register-box button {
+.green-c {
+    background: #00a65a;
+}
+
+#login-box button {
     background: #9700a5;
 }
 
-#register-box button:hover {
+#login-box button:hover {
     background: #c100d3;
 }
 
-#register-box a {
+#login-box a {
     color: #9700a5;
 }
 
-#register-box a:hover {
+#login-box a:hover {
     color: #c100d3;
 }
 
-#register-box label {
+#login-box label {
     color: #9700a5;
 }
 
-#register-box input:focus {
+#login-box input:focus {
     border-color: #9700a5;
     -webkit-box-shadow: none;
     box-shadow: none;

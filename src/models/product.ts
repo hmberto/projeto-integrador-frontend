@@ -3,6 +3,7 @@ export interface Product {
     name: string;
     pharmacy: string;
     price: string;
+    amount: string;
     quantity: number;
     image: string;
     description: string;
