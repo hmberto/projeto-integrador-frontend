@@ -10,6 +10,9 @@ import { CartComponent } from './cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProductsComponent } from './products/products.component';
 import { AddToBagComponent } from './add-to-bag/add-to-bag.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
+import { RecoveryComponent } from './recovery/recovery.component';
+import { UserPComponent } from './user-profile/user.component';
 
 const appRoutes: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -18,6 +21,9 @@ const appRoutes: Routes = [
     { path: 'cadastro', component: CadastroComponent },
     { path: 'adicionar', component: AddToBagComponent },
     { path: 'carrinho', component: CartComponent },
+    { path: 'redefinir', component: ChangePassComponent },
+    { path: 'recuperacao', component: RecoveryComponent },
+    { path: 'usuario', component: UserPComponent },
     { path: '', component: HomeComponent },
     //     canActivate: [AuthGuard] 
     // },

@@ -9,6 +9,9 @@ import { CartComponent } from './cart/cart.component';
 import { CadastroComponent } from './register/cadastro.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductsComponent } from './products/products.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
+import { RecoveryComponent } from './recovery/recovery.component';
+import { UserPComponent } from './user-profile/user.component';
 
 const APP_ROUTES: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -18,6 +21,9 @@ const APP_ROUTES: Routes = [
     { path: 'cadastro', component: CadastroComponent },
     { path: 'notFound', component: PageNotFoundComponent },
     { path: 'adicionar', component: AddToBagComponent },
+    { path: 'redefinir', component: ChangePassComponent },
+    { path: 'recuperacao', component: RecoveryComponent },
+    { path: 'usuario', component: UserPComponent },
     { path: '', component: HomeComponent }
 ];
 
