@@ -30,38 +30,16 @@ export class AppComponent {
 
   ngOnInit(){
     this.updateNav();
-  }
 
-  updateNav() {
-    const session = window.localStorage.getItem("session");
-    if(session != null && session != "null") {
-      document.getElementById('logged1').classList.add('show-cadastro');
-      document.getElementById('logged2').classList.remove('show-cadastro');
-      document.getElementById('logged3').classList.add('show-cadastro');
-      document.getElementById('logged4').classList.remove('show-cadastro');
+    document.getElementById('logged4').addEventListener("click", () => {
+      menu.classList.add("hide-menu-mobile");
+      fixedNavDois.classList.remove('top-fixed');
+    });
 
-      document.getElementById('logged5').classList.remove('show-cadastro');
-      document.getElementById('logged6').classList.remove('show-cadastro');
-
-      document.getElementById('logged4').addEventListener("click", () => {
-        menu.classList.add("hide-menu-mobile");
-        fixedNavDois.classList.remove('top-fixed');
-      });
-
-      document.getElementById('logged6').addEventListener("click", () => {
-        menu.classList.add("hide-menu-mobile");
-        fixedNavDois.classList.remove('top-fixed');
-      });
-    }
-    else {
-      document.getElementById('logged1').classList.remove('show-cadastro');
-      document.getElementById('logged2').classList.add('show-cadastro');
-      document.getElementById('logged3').classList.remove('show-cadastro');
-      document.getElementById('logged4').classList.add('show-cadastro');
-
-      document.getElementById('logged5').classList.add('show-cadastro');
-      document.getElementById('logged6').classList.add('show-cadastro');
-    }
+    document.getElementById('logged6').addEventListener("click", () => {
+      menu.classList.add("hide-menu-mobile");
+      fixedNavDois.classList.remove('top-fixed');
+    });
 
     this.authService.displayMenu.subscribe(displayMenu => this.displayMenu = displayMenu);
 
@@ -98,6 +76,28 @@ export class AppComponent {
         menu.classList.add("hide-menu-mobile");
         fixedNavDois.classList.remove('top-fixed');
       });
+    }
+  }
+
+  updateNav() {
+    const session = window.localStorage.getItem("session");
+    if(session != null && session != "null") {
+      document.getElementById('logged1').classList.add('show-cadastro');
+      document.getElementById('logged2').classList.remove('show-cadastro');
+      document.getElementById('logged3').classList.add('show-cadastro');
+      document.getElementById('logged4').classList.remove('show-cadastro');
+
+      document.getElementById('logged5').classList.remove('show-cadastro');
+      document.getElementById('logged6').classList.remove('show-cadastro');
+    }
+    else {
+      document.getElementById('logged1').classList.remove('show-cadastro');
+      document.getElementById('logged2').classList.add('show-cadastro');
+      document.getElementById('logged3').classList.remove('show-cadastro');
+      document.getElementById('logged4').classList.add('show-cadastro');
+
+      document.getElementById('logged5').classList.add('show-cadastro');
+      document.getElementById('logged6').classList.add('show-cadastro');
     }
   }
 }
