@@ -194,19 +194,8 @@ export class UserPService {
         this.getCep(json['zipCode'], register);
       }
       else {
-        const json = {
-          name:"Teste Teste",
-          email:"email@teste.com",
-          number:"36",
-          complement:"ap 22",
-          zipCode:"01311-903",
-          cpf:"***.266.263-**",
-          birthDate:"1999-11-03",
-          sex:"1"
-        };
-
-        this.setFields(json, register);
-        this.getCep(json['zipCode'], register);
+        window.localStorage.setItem("session", null);
+        this.router.navigate(['']);
       }
     });
   }

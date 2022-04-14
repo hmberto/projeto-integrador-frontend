@@ -84,8 +84,8 @@ export class RecoveryService {
     xhttp.send(body);
 
     xhttp.addEventListener('loadend', () => {
+      this.router.navigate(['login']);
       // if(xhttp.status == 204) {
-        this.router.navigate(['login']);
       // }
     });
   }
