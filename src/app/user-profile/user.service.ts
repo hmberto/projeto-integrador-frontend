@@ -68,6 +68,7 @@ export class UserPService {
     const updateUser = 'https://projeto-integrador-user.herokuapp.com/user/update';
     
     const json = JSON.stringify({
+      email:register.email,
       name:register.name,
       street:register.street,
       number:register.number,
@@ -179,11 +180,16 @@ export class UserPService {
       if(xhttp.status == 200) {
         var resp = JSON.parse(xhttp.response);
 
+        var complement = resp['complement'];
+        if(complement == "NULL") {
+          complement = "";
+        }
+
         const json = {
           name:resp['name'],
           email:resp['email'],
           number:resp['number'],
-          complement:resp['complement'],
+          complement:complement,
           zipCode:resp['zipCode'],
           cpf:resp['cpf'],
           birthDate:resp['birthDate'],
