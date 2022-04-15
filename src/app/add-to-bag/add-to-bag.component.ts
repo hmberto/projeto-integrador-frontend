@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
-import { PRODUCTS } from '../../mock/products-mock';
 import { Product } from '../../models/product';
+import { ProductService } from '../products/product.service';
 
 @Component({
   selector: 'app-add-to-bag',
@@ -14,11 +14,10 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   product: Product;
   subscription: Subscription;
 
-  products = PRODUCTS;
-
   constructor(private activatedRoute: ActivatedRoute,
     private cartService: CartService,
-    private router: Router) { }
+    private router: Router,
+    private productService: ProductService) { }
 
   ngOnInit() {
     this.subscription = this.activatedRoute.queryParams.subscribe(params => {
@@ -32,7 +31,7 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   }
 
   getProduct(id: string): Product {
-    return this.products.find(product => product.id === id);
+    return this.productService.gettedProducts.find(product => product.id === id);
   }
 
   addToCart(product: Product) {
@@ -41,7 +40,7 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   }
 
   getItems() {
-    console.log(this.cartService.getItems());
+    // console.log(this.cartService.getItems());
   }
 
   cancelButton(): void {

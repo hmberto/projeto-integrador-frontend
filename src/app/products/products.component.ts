@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
-import { PRODUCTS } from '../../mock/products-mock';
 import { Router } from '@angular/router';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-products',
@@ -10,27 +10,31 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  products = PRODUCTS;
-
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private productService: ProductService) { }
 
   ngOnInit() {
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.productService.getProducts();
   }
 
   get drogariaSpProducts(): Product[] {
-    return this.products.filter((product) => product.pharmacy === 'Drogaria São Paulo');
+    return this.productService.gettedProducts.filter((product) => product.pharmacy === 'Drogaria São Paulo');
   }
 
   get ultrafarmaProducts(): Product[] {
-    return this.products.filter(product => product.pharmacy === 'Ultrafarma');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Ultrafarma');
   }
 
   get pagueMenosProducts(): Product[] {
-    return this.products.filter(product => product.pharmacy === 'Pague Menos');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Pague Menos');
   }
 
   get drogaRaiaProducts(): Product[] {
-    return this.products.filter(product => product.pharmacy === 'Droga Raia');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Droga Raia');
   }
 
   productClick(product: Product): void {

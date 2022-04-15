@@ -89,15 +89,30 @@
 .price-box {
     margin: 0 60px;
     background: #9700a5;
-    margin-bottom: 20px;
     border-radius: 10px;
     padding: 10px 15px;
+}
+
+.price-top {
+    margin-top: 20px;
+}
+
+.price-bottom {
+    margin-bottom: 20px;
 }
 
 .price-span {
     color: #fff;
     font-weight: bold;
     font-size: 18px;
+}
+
+.clear-span {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    float: right;
+    cursor: pointer;
 }
 
 .empty-cart {
@@ -153,11 +168,73 @@
 
     .price-box {
         margin: 0 20px;
-        margin-bottom: 20px;
     }
 }
 
 @media(max-width: 600px) {
+    .product:hover {
+        background-color: #fff;
+    }
+    
+    .empty-cart-box img {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .product {
+        display: block;
+        padding: 15px;
+        border-radius: 0;
+        margin: auto;
+    }
+
+    .product-image {
+        height: 100px;
+        width: 100px;
+        display: block;
+        margin: auto;
+        border-radius: 50%;
+        padding: 10px 0;
+        float: left;
+        margin-right: 15px;
+    }
+
+    .info {
+        display: block;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .div-remove {
+        margin-top: 25px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-name {
+        padding-top: 0px;
+    }
+
+    .div-add {
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width: 600px) {
+    .product-image {
+        height: 100px;
+        width: 100px;
+        display: block;
+        margin: auto;
+        border-radius: 50%;
+        padding: 10px 0;
+        float: left;
+        margin-right: 15px;
+    }
+}
+
+@media(max-width: 320px) {
     .empty-cart-box img {
         width: 100%;
         padding: 20px;
@@ -171,7 +248,6 @@
         display: block;
         padding: 15px;
         border-radius: 0;
-        border-bottom: solid 1px #9700a5;
     }
 
     .product-image {
@@ -181,6 +257,7 @@
         margin: auto;
         border-radius: 10px;
         margin: 0;
+        margin-bottom: 10px;
     }
 
     .info {
@@ -202,5 +279,13 @@
 
     .div-add {
         margin-bottom: 10px;
+    }
+
+    .price-span {
+        font-size: 14px;
+    }
+
+    .price-box {
+        margin: 0 15px;
     }
 }

@@ -23,6 +23,13 @@ export class AppComponent {
   qnt = [];
 
   get getQnt(): Product[] {
+    const cart = window.localStorage.getItem("cart");
+    const getCart = JSON.parse(cart);
+    
+    if(getCart != null) {
+      this.cartService.items = getCart;
+    }
+
     this.qnt = [];
     this.qnt.push(this.cartService.items.length);
     return this.qnt;

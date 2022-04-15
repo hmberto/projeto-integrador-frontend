@@ -25,6 +25,7 @@ import { AddToBagComponent } from './add-to-bag/add-to-bag.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserPComponent } from './user-profile/user.component';
 import { UserPService } from './user-profile/user.service';
+import { ProductService } from './products/product.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { UserPService } from './user-profile/user.service';
     NewCartService,
     ChangePassService,
     RecoveryService,
-    UserPService
+    UserPService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

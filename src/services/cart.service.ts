@@ -9,13 +9,25 @@ export class CartService {
   
   addToCart(newProduct: Product) {
     let qnt = this.items.filter((product) => product.id === newProduct.id).length;
+    let loja = this.items.filter((product) => product.pharmacy === newProduct.pharmacy).length;
+    
+    if(loja == 0) {
+      this.clearCart();
+    }
+    
     if(qnt < 10 && this.items.length + 1 <= 20) {
       this.items.push(newProduct);
+      var cartString  = JSON.stringify(this.items);
+      window.localStorage.setItem("cart", cartString);
     }
   }
 
-  removeFromCart(product: Product) {
-    this.items.splice(this.items.indexOf(product), 1);
+  removeFromCart(newProduct: Product) {
+    console.log(this.items.filter((product) => product.id === newProduct.id));
+    
+    this.items.splice(this.items.indexOf(this.items.filter((product) => product.id === newProduct.id)[0]), 1);
+    var cartString  = JSON.stringify(this.items);
+    window.localStorage.setItem("cart", cartString);
   }
 
   getItems() {
@@ -24,6 +36,8 @@ export class CartService {
 
   clearCart() {
       this.items = [];
+      var cartString  = JSON.stringify(this.items);
+      window.localStorage.setItem("cart", cartString);
       return this.items;
   }
 

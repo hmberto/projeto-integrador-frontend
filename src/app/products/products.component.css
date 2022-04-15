@@ -190,6 +190,33 @@
     font-size: 18px;
 }
 
+#loading {
+    min-height: 100vh;
+    margin: auto;
+    width: auto;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.loading img {
+    margin: auto;
+    width: 200px;
+    display: block;
+}
+
+.class-hide {
+    display: none;
+}
+
+.class-flex {
+    display: flex;
+}
+
 @media(max-width: 1000px) {
     .welcome-text-1 {
         font-size: 33px;
