@@ -23,8 +23,6 @@ export class CartService {
   }
 
   removeFromCart(newProduct: Product) {
-    console.log(this.items.filter((product) => product.id === newProduct.id));
-    
     this.items.splice(this.items.indexOf(this.items.filter((product) => product.id === newProduct.id)[0]), 1);
     var cartString  = JSON.stringify(this.items);
     window.localStorage.setItem("cart", cartString);

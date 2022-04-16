@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserPComponent } from './user-profile/user.component';
 import { UserPService } from './user-profile/user.service';
 import { ProductService } from './products/product.service';
+import { HomeService } from './home/home.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ProductService } from './products/product.service';
     ChangePassService,
     RecoveryService,
     UserPService,
-    ProductService
+    ProductService,
+    HomeService
   ],
   bootstrap: [AppComponent]
 })
