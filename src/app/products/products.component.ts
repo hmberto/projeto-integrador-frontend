@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
-import { PRODUCTS } from '../../mock/products-mock';
 import { Router } from '@angular/router';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-products',
@@ -10,27 +10,51 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  products = PRODUCTS;
-
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private productService: ProductService) { }
 
   ngOnInit() {
+    const session = window.localStorage.getItem("session");
+
+    const userCep = window.localStorage.getItem("userCep");
+
+    const latitude = window.localStorage.getItem("latitude");
+    const longitude = window.localStorage.getItem("longitude");
+
+    if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
+      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + latitude + "/" + longitude;
+      this.productService.getProducts(url);
+    }
+    else if(userCep != null && userCep != "null") {
+      this.productService.getByCep();
+    }
+    else if(session != null && session != "null") {
+      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + session;
+      this.productService.getProducts(url);
+    }
+    else {
+      this.productService.showLocationNotFound();
+    }
+  }
+
+  getProducts(url) {
+    this.productService.getProducts(url);
   }
 
   get drogariaSpProducts(): Product[] {
-    return this.products.filter((product) => product.pharmacy === 'Drogaria São Paulo');
+    return this.productService.gettedProducts.filter((product) => product.pharmacy === 'Drogaria São Paulo');
   }
 
   get ultrafarmaProducts(): Product[] {
-    return this.products.filter(product => product.pharmacy === 'Ultrafarma');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Ultrafarma');
   }
 
   get pagueMenosProducts(): Product[] {
-    return this.products.filter(product => product.pharmacy === 'Pague Menos');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Pague Menos');
   }
 
   get drogaRaiaProducts(): Product[] {
-    return this.products.filter(product => product.pharmacy === 'Droga Raia');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Droga Raia');
   }
 
   productClick(product: Product): void {

@@ -1,31 +1,46 @@
-<div class="max-width-banner">
-  <div class="welcome">
-    <div class="teste1">
-      <h1 class="welcome-text-1">aqui tem</h1>
-      <h1 class="welcome-text-3">farmácias</h1>
-    </div>
-    <img class="welcome-image" src="assets/pharmacies/logo2.png">
-    <div class="teste2">
-      <span class="welcome-text-4">sem fila,</span><br>
-      <span class="welcome-text-2">em </span>
-      <span class="welcome-text-5">minutos</span><br>
-      <span class="welcome-text-4">na sua casa</span>
+<div id="box-all">
+  <div class="max-width-banner">
+    <div class="welcome">
+      <div class="teste1">
+        <h1 class="welcome-text-1">aqui tem</h1>
+        <h1 class="welcome-text-3">farmácias</h1>
+      </div>
+      <img class="welcome-image" src="assets/pharmacies/logo2.png">
+      <div class="teste2">
+        <span class="welcome-text-4">sem fila,</span><br>
+        <span class="welcome-text-2">em </span>
+        <span class="welcome-text-5">minutos</span><br>
+        <span class="welcome-text-4">na sua casa</span>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="max-width-parceiros">
-  <h4 class="parceiros">Lojas</h4>
-  <div class="pharmacies equalHMVWrap eqWrap">
-    <div class="pharmacy equalHMV eq" *ngFor="let pharmacy of pharmacies">
-      <div class="pharmacy-box">
-        <img class="pharmacy-image" [src]="pharmacy.image">
-        <div class="pharmacy-info">
-          <span class="pharmacy-name">{{pharmacy.name}}</span>
-          <span class="pharmacy-distance">{{pharmacy.time}} | {{pharmacy.distance}}</span>
-          <span class="pharmacy-tax">R$ {{pharmacy.tax}}</span>
+  
+  <div id="container" class="max-width-parceiros class-hide">
+    <h4 class="parceiros">Lojas</h4>
+    <div class="pharmacies equalHMVWrap eqWrap">
+      <div class="pharmacy equalHMV eq" *ngFor="let pharmacy of gettedPharmacies">
+        <div class="pharmacy-box">
+          <img class="pharmacy-image" [src]="pharmacy.image">
+          <div class="pharmacy-info">
+            <span class="pharmacy-name">{{pharmacy.name}}</span>
+            <span class="pharmacy-distance">{{pharmacy.time}} | {{pharmacy.distance}}</span>
+            <span class="pharmacy-tax">R$ {{pharmacy.tax}}</span>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+  
+  <div id="askcep" class="max-width-parceiros class-hide">
+    <div class="askcep">
+        <input id="cepfield" type="text" placeholder="Digite seu CEP">
+        <button (click)="getByCep()">BUSCAR</button>
+    </div>
+  </div>
+  
+  <div id="loading" class="class-flex">
+    <div class="loading">
+        <img src="assets/pharmacies/loading_icon.gif" alt="">
     </div>
   </div>
 </div>

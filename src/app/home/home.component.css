@@ -1,3 +1,7 @@
+#box-all{
+    min-height: 100vh;
+}
+
 .welcome {
     display: flex;
     height: 170px;
@@ -165,6 +169,79 @@
 	margin-left: 0;	
 }
 
+#loading {
+    min-height: 100vh;
+    margin: auto;
+    width: auto;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.loading img {
+    margin: auto;
+    width: 200px;
+    display: block;
+}
+
+.class-hide {
+    display: none;
+}
+
+.class-flex {
+    display: flex;
+}
+
+#askcep {
+    margin: auto;
+    width: 70vw;
+    margin-top: 80px;
+}
+
+.askcep {
+    margin: 60px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.askcep input {
+    height: 60px;
+    color: #9700a5;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.askcep input::placeholder {
+    color: #9700a5;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.askcep input:focus {
+    border-color: #9700a5;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.askcep button {
+    background: #9700a5;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 15px;
+    font-weight: bold;
+    color: #fff;
+    height: 61px;
+    padding: 0 30px;
+    cursor: pointer;
+}
+
 @media(max-width: 900px) {
     .teste1 {
         margin: auto;
@@ -287,6 +364,31 @@
     
     .teste2 {
         padding-right: 5px;
+    }
+
+    #askcep {
+        margin: auto;
+        width: auto;
+    }
+
+    .askcep {
+        margin: 60px 15px;
+    }
+
+    .askcep input {
+        font-size: 14px;
+    }
+    
+    .askcep input::placeholder {
+        font-size: 14px;
+    }
+    
+    .askcep button {
+        font-size: 14px;
+        border-radius: 5px;
+        margin-left: 15px;
+        height: 61px;
+        padding: 0 20px;
     }
 }
 
