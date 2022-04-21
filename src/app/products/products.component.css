@@ -252,6 +252,25 @@
     font-weight: bold;
 }
 
+#not-location {
+    min-height: 100vh;
+}
+
+#not-location, .not-location {
+    margin: auto;
+    text-align: center;
+}
+
+.not-location span {
+    display: block;
+    color: #9700a5;
+    font-size: 18px;
+}
+
+.not-location img {
+    width: 200px;
+}
+
 @media(max-width: 1000px) {
     .welcome-text-1 {
         font-size: 33px;
