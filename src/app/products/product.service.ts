@@ -31,7 +31,8 @@ export class ProductService {
               price: pharmacies[product]['price'],
               amount: pharmacies[product]['amount'],
               image: pharmacies[product]['image'],
-              description: pharmacies[product]['description']
+              description: pharmacies[product]['description'],
+              qnt: "0"
             }
 
             handleEvent(<any>item);

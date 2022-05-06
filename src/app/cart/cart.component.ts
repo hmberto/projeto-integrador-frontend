@@ -56,14 +56,11 @@ export class CartComponent implements OnInit {
     this.newItems = [];
     for(let i = 0; i < this.cartService.items.length; i++) {
       if(this.newItems.filter((product) => product.id === this.cartService.items[i]['id']).length < 1) {
-        this.newItems.push(this.cartService.items[i])
-        let itemName = "id-" + this.cartService.items[i]['id'];
-        const qntItem = (<HTMLSelectElement>document.getElementById(itemName));
-
-        if(qntItem != null) {
-          let qnt = this.cartService.items.filter((product) => product.id === this.cartService.items[i]['id']).length;
-          qntItem.innerText=qnt + '';
-        }
+        let qnt = this.cartService.items.filter((product) => product.id === this.cartService.items[i]['id']).length;
+        this.cartService.items[i].qnt = qnt + "";
+        this.newItems.push(this.cartService.items[i]);
+        
+        console.log(this.newItems);
       }
     }
     
