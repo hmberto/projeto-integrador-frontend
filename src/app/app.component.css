@@ -1,10 +1,16 @@
+* {
+    user-select: none;
+}
+
 #hide-nav-1 {
     display: block;
     background: #fff;
+    user-select: none;
 }
 
 #hide-nav-2 {
     display: none;
+    user-select: none;
 }
 
 .container {
@@ -88,6 +94,7 @@ footer {
     margin: auto;
     display: flex;
     padding: 0 50px;
+    user-select: none;
 }
 
 footer img {
