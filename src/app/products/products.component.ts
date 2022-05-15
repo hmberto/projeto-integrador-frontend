@@ -14,6 +14,44 @@ export class ProductsComponent implements OnInit {
     private productService: ProductService) { }
 
   ngOnInit() {
+    const latitude = window.localStorage.getItem("latitude");
+
+    this.validate();
+
+    if(latitude == null || latitude == "null") {
+      this.geoLocation();
+      console.log("TA")
+    }
+  }
+
+  geoLocation() {
+    let validateHome = () => {
+      this.validate();
+    };
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    function showPosition(position) {
+      window.localStorage.setItem("latitude", position.coords.latitude);
+      window.localStorage.setItem("longitude", position.coords.longitude);
+
+      validateHome();
+    }
+  }
+
+  validate() {
+    const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
+    const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const loading = (<HTMLSelectElement>document.getElementById('loading'));
+
+    contaiver.classList.add("class-hide");
+
+    loading.classList.add("class-flex");
+    loading.classList.remove("class-hide");
+
+    notLocation.classList.add("class-hide");
+    notLocation.classList.remove("class-flex");
+
     const session = window.localStorage.getItem("session");
 
     const userCep = window.localStorage.getItem("userCep");

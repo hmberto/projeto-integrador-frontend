@@ -8,6 +8,7 @@ export class ProductService {
   getProducts(url) {
     this.gettedProducts = [];
     const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
     
     var xhttp = new XMLHttpRequest();

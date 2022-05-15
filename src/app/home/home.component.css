@@ -256,12 +256,22 @@
     border-radius: 20px;
     margin: 2px;
     cursor: pointer;
-    background-color: rgb(245, 245, 245);
-    border: rgba(0, 0, 0, 0.267) solid 1px;
+    border: rgba(0, 0, 0, 0.281) solid 1px;
+    color: #000;
 }
 
 .order:hover {
-    background-color: rgb(230, 230, 230);
+    color: #9700a5;
+    border: #9700a5 solid 1px;
+}
+
+.order-a {
+    color: #9700a5;
+}
+
+.order-b {
+    border: #9700a5 solid 1px;
+    color: #9700a5;
 }
 
 @media(max-width: 900px) {
