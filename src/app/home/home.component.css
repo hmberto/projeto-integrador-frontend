@@ -264,7 +264,8 @@
 }
 
 .order-a {
-    color: #9700a5;
+    border: rgba(0, 0, 0, 0.253) solid 1px;
+    color: #000;
 }
 
 .order-b {

@@ -123,9 +123,12 @@ export class HomeComponent {
     document.getElementById("order-2").classList.remove("order-b");
     document.getElementById("order-4").classList.remove("order-a");
     document.getElementById("order-4").classList.remove("order-b");
+
     if(t == 1) {
       this.newPharmacies.sort(function (x, y) {
         document.getElementById("order-1").classList.add("order-b");
+        document.getElementById("order-2").classList.add("order-a");
+        document.getElementById("order-4").classList.add("order-a");
         return x.random - y.random;
       });
     }
@@ -133,6 +136,8 @@ export class HomeComponent {
       this.orderPharmacies.push(t);
       this.newPharmacies.sort(function (x, y) {
         document.getElementById("order-2").classList.add("order-b");
+        document.getElementById("order-1").classList.add("order-a");
+        document.getElementById("order-4").classList.add("order-a");
         return x.orderFee - y.orderFee;
       });
     }
@@ -140,6 +145,9 @@ export class HomeComponent {
       this.orderPharmacies.push(t);
       this.newPharmacies.sort(function (x, y) {
         document.getElementById("order-3").classList.add("order-b");
+        document.getElementById("order-1").classList.add("order-a");
+        document.getElementById("order-2").classList.add("order-a");
+        document.getElementById("order-4").classList.add("order-a");
         return x.orderDistance - y.orderDistance;
       });
     }
@@ -147,6 +155,8 @@ export class HomeComponent {
       this.orderPharmacies.push(t);
       this.newPharmacies.sort(function (x, y) {
         document.getElementById("order-4").classList.add("order-b");
+        document.getElementById("order-1").classList.add("order-a");
+        document.getElementById("order-2").classList.add("order-a");
         return x.orderTime - y.orderTime;
       });
     }
