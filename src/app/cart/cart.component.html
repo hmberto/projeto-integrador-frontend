@@ -25,7 +25,7 @@
             </div>
             <div class="div-remove div-add">
                 <span class="qnt qnt-add" id="id-{{product.id}}-add" (click)="addToCart(product)">+</span>
-                <span class="qnt" id="id-{{product.id}}"></span>
+                <span class="qnt" id="id-{{product.id}}">{{product.qnt}}</span>
                 <span class="qnt qnt-remove" id="id-{{product.id}}-remove" (click)="removeFromCart(product)">-</span>
             </div>
             <div class="div-remove">
@@ -40,7 +40,7 @@
         <div class="empty-box">
             <span class="span1">Sua sacola está vazia</span>
             <span>Adicione itens</span>
-            <img src="../../assets/pharmacies/cart.png" alt="">
+            <img src="../../assets/icons/cart-page.png" alt="">
         </div>
     </div>
 </div>

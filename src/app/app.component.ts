@@ -63,10 +63,14 @@ export class AppComponent {
       if(verifyclass) {
         menu.classList.remove("hide-menu-mobile");
         fixedNavDois.classList.add('top-fixed');
+        document.getElementById("nav-menu-logo").classList.remove("wdt-a");
+        document.getElementById("nav-menu-logo").classList.add("wdt-b");
       }
       else {
         menu.classList.add("hide-menu-mobile");
         fixedNavDois.classList.remove('top-fixed');
+        document.getElementById("nav-menu-logo").classList.add("wdt-a");
+        document.getElementById("nav-menu-logo").classList.remove("wdt-b");
       }
     });
 
@@ -83,6 +87,17 @@ export class AppComponent {
         menu.classList.add("hide-menu-mobile");
         fixedNavDois.classList.remove('top-fixed');
       });
+    }
+  }
+
+  showSearch() {
+    if(document.getElementById("divSearchMobile").classList.contains("hide-search")) {
+      document.getElementById("divSearchMobile").classList.remove("hide-search");
+      document.getElementById("divSearchMobile").classList.add("show-search");
+    }
+    else {
+      document.getElementById("divSearchMobile").classList.remove("show-search");
+      document.getElementById("divSearchMobile").classList.add("hide-search");
     }
   }
 

@@ -29,12 +29,21 @@ export class HomeService {
       this.gettedPharmacies = [];
 
       pharmaciesCounter.forEach(function(product) {
+        let orderFee = json[product]['fee'].split(" ");
+        let orderDistance = json[product]['distance'].split(" ");
+        let orderTime = json[product]['time'].split("-");
+
         const item: Pharmacy = {
           name: json[product]['name'],
           image: "assets/pharmacies/" + json[product]['imgpath'],
           distance: json[product]['distance'],
           time: json[product]['time'],
-          tax: json[product]['fee']
+          tax: json[product]['fee'],
+          random: "" + (Math.floor(Math.random() * (9 - 1)) + 1),
+
+          orderFee: orderFee[1].replace(",", "."),
+          orderDistance: orderDistance[0],
+          orderTime: orderTime[0]
         }
 
         handleEvent(<any>item);
