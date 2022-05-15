@@ -256,8 +256,6 @@
     border-radius: 20px;
     margin: 2px;
     cursor: pointer;
-    border: rgba(0, 0, 0, 0.281) solid 1px;
-    color: #000;
 }
 
 .order:hover {
