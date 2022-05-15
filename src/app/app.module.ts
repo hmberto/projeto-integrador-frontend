@@ -27,6 +27,8 @@ import { UserPComponent } from './user-profile/user.component';
 import { UserPService } from './user-profile/user.service';
 import { ProductService } from './products/product.service';
 import { HomeService } from './home/home.service';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ContactUsService } from './contact-us/contact-us.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { HomeService } from './home/home.service';
     AddToBagComponent,
     ChangePassComponent,
     RecoveryComponent,
-    UserPComponent
+    UserPComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { HomeService } from './home/home.service';
     RecoveryService,
     UserPService,
     ProductService,
-    HomeService
+    HomeService,
+    ContactUsService
   ],
   bootstrap: [AppComponent]
 })

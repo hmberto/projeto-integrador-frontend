@@ -12,6 +12,7 @@ import { ProductsComponent } from './products/products.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { RecoveryComponent } from './recovery/recovery.component';
 import { UserPComponent } from './user-profile/user.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const APP_ROUTES: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -24,6 +25,7 @@ const APP_ROUTES: Routes = [
     { path: 'redefinir', component: ChangePassComponent },
     { path: 'recuperacao', component: RecoveryComponent },
     { path: 'usuario', component: UserPComponent },
+    { path: 'faleConosco', component: ContactUsComponent },
     { path: '', component: HomeComponent }
 ];
 
