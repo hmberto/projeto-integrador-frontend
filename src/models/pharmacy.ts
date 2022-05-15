@@ -4,4 +4,8 @@ export interface Pharmacy {
     distance: string;
     time: string;
     tax: string;
+    random: string;
+    orderFee: string;
+    orderDistance: string;
+    orderTime: string;
 }

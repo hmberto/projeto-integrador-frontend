@@ -59,11 +59,12 @@ export class CartComponent implements OnInit {
         let qnt = this.cartService.items.filter((product) => product.id === this.cartService.items[i]['id']).length;
         this.cartService.items[i].qnt = qnt + "";
         this.newItems.push(this.cartService.items[i]);
-        
-        console.log(this.newItems);
       }
     }
     
+    this.newItems.sort(function (x, y) {
+      return x.id - y.id;
+    });
     return this.newItems;
   }
 }

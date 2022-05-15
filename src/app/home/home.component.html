@@ -5,7 +5,7 @@
         <h1 class="welcome-text-1">aqui tem</h1>
         <h1 class="welcome-text-3">farmácias</h1>
       </div>
-      <img class="welcome-image" src="assets/pharmacies/logo2.png">
+      <img class="welcome-image" src="assets/icons/logo2.png">
       <div class="teste2">
         <span class="welcome-text-4">sem fila,</span><br>
         <span class="welcome-text-2">em </span>
@@ -16,7 +16,15 @@
   </div>
   
   <div id="container" class="max-width-parceiros class-hide">
-    <h4 class="parceiros">Lojas</h4>
+    <div id="h-pharmacies">
+      <h4 class="parceiros">Lojas</h4>
+      <div id="filter">
+        <span class="order" (click)="teste('1')">Original</span>
+        <span class="order" (click)="teste('2')">Taxa de Entrega</span>
+        <!-- <span class="order" (click)="teste('3')">Distância</span> -->
+        <span class="order" (click)="teste('4')">Tempo de Entrega</span>
+      </div>
+    </div>
     <div class="pharmacies equalHMVWrap eqWrap">
       <div class="pharmacy equalHMV eq" *ngFor="let pharmacy of gettedPharmacies">
         <div class="pharmacy-box">
@@ -24,7 +32,7 @@
           <div class="pharmacy-info">
             <span class="pharmacy-name">{{pharmacy.name}}</span>
             <span class="pharmacy-distance">{{pharmacy.time}} | {{pharmacy.distance}}</span>
-            <span class="pharmacy-tax">R$ {{pharmacy.tax}}</span>
+            <span class="pharmacy-tax">{{pharmacy.tax}}</span>
           </div>
         </div>
       </div>
@@ -40,7 +48,7 @@
   
   <div id="loading" class="class-flex">
     <div class="loading">
-        <img src="assets/pharmacies/loading_icon.gif" alt="">
+        <img src="assets/icons/loading_icon.gif" alt="">
     </div>
   </div>
 </div>

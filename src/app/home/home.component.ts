@@ -12,8 +12,11 @@ import { AppComponent } from '../app.component';
 export class HomeComponent {
 
   constructor(private appComponent: AppComponent,
-    private homeService: HomeService) { }
+  private homeService: HomeService) { }
 
+  newPharmacies = [];
+  orderPharmacies = [];
+  
   ngOnInit() {
     this.appComponent.updateNav();
     this.geoLocation();
@@ -112,7 +115,46 @@ export class HomeComponent {
     }
   }
 
+  teste(t) {
+    this.orderPharmacies = [];
+    if(t == 1) {
+      this.newPharmacies.sort(function (x, y) {
+        return x.random - y.random;
+      });
+    }
+    else if(t == 2) {
+      this.orderPharmacies.push(t);
+      this.newPharmacies.sort(function (x, y) {
+        return x.orderFee - y.orderFee;
+      });
+    }
+    else if(t == 3) {
+      this.orderPharmacies.push(t);
+      this.newPharmacies.sort(function (x, y) {
+        return x.orderDistance - y.orderDistance;
+      });
+    }
+    else if(t == 4) {
+      this.orderPharmacies.push(t);
+      this.newPharmacies.sort(function (x, y) {
+        return x.orderTime - y.orderTime;
+      });
+    }
+  }
+
   get gettedPharmacies(): Pharmacy[] {
-    return this.homeService.gettedPharmacies;
+    this.newPharmacies = [];
+    for(let i = 0; i < this.homeService.gettedPharmacies.length; i++) {
+        this.newPharmacies.push(this.homeService.gettedPharmacies[i]);
+    }
+
+    if(this.orderPharmacies[0] != undefined) {
+      this.teste(this.orderPharmacies[0]);
+    }
+    else {
+      this.teste(1);
+    }
+    
+    return this.newPharmacies;
   }
 }
