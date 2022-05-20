@@ -35,6 +35,8 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   }
 
   addToCart(product: Product) {
+    this.cartService.addToCart(product);
+
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('pesquisa');
     
@@ -42,7 +44,6 @@ export class AddToBagComponent implements OnInit, OnDestroy {
       this.router.navigate(['pesquisar'], { queryParams: { pesquisa: myParam } });
     }
     else {
-      this.cartService.addToCart(product);
       this.router.navigate(['produtos']);
     }
   }
