@@ -31,10 +31,22 @@ export class ContactUsComponent {
       return;
     }
 
-    alert('Obrigado por nos enviar o seu feedback !!');
-    
-    // Publish the feedback to back end
-    // this.http.post('sendFeedback', body, options)
-    this.router.navigate(['produtos']);
+    const url = "https://projeto-integrador-user.herokuapp.com/user/experience/contact";
+
+    const body = JSON.stringify({
+      name: name,
+      email: email,
+      message: feedback
+    });
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(body);
+
+    xhttp.addEventListener('loadend', () => {
+      alert('Obrigado por nos enviar seu feedback!!');
+      this.router.navigate(['']);
+    });
   }
 }
