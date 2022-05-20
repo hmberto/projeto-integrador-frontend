@@ -67,7 +67,7 @@ export class SearchComponent implements OnInit {
     const longitude = window.localStorage.getItem("longitude");
 
     if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
-      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + latitude + "/" + longitude;
+      const url = "https://projeto-integrador-products.herokuapp.com/product/search/20/" + latitude + "/" + longitude + "/" + myParam;
       this.productService.getProducts(url);
     }
     else if(userCep != null && userCep != "null") {

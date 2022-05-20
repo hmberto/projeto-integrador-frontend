@@ -74,8 +74,15 @@ export class ProductService {
         let state = address['uf'];
         let city = address['localidade'];
 
-        const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + street + "/" + district + "/" + state + "/" + city;
-        this.getProducts(url);
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('pesquisa');
+
+        let urlP = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + street + "/" + district + "/" + state + "/" + city;
+        if(myParam != null) {
+          urlP = "https://projeto-integrador-products.herokuapp.com/product/search/20/" + street + "/" + district + "/" + state + "/" + city + "/" + myParam;
+        }
+
+        this.getProducts(urlP);
       }
       else {
         this.showLocationNotFound()
