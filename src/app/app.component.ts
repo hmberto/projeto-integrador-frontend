@@ -37,7 +37,7 @@ export class AppComponent {
 
   ngOnInit(){
     if(window.location.protocol == "http:" && window.location.host != "localhost:4200") {
-      window.location.href = window.location.protocol + "//" + window.location.host
+      window.location.href = "https://" + window.location.host
     }
     
     this.updateNav();
