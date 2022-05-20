@@ -29,6 +29,8 @@ import { ProductService } from './products/product.service';
 import { HomeService } from './home/home.service';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactUsService } from './contact-us/contact-us.service';
+import { SearchComponent } from './search/search.component';
+import { SearchService } from './search/search.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { ContactUsService } from './contact-us/contact-us.service';
     ChangePassComponent,
     RecoveryComponent,
     UserPComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { ContactUsService } from './contact-us/contact-us.service';
     UserPService,
     ProductService,
     HomeService,
-    ContactUsService
+    ContactUsService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

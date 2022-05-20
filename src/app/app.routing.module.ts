@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CadastroComponent } from './register/cadastro.component';
+import { SearchComponent } from './search/search.component';
 import { CartComponent } from './cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProductsComponent } from './products/products.component';
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     { path: 'recuperacao', component: RecoveryComponent },
     { path: 'usuario', component: UserPComponent },
     { path: 'faleConosco', component: ContactUsComponent },
+    { path: 'pesquisar', component: SearchComponent },
     { path: '', component: HomeComponent },
     //     canActivate: [AuthGuard] 
     // },

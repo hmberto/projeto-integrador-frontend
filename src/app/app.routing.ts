@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CartComponent } from './cart/cart.component';
 import { CadastroComponent } from './register/cadastro.component';
+import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductsComponent } from './products/products.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
@@ -26,6 +27,7 @@ const APP_ROUTES: Routes = [
     { path: 'recuperacao', component: RecoveryComponent },
     { path: 'usuario', component: UserPComponent },
     { path: 'faleConosco', component: ContactUsComponent },
+    { path: 'pesquisar', component: SearchComponent },
     { path: '', component: HomeComponent }
 ];
 
