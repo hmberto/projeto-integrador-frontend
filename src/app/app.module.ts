@@ -31,6 +31,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactUsService } from './contact-us/contact-us.service';
 import { SearchComponent } from './search/search.component';
 import { SearchService } from './search/search.service';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutService } from './checkout/checkout.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { SearchService } from './search/search.service';
     RecoveryComponent,
     UserPComponent,
     ContactUsComponent,
-    SearchComponent
+    SearchComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { SearchService } from './search/search.service';
     ProductService,
     HomeService,
     ContactUsService,
-    SearchService
+    SearchService,
+    CheckoutService
   ],
   bootstrap: [AppComponent]
 })

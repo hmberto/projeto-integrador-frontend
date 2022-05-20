@@ -5,10 +5,10 @@ import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.css']
 })
-export class CartComponent implements OnInit {
+export class CheckoutComponent implements OnInit {
   constructor(private router: Router,
     private cartService: CartService) { }
 
@@ -70,7 +70,11 @@ export class CartComponent implements OnInit {
     return this.newItems;
   }
 
+  goBack() {
+    this.router.navigate(['carrinho']);
+  }
+
   goCheckout() {
-    this.router.navigate(['checkout']);
+    // this.router.navigate(['checkout']);
   }
 }

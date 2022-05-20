@@ -15,6 +15,7 @@ import { ChangePassComponent } from './change-pass/change-pass.component';
 import { RecoveryComponent } from './recovery/recovery.component';
 import { UserPComponent } from './user-profile/user.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     { path: 'usuario', component: UserPComponent },
     { path: 'faleConosco', component: ContactUsComponent },
     { path: 'pesquisar', component: SearchComponent },
+    { path: 'checkout', component: CheckoutComponent },
     { path: '', component: HomeComponent },
     //     canActivate: [AuthGuard] 
     // },

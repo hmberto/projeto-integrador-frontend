@@ -1,7 +1,6 @@
 <div class="price price-top">
     <div class="price-box" *ngFor="let total of cartTotal">
-        <span class="price-span">Total: R$ {{total}}</span>
-        <span class="clear-span" (click)="clearCart(product)">Limpar carrinho</span>
+        <span class="price-span">Resumo</span>
     </div>
 </div>
 
@@ -23,14 +22,6 @@
                     {{product.price}}
                 </span>
             </div>
-            <div class="div-remove div-add">
-                <span class="qnt qnt-add" id="id-{{product.id}}-add" (click)="addToCart(product)">+</span>
-                <span class="qnt" id="id-{{product.id}}">{{product.qnt}}</span>
-                <span class="qnt qnt-remove" id="id-{{product.id}}-remove" (click)="removeFromCart(product)">-</span>
-            </div>
-            <div class="div-remove">
-                <span class="remove" (click)="removeFromCart(product)">Remover</span>
-            </div>
         </div>
     </div>
 </div>
@@ -48,13 +39,13 @@
 <div class="price price-bottom">
     <div class="price-box" *ngFor="let total of cartTotal">
         <span class="price-span">Total: R$ {{total}}</span>
-        <span class="clear-span" (click)="clearCart(product)">Limpar carrinho</span>
     </div>
 </div>
 
 <div>
     <div id="div-checkout">
-        <button id="checkout" type="button" (click)="goCheckout()">Continuar</button>
+        <button id="checkout" type="button" (click)="goBack()">Voltar</button>
+        <button id="checkout" type="button" (click)="goCheckout()">Finalizar</button>
     </div>
 </div>
 

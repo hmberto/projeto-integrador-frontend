@@ -64,7 +64,7 @@
 .info {
     display: block;
     margin: auto;
-    width: 50%;
+    width: 100%;
     text-align: left;
 }
 
@@ -180,6 +180,7 @@
     border: none;
     text-decoration: none;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 #checkout:hover {
@@ -262,14 +263,6 @@
         float: left;
         margin-right: 15px;
     }
-
-    .price-span {
-        font-size: 14px;
-    }
-
-    .clear-span {
-        font-size: 14px;
-    }
 }
 
 @media(max-width: 320px) {
@@ -319,12 +312,23 @@
         margin-bottom: 10px;
     }
 
+    .price-span {
+        font-size: 14px;
+    }
+
     .price-box {
         margin: 0 15px;
     }
 
-    .price-box {
-        margin: 0 0px;
-        border-radius: 0;
+    #div-checkout {
+        padding: 0px 15px 20px 15px;
+        margin-top: 10px;
+    }
+
+    #checkout {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10px;
     }
 }
