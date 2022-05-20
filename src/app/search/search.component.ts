@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { Router } from '@angular/router';
 import { SearchService } from './search.service';
+import { ProductService } from '../products/product.service';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,8 @@ import { SearchService } from './search.service';
 export class SearchComponent implements OnInit {
   product: Product;
   constructor(private router: Router,
-    private productService: SearchService) { }
+    private searchService: SearchService,
+    private productService: ProductService) { }
 
   ngOnInit() {
     const latitude = window.localStorage.getItem("latitude");
@@ -41,11 +43,14 @@ export class SearchComponent implements OnInit {
   validate() {
     const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
     const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const h2name = (<HTMLSelectElement>document.getElementById('search-name'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('pesquisa');
-    console.log(myParam);
+    
+    h2name.textContent="Pesquisando por: " + myParam
+
     contaiver.classList.add("class-hide");
 
     loading.classList.add("class-flex");
@@ -86,6 +91,9 @@ export class SearchComponent implements OnInit {
   }
 
   productClick(product: Product): void {
-    this.router.navigate(['adicionar'], { queryParams: { id: product.id } });
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('pesquisa');
+    
+    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pesquisa: myParam } });
   }
 }

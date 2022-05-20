@@ -42,6 +42,8 @@ export class AppComponent {
     
     this.updateNav();
 
+    this.eventListSearch()
+
     document.getElementById('logged4').addEventListener("click", () => {
       menu.classList.add("hide-menu-mobile");
       fixedNavDois.classList.remove('top-fixed');
@@ -94,6 +96,32 @@ export class AppComponent {
     }
   }
 
+  eventListSearch() {
+    const search1 = (<HTMLSelectElement>document.getElementById('txtSearch'));
+    const search2 = (<HTMLSelectElement>document.getElementById('txtSearchMobile'));
+
+    let handleEvent = (event: KeyboardEvent) => {
+      var key = event.which || event.keyCode;
+      if (key == 13) {
+        this.search();
+      }
+    }
+    
+    search1.addEventListener('keyup', function(e){
+      var key = e.which || e.keyCode;
+      if (key == 13) {
+        handleEvent(<any>e);
+      }
+    });
+
+    search2.addEventListener('keyup', function(e){
+      var key = e.which || e.keyCode;
+      if (key == 13) {
+        handleEvent(<any>e);
+      }
+    });
+  }
+
   search() {
     const search1 = (<HTMLSelectElement>document.getElementById('txtSearch'));
     const search2 = (<HTMLSelectElement>document.getElementById('txtSearchMobile'));
@@ -108,9 +136,12 @@ export class AppComponent {
   }
 
   showSearch() {
+    const search2 = (<HTMLSelectElement>document.getElementById('txtSearchMobile'));
+
     if(document.getElementById("divSearchMobile").classList.contains("hide-search")) {
       document.getElementById("divSearchMobile").classList.remove("hide-search");
       document.getElementById("divSearchMobile").classList.add("show-search");
+      search2.focus();
     }
     else {
       document.getElementById("divSearchMobile").classList.remove("show-search");

@@ -15,7 +15,7 @@
 
 <div id="box-products" class="class-hide">
     <div class="max-width-parceiros">
-        <h2 class="pharmacy-name">Drogaria São Paulo</h2>
+        <h2 id="search-name" class="pharmacy-name"></h2>
         <div class="line"></div>
         <div class="pharmacies equalHMVWrap eqWrap">
             <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of productsGetted">
@@ -30,7 +30,7 @@
                     {{product.price}}
                 </span>
             </div>
-            <div class="pharmacy equalHMV eq" (click)="productClick(product)">
+            <!-- <div class="pharmacy equalHMV eq" (click)="productClick(product)">
                 <div class="div-see-more">
                     <div class="see-more">
                         <div class="div-see">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

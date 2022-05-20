@@ -20,7 +20,6 @@ export class ProductsComponent implements OnInit {
 
     if(latitude == null || latitude == "null") {
       this.geoLocation();
-      console.log("TA")
     }
   }
 

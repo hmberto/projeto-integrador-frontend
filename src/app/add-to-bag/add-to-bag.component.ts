@@ -35,8 +35,16 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(product);
-    this.router.navigate(['produtos']);
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('pesquisa');
+    
+    if(myParam != null) {
+      this.router.navigate(['pesquisar'], { queryParams: { pesquisa: myParam } });
+    }
+    else {
+      this.cartService.addToCart(product);
+      this.router.navigate(['produtos']);
+    }
   }
 
   getItems() {
@@ -44,6 +52,14 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   }
 
   cancelButton(): void {
-    this.router.navigate(['produtos']);
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('pesquisa');
+
+    if(myParam != null) {
+      this.router.navigate(['pesquisar'], { queryParams: { pesquisa: myParam } });
+    }
+    else {
+      this.router.navigate(['produtos']);
+    }
   }
 }
