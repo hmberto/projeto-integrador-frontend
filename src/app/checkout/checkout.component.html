@@ -22,7 +22,60 @@
                     {{product.price}}
                 </span>
             </div>
+            <div class="div-remove">
+                <span class="qnt" id="id-{{product.id}}">{{product.qnt}}</span>
+            </div>
         </div>
+    </div>
+</div>
+
+<div class="price price-bottom">
+    <div class="price-box" *ngFor="let total of cartTotal">
+        <span id="change-price-a" class="price-span">Total: R$ {{total}}</span>
+    </div>
+</div>
+
+<div>
+    <div id="deliveryInfo">
+        <div id="pharmacyUser">
+            <span id="farmacyName">Endereço da farmácia</span>
+            <span id="pharmacyAddress"></span>
+        </div>
+        <div id="infoUser">
+            <span>Entregar em</span>
+            <span id="userAddress"></span>
+        </div>
+        <div id="pharmacyDist">
+            <span id="titleDist">Distância</span>
+            <span id="pharmacyDistance"></span>
+            <span id="deliveryTime"></span>
+            <span id="deliveryFee"></span>
+        </div>
+    </div>
+</div>
+
+<div class="price price-bottom">
+    <div class="price-box" *ngFor="let total of cartTotal">
+        <span class="price-span">Pagamento</span>
+    </div>
+</div>
+
+<div>
+    <div id="pagamento">
+        <label for="cardNumber">Número do cartão</label>
+        <input id="cardNumber" type="text">
+
+        <label for="cardName">Nome do titular</label>
+        <input id="cardName" type="text">
+
+        <label for="cardDate">Validade</label>
+        <input id="cardDate" type="text">
+
+        <label for="cardCvv">CVV</label>
+        <input id="cardCvv" type="text">
+
+        <label for="cardDoc">CPF/CNPJ do titular</label>
+        <input id="cardDoc" type="text">
     </div>
 </div>
 
@@ -38,7 +91,7 @@
 
 <div class="price price-bottom">
     <div class="price-box" *ngFor="let total of cartTotal">
-        <span class="price-span">Total: R$ {{total}}</span>
+        <span id="change-price-b" class="price-span">Total: R$ {{total}}</span>
     </div>
 </div>
 
@@ -48,5 +101,3 @@
         <button id="checkout" type="button" (click)="goCheckout()">Finalizar</button>
     </div>
 </div>
-
-<div id="space"></div>

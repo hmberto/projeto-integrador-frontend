@@ -71,6 +71,12 @@ export class CartComponent implements OnInit {
   }
 
   goCheckout() {
-    this.router.navigate(['checkout']);
+    const session = window.localStorage.getItem("session");
+    if(session != null && session != "null") {
+      this.router.navigate(['checkout']);
+    }
+    else {
+      this.router.navigate(['login'], { queryParams: { checkout: 'true' } });
+    }
   }
 }

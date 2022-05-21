@@ -188,6 +188,48 @@
     transition: .2s;
 }
 
+#deliveryInfo {
+    padding: 0 60px;
+}
+
+#deliveryInfo span {
+    font-size: 16px;
+}
+
+#infoUser, #pharmacyUser, #pharmacyDist {
+    margin-bottom: 20px;
+}
+
+#infoUser span, #pharmacyUser span {
+    display: block;
+}
+
+#userAddress, #pharmacyAddress, #pharmacyDistance, #deliveryFee, #deliveryTime {
+    font-weight: bold;
+}
+
+#titleDist {
+    display: block;
+}
+
+#pagamento {
+    padding: 0 0 20px 0;
+    max-width: 500px;
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+#pagamento label {
+    color: #9700a5;
+}
+
+#cardNumber:focus, #cardName:focus, #cardDate:focus, #cardCvv:focus, #cardDoc:focus {
+    border-color: #9700a5;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 @media(max-width: 900px) {
     .products {
         padding: 20px 20px;
@@ -195,6 +237,14 @@
 
     #div-checkout {
         padding: 0px 20px 20px 20px;
+    }
+
+    #pagamento {
+        padding: 0 20px;
+    }
+
+    #deliveryInfo {
+        padding: 0 20px;
     }
 
     .price-box {

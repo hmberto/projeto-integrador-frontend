@@ -108,7 +108,14 @@ export class AuthService {
         window.localStorage.setItem("session", session['session']);
         window.localStorage.setItem("newLogin", "false");
 
-        this.router.navigate(['']);
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('checkout');
+        if(myParam != null) {
+          this.router.navigate(['checkout']);
+        }
+        else {
+          this.router.navigate(['']);
+        }
       }
       else {
         usuario.disabled = false;
