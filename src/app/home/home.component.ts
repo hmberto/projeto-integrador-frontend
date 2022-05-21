@@ -115,28 +115,48 @@ export class HomeComponent {
     }
   }
 
-  teste(t) {
+  newFilter(t) {
     this.orderPharmacies = [];
+    document.getElementById("order-1").classList.remove("order-a");
+    document.getElementById("order-1").classList.remove("order-b");
+    document.getElementById("order-2").classList.remove("order-a");
+    document.getElementById("order-2").classList.remove("order-b");
+    document.getElementById("order-4").classList.remove("order-a");
+    document.getElementById("order-4").classList.remove("order-b");
+
     if(t == 1) {
       this.newPharmacies.sort(function (x, y) {
+        document.getElementById("order-1").classList.add("order-b");
+        document.getElementById("order-2").classList.add("order-a");
+        document.getElementById("order-4").classList.add("order-a");
         return x.random - y.random;
       });
     }
     else if(t == 2) {
       this.orderPharmacies.push(t);
       this.newPharmacies.sort(function (x, y) {
+        document.getElementById("order-2").classList.add("order-b");
+        document.getElementById("order-1").classList.add("order-a");
+        document.getElementById("order-4").classList.add("order-a");
         return x.orderFee - y.orderFee;
       });
     }
     else if(t == 3) {
       this.orderPharmacies.push(t);
       this.newPharmacies.sort(function (x, y) {
+        document.getElementById("order-3").classList.add("order-b");
+        document.getElementById("order-1").classList.add("order-a");
+        document.getElementById("order-2").classList.add("order-a");
+        document.getElementById("order-4").classList.add("order-a");
         return x.orderDistance - y.orderDistance;
       });
     }
     else if(t == 4) {
       this.orderPharmacies.push(t);
       this.newPharmacies.sort(function (x, y) {
+        document.getElementById("order-4").classList.add("order-b");
+        document.getElementById("order-1").classList.add("order-a");
+        document.getElementById("order-2").classList.add("order-a");
         return x.orderTime - y.orderTime;
       });
     }
@@ -149,10 +169,10 @@ export class HomeComponent {
     }
 
     if(this.orderPharmacies[0] != undefined) {
-      this.teste(this.orderPharmacies[0]);
+      this.newFilter(this.orderPharmacies[0]);
     }
     else {
-      this.teste(1);
+      this.newFilter(1);
     }
     
     return this.newPharmacies;

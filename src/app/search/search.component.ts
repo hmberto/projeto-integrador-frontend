@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { Router } from '@angular/router';
-import { ProductService } from './product.service';
+import { SearchService } from './search.service';
+import { ProductService } from '../products/product.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class SearchComponent implements OnInit {
   product: Product;
   constructor(private router: Router,
+    private searchService: SearchService,
     private productService: ProductService) { }
 
   ngOnInit() {
@@ -41,7 +43,13 @@ export class ProductsComponent implements OnInit {
   validate() {
     const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
     const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const h2name = (<HTMLSelectElement>document.getElementById('search-name'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('pesquisa');
+    
+    h2name.textContent="Pesquisando por: " + myParam
 
     contaiver.classList.add("class-hide");
 
@@ -59,14 +67,14 @@ export class ProductsComponent implements OnInit {
     const longitude = window.localStorage.getItem("longitude");
 
     if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
-      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + latitude + "/" + longitude;
+      const url = "https://projeto-integrador-products.herokuapp.com/product/search/20/" + latitude + "/" + longitude + "/" + myParam;
       this.productService.getProducts(url);
     }
     else if(userCep != null && userCep != "null") {
       this.productService.getByCep();
     }
     else if(session != null && session != "null") {
-      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + session;
+      const url = "https://projeto-integrador-products.herokuapp.com/product/search/20/" + session + "/" + myParam;
       this.productService.getProducts(url);
     }
     else {
@@ -78,23 +86,14 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts(url);
   }
 
-  get drogariaSpProducts(): Product[] {
-    return this.productService.gettedProducts.filter((product) => product.pharmacy === 'Drogaria São Paulo');
-  }
-
-  get ultrafarmaProducts(): Product[] {
-    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Ultrafarma');
-  }
-
-  get pagueMenosProducts(): Product[] {
-    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Pague Menos');
-  }
-
-  get drogaRaiaProducts(): Product[] {
-    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Droga Raia');
+  get productsGetted(): Product[] {
+    return this.productService.gettedProducts;
   }
 
   productClick(product: Product): void {
-    this.router.navigate(['adicionar'], { queryParams: { id: product.id } });
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('pesquisa');
+    
+    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pesquisa: myParam } });
   }
 }

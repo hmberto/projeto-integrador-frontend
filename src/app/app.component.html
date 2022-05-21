@@ -7,7 +7,7 @@
         </ul>
         <div id="divSearch">
             <input type="text" id="txtSearch" placeholder="Busque produtos"/>
-            <a routerLink="/produtos"><img id="search-icon" src="assets/icons/search.png" alt=""></a>
+            <a><img id="search-icon" (click)="search()" src="assets/icons/search.png" alt=""></a>
         </div>
         <ul id="nav-mobile" class="right">
             <li routerLinkActive="active"><a id="logged1" routerLink="/login">Login</a></li>
@@ -46,7 +46,7 @@
 <div id="search-mobile">
     <div id="divSearchMobile" class="hide-search">
         <input type="text" id="txtSearchMobile" placeholder="Busque produtos"/>
-        <a routerLink="/produtos"><img id="search-icon-mobile" src="assets/icons/search.png" alt=""></a>
+        <a><img id="search-icon-mobile" (click)="search()" src="assets/icons/search.png" alt=""></a>
     </div>
 </div>
 

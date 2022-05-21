@@ -1,0 +1,41 @@
+form {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+legend {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #9700a5;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+label {
+    color: #9700a5;
+}
+
+#name:focus, #email:focus, #feedback:focus {
+    border-color: #9700a5;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+button:hover {
+    background: #c100d3;
+    transition: .2s;
+}
+
+#login-box label {
+    color: #9700a5;
+}

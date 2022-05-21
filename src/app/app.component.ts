@@ -36,7 +36,13 @@ export class AppComponent {
   }
 
   ngOnInit(){
+    if(window.location.protocol == "http:" && window.location.host != "localhost:4200") {
+      window.location.href = "https://" + window.location.host
+    }
+    
     this.updateNav();
+
+    this.eventListSearch()
 
     document.getElementById('logged4').addEventListener("click", () => {
       menu.classList.add("hide-menu-mobile");
@@ -90,10 +96,52 @@ export class AppComponent {
     }
   }
 
+  eventListSearch() {
+    const search1 = (<HTMLSelectElement>document.getElementById('txtSearch'));
+    const search2 = (<HTMLSelectElement>document.getElementById('txtSearchMobile'));
+
+    let handleEvent = (event: KeyboardEvent) => {
+      var key = event.which || event.keyCode;
+      if (key == 13) {
+        this.search();
+      }
+    }
+    
+    search1.addEventListener('keyup', function(e){
+      var key = e.which || e.keyCode;
+      if (key == 13) {
+        handleEvent(<any>e);
+      }
+    });
+
+    search2.addEventListener('keyup', function(e){
+      var key = e.which || e.keyCode;
+      if (key == 13) {
+        handleEvent(<any>e);
+      }
+    });
+  }
+
+  search() {
+    const search1 = (<HTMLSelectElement>document.getElementById('txtSearch'));
+    const search2 = (<HTMLSelectElement>document.getElementById('txtSearchMobile'));
+    if(search1.value.length > 0) {
+      // this.router.navigate(['pesquisar'], { queryParams: { pesquisa: search1.value } });
+      window.location.href = window.location.protocol + "//" + window.location.host + "/pesquisar?pesquisa=" + search1.value
+    }
+    else if(search2.value.length) {
+      // this.router.navigate(['pesquisar'], { queryParams: { pesquisa: search2.value } });
+      window.location.href = window.location.protocol + "//" + window.location.host + "/pesquisar?pesquisa=" + search2.value
+    }
+  }
+
   showSearch() {
+    const search2 = (<HTMLSelectElement>document.getElementById('txtSearchMobile'));
+
     if(document.getElementById("divSearchMobile").classList.contains("hide-search")) {
       document.getElementById("divSearchMobile").classList.remove("hide-search");
       document.getElementById("divSearchMobile").classList.add("show-search");
+      search2.focus();
     }
     else {
       document.getElementById("divSearchMobile").classList.remove("show-search");

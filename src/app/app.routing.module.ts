@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CadastroComponent } from './register/cadastro.component';
+import { SearchComponent } from './search/search.component';
 import { CartComponent } from './cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProductsComponent } from './products/products.component';
@@ -14,6 +15,7 @@ import { ChangePassComponent } from './change-pass/change-pass.component';
 import { RecoveryComponent } from './recovery/recovery.component';
 import { UserPComponent } from './user-profile/user.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -26,6 +28,8 @@ const appRoutes: Routes = [
     { path: 'recuperacao', component: RecoveryComponent },
     { path: 'usuario', component: UserPComponent },
     { path: 'faleConosco', component: ContactUsComponent },
+    { path: 'pesquisar', component: SearchComponent },
+    { path: 'checkout', component: CheckoutComponent },
     { path: '', component: HomeComponent },
     //     canActivate: [AuthGuard] 
     // },

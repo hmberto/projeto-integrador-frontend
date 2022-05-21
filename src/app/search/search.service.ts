@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Product } from '../../models/product';
 
 @Injectable()
-export class ProductService {
+export class SearchService {
   gettedProducts: Product[] = [];
 
   getProducts(url) {
@@ -74,15 +74,8 @@ export class ProductService {
         let state = address['uf'];
         let city = address['localidade'];
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const myParam = urlParams.get('pesquisa');
-
-        let urlP = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + street + "/" + district + "/" + state + "/" + city;
-        if(myParam != null) {
-          urlP = "https://projeto-integrador-products.herokuapp.com/product/search/20/" + street + "/" + district + "/" + state + "/" + city + "/" + myParam;
-        }
-
-        this.getProducts(urlP);
+        const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + street + "/" + district + "/" + state + "/" + city;
+        this.getProducts(url);
       }
       else {
         this.showLocationNotFound()

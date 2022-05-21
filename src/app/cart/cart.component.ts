@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
+import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  constructor(private cartService: CartService) { }
+  constructor(private router: Router,
+    private cartService: CartService) { }
 
   newPrice = [];
   newItems = [];
@@ -66,5 +68,15 @@ export class CartComponent implements OnInit {
       return x.id - y.id;
     });
     return this.newItems;
+  }
+
+  goCheckout() {
+    const session = window.localStorage.getItem("session");
+    if(session != null && session != "null") {
+      this.router.navigate(['checkout']);
+    }
+    else {
+      this.router.navigate(['login'], { queryParams: { checkout: 'true' } });
+    }
   }
 }

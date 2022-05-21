@@ -64,7 +64,7 @@
 .info {
     display: block;
     margin: auto;
-    width: 50%;
+    width: 100%;
     text-align: left;
 }
 
@@ -180,11 +180,54 @@
     border: none;
     text-decoration: none;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 #checkout:hover {
     background: #c100d3;
     transition: .2s;
+}
+
+#deliveryInfo, #detalhes {
+    padding: 0 60px;
+}
+
+#deliveryInfo span {
+    font-size: 16px;
+}
+
+#infoUser, #pharmacyUser, #pharmacyDist {
+    margin-bottom: 20px;
+}
+
+#infoUser span, #pharmacyUser span {
+    display: block;
+}
+
+#userAddress, #pharmacyAddress, #pharmacyDistance, #deliveryFee, #deliveryTime {
+    font-weight: bold;
+}
+
+#titleDist {
+    display: block;
+}
+
+#pagamento {
+    padding: 0 0 20px 0;
+    max-width: 500px;
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+#pagamento label {
+    color: #9700a5;
+}
+
+#cardNumber:focus, #cardName:focus, #cardDate:focus, #cardCvv:focus, #cardDoc:focus {
+    border-color: #9700a5;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 @media(max-width: 900px) {
@@ -194,6 +237,14 @@
 
     #div-checkout {
         padding: 0px 20px 20px 20px;
+    }
+
+    #pagamento {
+        padding: 0 20px;
+    }
+
+    #deliveryInfo, #detalhes {
+        padding: 0 20px;
     }
 
     .price-box {
@@ -262,14 +313,6 @@
         float: left;
         margin-right: 15px;
     }
-
-    .price-span {
-        font-size: 14px;
-    }
-
-    .clear-span {
-        font-size: 14px;
-    }
 }
 
 @media(max-width: 320px) {
@@ -319,12 +362,23 @@
         margin-bottom: 10px;
     }
 
+    .price-span {
+        font-size: 14px;
+    }
+
     .price-box {
         margin: 0 15px;
     }
 
-    .price-box {
-        margin: 0 0px;
-        border-radius: 0;
+    #div-checkout {
+        padding: 0px 15px 20px 15px;
+        margin-top: 10px;
+    }
+
+    #checkout {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10px;
     }
 }
