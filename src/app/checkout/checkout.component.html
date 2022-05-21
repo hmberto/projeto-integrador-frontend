@@ -91,10 +91,19 @@
 
 <div class="price price-bottom">
     <div class="price-box" *ngFor="let total of cartTotal">
-        <span id="change-price-b" class="price-span">Total: R$ {{total}}</span>
+        <span id="change-price-b" class="price-span">Detalhes</span>
     </div>
 </div>
 
+<div>
+    <div id="detalhes">
+        <div *ngFor="let total of cartTotal">
+            <span>Total: R$ {{total}}</span>
+        </div>
+        <span id="fee2"></span>
+    </div>
+</div>
+<br>
 <div>
     <div id="div-checkout">
         <button id="checkout" type="button" (click)="goBack()">Voltar</button>

@@ -23,11 +23,6 @@ export class CheckoutService {
       pharmacyName: pharmacyName
     });
 
-    const changePriceA = (<HTMLSelectElement>document.getElementById("change-price-a"));
-    const changePriceB = (<HTMLSelectElement>document.getElementById("change-price-b"));
-    
-    // console.log(this.cartService.cartTotal().toString().replace(".", ","));
-    
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-Type", "application/json");
@@ -61,7 +56,9 @@ export class CheckoutService {
         pharmacyDistance.textContent =resp[pharmacyName]['distancia'] + " - ";
 
         const deliveryFee = (<HTMLSelectElement>document.getElementById("deliveryFee"));
+        const fee2 = (<HTMLSelectElement>document.getElementById("fee2"));
         deliveryFee.textContent =resp[pharmacyName]['fee'];
+        fee2.textContent ="Entrega: " + resp[pharmacyName]['fee'];
 
         const deliveryTime = (<HTMLSelectElement>document.getElementById("deliveryTime"));
         deliveryTime.textContent =resp[pharmacyName]['time'] + " - ";
