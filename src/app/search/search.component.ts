@@ -94,6 +94,6 @@ export class SearchComponent implements OnInit {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('pesquisa');
     
-    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pesquisa: myParam } });
+    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pharmacy: product.pharmacy, pesquisa: myParam } });
   }
 }

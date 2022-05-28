@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
 import { ProductService } from '../products/product.service';
+import { filter } from 'rxjs-compat/operator/filter';
 
 @Component({
   selector: 'app-add-to-bag',
@@ -11,6 +12,8 @@ import { ProductService } from '../products/product.service';
   styleUrls: ['./add-to-bag.component.css']
 })
 export class AddToBagComponent implements OnInit, OnDestroy {
+  newItemsFilter: Product[] = [];
+
   product: Product;
   subscription: Subscription;
 
@@ -22,7 +25,8 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.activatedRoute.queryParams.subscribe(params => {
       const id = params['id'];
-      this.product = this.getProduct(id);
+      const pharmacy = params['pharmacy'];
+      this.product = this.getProduct(id, pharmacy);
     });
   }
 
@@ -30,8 +34,9 @@ export class AddToBagComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  getProduct(id: string): Product {
-    return this.productService.gettedProducts.find(product => product.id === id);
+  getProduct(id: string, pharmacy: string): Product {
+    console.log(pharmacy);
+    return this.productService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy);
   }
 
   addToCart(product: Product) {
