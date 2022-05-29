@@ -33,6 +33,8 @@ import { SearchComponent } from './search/search.component';
 import { SearchService } from './search/search.service';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutService } from './checkout/checkout.service';
+import { OrderComponent } from './order/order.component';
+import { OrderService } from './order/order.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { CheckoutService } from './checkout/checkout.service';
     UserPComponent,
     ContactUsComponent,
     SearchComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import { CheckoutService } from './checkout/checkout.service';
     HomeService,
     ContactUsService,
     SearchService,
-    CheckoutService
+    CheckoutService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

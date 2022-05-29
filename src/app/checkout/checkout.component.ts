@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { CheckoutService } from './checkout.service';
 import { AppComponent } from '../app.component';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-cart',
@@ -19,6 +20,8 @@ export class CheckoutComponent implements OnInit {
   newPrice = [];
   newItems = [];
   itemsId = [];
+
+  sendProductsData = [];
 
   ngOnInit() {
     const session = window.localStorage.getItem("session");
@@ -123,12 +126,64 @@ export class CheckoutComponent implements OnInit {
   }
 
   goCheckout() {
+    const checkoutSession = (<HTMLSelectElement>document.getElementById("checkoutSession"));
+    const loading = (<HTMLSelectElement>document.getElementById("loading"));
+
+    checkoutSession.classList.add("class-hide");
+
+    loading.classList.remove("class-hide");
+    loading.classList.add("class-flex");
+
     const cardNumber = (<HTMLSelectElement>document.getElementById("cardNumber")).value;
     const cardName = (<HTMLSelectElement>document.getElementById("cardName")).value;
     const cardDate = (<HTMLSelectElement>document.getElementById("cardDate")).value;
     const cardCvv = (<HTMLSelectElement>document.getElementById("cardCvv")).value;
     const cardDoc = (<HTMLSelectElement>document.getElementById("cardDoc")).value;
 
-    // this.router.navigate(['checkout']);
+    const pharmacyDistance = (<HTMLSelectElement>document.getElementById("pharmacyDistance"));
+    const deliveryTime = (<HTMLSelectElement>document.getElementById("deliveryTime"));
+    const deliveryFee = (<HTMLSelectElement>document.getElementById("deliveryFee"));
+    const userAddress = (<HTMLSelectElement>document.getElementById("userAddress"));
+
+    const pharmacyDistanceValue = pharmacyDistance.textContent.replace(" km - ", "");
+    const deliveryTimeValue = deliveryTime.textContent.replace(" min - ", "");
+    const deliveryFeeValue = deliveryFee.textContent.replace("R$ ", "").replace(",", ".");
+
+    for(let i = 0 ; i < this.cartService.items.length ; i++) {
+      this.sendProductsData.push(this.cartService.items[i].id + "-" + this.cartService.items[i].pharmacy + "-" + this.cartService.items[i].price.replace("R$ ", ""));
+    }
+
+    const url = "https://projeto-integrador-myorder.herokuapp.com/order/complete";
+
+    const body = JSON.stringify({
+      products: this.sendProductsData,
+      session: window.localStorage.getItem("session"),
+      cardNumber: cardNumber,
+      cardName: cardName,
+      cardDate: cardDate,
+      cardCvv: cardCvv,
+      cardDoc: cardDoc,
+      pharmacyDistance: pharmacyDistanceValue,
+      deliveryTime: deliveryTimeValue,
+      deliveryFee: deliveryFeeValue,
+      deliveryAddress: userAddress.textContent
+    });
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(body);
+
+    xhttp.addEventListener('loadend', () => {
+      if(xhttp.status == 200) {
+        this.router.navigate(['pedido'], { queryParams: { orderId: JSON.parse(xhttp.response)['orderId'] } });
+      }
+      else {
+        checkoutSession.classList.remove("class-hide");
+        
+        loading.classList.remove("class-flex");
+        loading.classList.add("class-hide");
+      }
+    });
   }
 }

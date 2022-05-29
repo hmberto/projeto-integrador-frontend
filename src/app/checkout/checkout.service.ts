@@ -62,6 +62,33 @@ export class CheckoutService {
 
         const deliveryTime = (<HTMLSelectElement>document.getElementById("deliveryTime"));
         deliveryTime.textContent =resp[pharmacyName]['time'] + " - ";
+
+        const totalPrice = (<HTMLSelectElement>document.getElementById("totalPrice"));
+        const totalProducts = (<HTMLSelectElement>document.getElementById("totalProducts"));
+
+        const totalProductsValue = totalProducts.textContent.replace("Total Produtos: R$ ", "").replace(",", ".");
+        const fee2Value = fee2.textContent.replace("Entrega: R$ ", "").replace(",", ".");
+
+        let newString = "Total: R$ " + (parseFloat(totalProductsValue) + parseFloat(fee2Value));
+
+        totalPrice.textContent=newString.replace(".", ",");
+
+        const loadingAddress = (<HTMLSelectElement>document.getElementById("loadingAddress"));
+        const loadingTotal = (<HTMLSelectElement>document.getElementById("loadingTotal"));
+        const deliveryInfo = (<HTMLSelectElement>document.getElementById("deliveryInfo"));
+        const detalhes = (<HTMLSelectElement>document.getElementById("detalhes"));
+
+        loadingAddress.classList.remove("class-flex");
+        loadingAddress.classList.add("class-hide");
+
+        loadingTotal.classList.remove("class-flex");
+        loadingTotal.classList.add("class-hide");
+
+        deliveryInfo.classList.remove("class-hide");
+        detalhes.classList.remove("class-hide");
+
+        const checkout = (<HTMLSelectElement>document.getElementById("checkout"));
+        checkout.disabled=false;
       }
       else {
         window.localStorage.setItem("session", null);
