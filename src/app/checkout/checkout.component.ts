@@ -166,7 +166,9 @@ export class CheckoutComponent implements OnInit {
       pharmacyDistance: pharmacyDistanceValue,
       deliveryTime: deliveryTimeValue,
       deliveryFee: deliveryFeeValue,
-      deliveryAddress: userAddress.textContent
+      deliveryAddress: userAddress.textContent,
+      pharmacyCnpj: localStorage.getItem("pharmacyCnpj"),
+      pharmacyId: localStorage.getItem("pharmacyId")
     });
 
     var xhttp = new XMLHttpRequest();
@@ -176,6 +178,11 @@ export class CheckoutComponent implements OnInit {
 
     xhttp.addEventListener('loadend', () => {
       if(xhttp.status == 200) {
+        localStorage.setItem("pharmacyCnpj", null);
+        localStorage.setItem("pharmacyId", null);
+
+        this.clearCart();
+
         this.router.navigate(['pedido'], { queryParams: { orderId: JSON.parse(xhttp.response)['orderId'] } });
       }
       else {

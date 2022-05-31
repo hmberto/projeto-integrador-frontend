@@ -69,7 +69,7 @@ export class CheckoutService {
         const totalProductsValue = totalProducts.textContent.replace("Total Produtos: R$ ", "").replace(",", ".");
         const fee2Value = fee2.textContent.replace("Entrega: R$ ", "").replace(",", ".");
 
-        let newString = "Total: R$ " + (parseFloat(totalProductsValue) + parseFloat(fee2Value));
+        let newString = "Total: R$ " + Math.round((parseFloat(totalProductsValue) + parseFloat(fee2Value)) * 100) / 100;
 
         totalPrice.textContent=newString.replace(".", ",");
 
@@ -89,6 +89,9 @@ export class CheckoutService {
 
         const checkout = (<HTMLSelectElement>document.getElementById("checkout"));
         checkout.disabled=false;
+
+        localStorage.setItem("pharmacyCnpj", resp[pharmacyName]['pharmacyCnpj']);
+        localStorage.setItem("pharmacyId", resp[pharmacyName]['pharmacyId']);
       }
       else {
         window.localStorage.setItem("session", null);
