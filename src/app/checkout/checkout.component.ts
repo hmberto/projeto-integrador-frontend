@@ -125,7 +125,33 @@ export class CheckoutComponent implements OnInit {
     this.router.navigate(['carrinho']);
   }
 
+  testarCC(nr, cartoes) {
+    for (var cartao in cartoes) if (nr.match(cartoes[cartao])) return cartao;
+    return false;
+  }
+
   goCheckout() {
+    var cartoes = {
+      Visa: /^4[0-9]{12}(?:[0-9]{3})/,
+      Mastercard: /^5[1-5][0-9]{14}/,
+      Amex: /^3[47][0-9]{13}/,
+      DinersClub: /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
+      Discover: /^6(?:011|5[0-9]{2})[0-9]{12}/,
+      JCB: /^(?:2131|1800|35\d{3})\d{11}/
+    };
+
+    const cardNumber = (<HTMLSelectElement>document.getElementById("cardNumber")).value.replace(/\s/g, '');
+    const cardName = (<HTMLSelectElement>document.getElementById("cardName")).value;
+    const cardDate = (<HTMLSelectElement>document.getElementById("cardDate")).value;
+    const cardCvv = (<HTMLSelectElement>document.getElementById("cardCvv")).value;
+    const cardDoc = (<HTMLSelectElement>document.getElementById("cardDoc")).value;
+
+    const validateCard = this.testarCC(cardNumber, cartoes);
+
+    if(cardNumber.length != 16 || validateCard == false) {
+      return;
+    }
+
     const checkoutSession = (<HTMLSelectElement>document.getElementById("checkoutSession"));
     const loading = (<HTMLSelectElement>document.getElementById("loading"));
 
@@ -133,12 +159,6 @@ export class CheckoutComponent implements OnInit {
 
     loading.classList.remove("class-hide");
     loading.classList.add("class-flex");
-
-    const cardNumber = (<HTMLSelectElement>document.getElementById("cardNumber")).value;
-    const cardName = (<HTMLSelectElement>document.getElementById("cardName")).value;
-    const cardDate = (<HTMLSelectElement>document.getElementById("cardDate")).value;
-    const cardCvv = (<HTMLSelectElement>document.getElementById("cardCvv")).value;
-    const cardDoc = (<HTMLSelectElement>document.getElementById("cardDoc")).value;
 
     const pharmacyDistance = (<HTMLSelectElement>document.getElementById("pharmacyDistance"));
     const deliveryTime = (<HTMLSelectElement>document.getElementById("deliveryTime"));
@@ -163,6 +183,7 @@ export class CheckoutComponent implements OnInit {
       cardDate: cardDate,
       cardCvv: cardCvv,
       cardDoc: cardDoc,
+      cardFlag: validateCard,
       pharmacyDistance: pharmacyDistanceValue,
       deliveryTime: deliveryTimeValue,
       deliveryFee: deliveryFeeValue,
