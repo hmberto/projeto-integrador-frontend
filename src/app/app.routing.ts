@@ -16,6 +16,7 @@ import { UserPComponent } from './user-profile/user.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderComponent } from './order/order.component';
+import { MyOrderComponent } from './my-order/my-order.component';
 
 const APP_ROUTES: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -32,6 +33,7 @@ const APP_ROUTES: Routes = [
     { path: 'pesquisar', component: SearchComponent },
     { path: 'checkout', component: CheckoutComponent },
     { path: 'pedido', component: OrderComponent },
+    { path: 'myOrder', component: MyOrderComponent },
     { path: '', component: HomeComponent }
 ];
 

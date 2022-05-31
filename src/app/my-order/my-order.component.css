@@ -1,0 +1,72 @@
+.my-order {
+    height: 74px;
+    display: block;
+    margin: 0.5vw;
+}
+
+.rectangle {
+    display: flex;
+    position: absolute;
+    height: 74px;
+    width: 4px;
+    left: 3px;
+    background-color: #9700a5;
+}
+
+.order-status {
+    margin-left: 0.5vw;
+    font-weight: 700;
+    text-transform: uppercase;
+
+}
+
+.order-status-date {
+    font-size: 15px;
+    font-weight: 400;
+    float: right;
+    text-transform: none;
+}
+
+.order-content {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5vw;
+}
+
+.order-content-id {
+    width: 49vw;
+    font-size: 20px;
+}
+
+.order-content-price {
+    display: block;
+    width: 49vw;
+    text-align: right;
+    font-size: 25px;
+    font-weight: 700;
+    color: #9700a5;
+}
+
+.section {
+    margin: 0.5vw;
+}
+
+.title {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.track-btn-section {
+    display: flex;
+    justify-content: end;
+    margin: 0.5vw;
+}
+
+button {
+    height: 4vh;
+    background-color: #9700a5;
+    color: white;
+    font-weight: 700;
+}

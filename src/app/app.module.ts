@@ -35,6 +35,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutService } from './checkout/checkout.service';
 import { OrderComponent } from './order/order.component';
 import { OrderService } from './order/order.service';
+import { MyOrderComponent } from './my-order/my-order.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { OrderService } from './order/order.service';
     ContactUsComponent,
     SearchComponent,
     CheckoutComponent,
-    OrderComponent
+    OrderComponent,
+    MyOrderComponent
   ],
   imports: [
     BrowserModule,
