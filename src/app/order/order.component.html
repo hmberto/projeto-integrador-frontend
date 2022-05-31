@@ -1,0 +1,53 @@
+<div class="price price-top">
+  <div class="price-box" *ngFor="let orderNumber of orderNumber">
+      <span class="price-span">Pedido #{{orderNumber}}</span>
+  </div>
+</div>
+
+<div class="container">
+  <div>
+    <span class="txt">Previsão de entrega</span>
+    <span class="time">14:23 - 14:33</span>
+  </div>
+  <div>
+    <span class="txt">O pedido está sendo preparado e logo saírá para entrega</span>
+  </div>
+</div>
+
+<div class="price price-top">
+  <div class="price-box" *ngFor="let orderNumber of orderNumber">
+    <img class="img-location" src="assets/icons/location1.png" alt="">
+    <span class="price-span">Entrega</span>
+  </div>
+</div>
+
+<div class="container">
+  <div>
+    <span class="txt">A entrega do seu pedido será feita por um entregador parceiro</span>
+    <span class="txtTitle">Entrega em</span>
+
+    <span class="txt">Avenida Paulista, 119 - AP 23 - Bela Vista, São Paulo - SP, 01311-903</span>
+    
+  </div>
+</div>
+
+<div class="price price-top">
+  <div class="price-box" *ngFor="let orderNumber of orderNumber">
+    <img class="img-list" src="assets/icons/list.png" alt="">
+    <span class="price-span">Detalhes</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="detalhes">
+    <span class="txt txt-a">Total Produtos: R$ 33,16</span>
+    <span class="txt-a">Entrega: R$ 6,71</span>
+    <span class="txt-a">Total: R$ 39,87</span>
+  </div>
+</div>
+
+<div id="loading" class="class-hide">
+  <div class="loading">
+      <img src="assets/icons/loading_icon.gif" alt="">
+  </div>
+</div>

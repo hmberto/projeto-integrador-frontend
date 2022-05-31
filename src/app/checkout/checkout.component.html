@@ -1,112 +1,135 @@
-<div class="price price-top">
-    <div class="price-box" *ngFor="let total of cartTotal">
-        <span class="price-span">Resumo</span>
+<div id="checkoutSession">
+    <div class="price price-top">
+        <div class="price-box" *ngFor="let total of cartTotal">
+            <span class="price-span">Resumo</span>
+        </div>
     </div>
-</div>
-
-<div class="products">
-    <div class="container">
-        <div class="product" *ngFor="let product of getCart">
-            <img class="product-image" [src]="product.image">
-            <div class="info">
-                <span class="product-name">
-                    {{product.name}}
-                </span>
-                <span class="product-shop">
-                    {{product.pharmacy}}
-                </span>
-                <span class="product-amount">
-                    {{product.amount}}
-                </span>
-                <span class="product-price">
-                    {{product.price}}
-                </span>
+    
+    <div class="products">
+        <div class="container">
+            <div class="product" *ngFor="let product of getCart">
+                <img class="product-image" [src]="product.image">
+                <div class="info">
+                    <span class="product-name">
+                        {{product.name}}
+                    </span>
+                    <span class="product-shop">
+                        {{product.pharmacy}}
+                    </span>
+                    <span class="product-amount">
+                        {{product.amount}}
+                    </span>
+                    <span class="product-price">
+                        {{product.price}}
+                    </span>
+                </div>
+                <div class="div-remove">
+                    <span class="qnt" id="id-{{product.id}}">{{product.qnt}}</span>
+                </div>
             </div>
-            <div class="div-remove">
-                <span class="qnt" id="id-{{product.id}}">{{product.qnt}}</span>
+        </div>
+    </div>
+    
+    <div class="price price-bottom">
+        <div class="price-box" *ngFor="let total of cartTotal">
+            <span id="change-price-a" class="price-span">Total: R$ {{total}}</span>
+        </div>
+    </div>
+    
+    <div id="loadingAddress" class="class-flex">
+        <div class="loadingAddress">
+            <img src="assets/icons/loading_icon.gif" alt="">
+        </div>
+    </div>
+    
+    <div>
+        <div id="deliveryInfo" class="class-hide">
+            <div id="pharmacyUser">
+                <span id="farmacyName">Endereço da farmácia</span>
+                <span id="pharmacyAddress"></span>
+            </div>
+            <div id="infoUser">
+                <span>Entregar em</span>
+                <span id="userAddress"></span>
+            </div>
+            <div id="pharmacyDist">
+                <span id="titleDist">Distância</span>
+                <span id="pharmacyDistance"></span>
+                <span id="deliveryTime"></span>
+                <span id="deliveryFee"></span>
             </div>
         </div>
     </div>
-</div>
-
-<div class="price price-bottom">
-    <div class="price-box" *ngFor="let total of cartTotal">
-        <span id="change-price-a" class="price-span">Total: R$ {{total}}</span>
-    </div>
-</div>
-
-<div>
-    <div id="deliveryInfo">
-        <div id="pharmacyUser">
-            <span id="farmacyName">Endereço da farmácia</span>
-            <span id="pharmacyAddress"></span>
-        </div>
-        <div id="infoUser">
-            <span>Entregar em</span>
-            <span id="userAddress"></span>
-        </div>
-        <div id="pharmacyDist">
-            <span id="titleDist">Distância</span>
-            <span id="pharmacyDistance"></span>
-            <span id="deliveryTime"></span>
-            <span id="deliveryFee"></span>
+    
+    <div class="price price-bottom">
+        <div class="price-box" *ngFor="let total of cartTotal">
+            <span class="price-span">Pagamento</span>
         </div>
     </div>
-</div>
-
-<div class="price price-bottom">
-    <div class="price-box" *ngFor="let total of cartTotal">
-        <span class="price-span">Pagamento</span>
+    
+    <div>
+        <div id="pagamento">
+            <label for="cardNumber">Número do cartão</label>
+            <input id="cardNumber" type="text">
+    
+            <label for="cardName">Nome do titular</label>
+            <input id="cardName" type="text">
+    
+            <label for="cardDate">Validade</label>
+            <input id="cardDate" type="text">
+    
+            <label for="cardCvv">CVV</label>
+            <input id="cardCvv" type="text">
+    
+            <label for="cardDoc">CPF/CNPJ do titular</label>
+            <input id="cardDoc" type="text">
+        </div>
     </div>
-</div>
-
-<div>
-    <div id="pagamento">
-        <label for="cardNumber">Número do cartão</label>
-        <input id="cardNumber" type="text">
-
-        <label for="cardName">Nome do titular</label>
-        <input id="cardName" type="text">
-
-        <label for="cardDate">Validade</label>
-        <input id="cardDate" type="text">
-
-        <label for="cardCvv">CVV</label>
-        <input id="cardCvv" type="text">
-
-        <label for="cardDoc">CPF/CNPJ do titular</label>
-        <input id="cardDoc" type="text">
+    
+    <div class="empty-cart hide-empty-box">
+        <div class="empty-cart-box">
+            <div class="empty-box">
+                <span class="span1">Sua sacola está vazia</span>
+                <span>Adicione itens</span>
+                <img src="../../assets/icons/cart-page.png" alt="">
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="empty-cart hide-empty-box">
-    <div class="empty-cart-box">
-        <div class="empty-box">
-            <span class="span1">Sua sacola está vazia</span>
-            <span>Adicione itens</span>
-            <img src="../../assets/icons/cart-page.png" alt="">
+    
+    <div class="price price-bottom">
+        <div class="price-box" *ngFor="let total of cartTotal">
+            <span id="change-price-b" class="price-span">Detalhes</span>
+        </div>
+    </div>
+    
+    <div id="loadingTotal" class="class-flex">
+        <div class="loadingAddress">
+            <img src="assets/icons/loading_icon.gif" alt="">
+        </div>
+    </div>
+    
+    <div>
+        <div id="detalhes" class="class-hide">
+            <div *ngFor="let total of cartTotal">
+                <span id="totalProducts">Total Produtos: R$ {{total}}</span>
+            </div>
+            <span id="fee2"></span>
+            <div>
+                <span id="totalPrice"></span>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div id="div-checkout">
+            <button id="back" type="button" (click)="goBack()">Voltar</button>
+            <button id="checkout" disabled type="button" (click)="goCheckout()">Finalizar</button>
         </div>
     </div>
 </div>
 
-<div class="price price-bottom">
-    <div class="price-box" *ngFor="let total of cartTotal">
-        <span id="change-price-b" class="price-span">Detalhes</span>
-    </div>
-</div>
-
-<div>
-    <div id="detalhes">
-        <div *ngFor="let total of cartTotal">
-            <span>Total: R$ {{total}}</span>
-        </div>
-        <span id="fee2"></span>
-    </div>
-</div>
-<br>
-<div>
-    <div id="div-checkout">
-        <button id="checkout" type="button" (click)="goBack()">Voltar</button>
-        <button id="checkout" type="button" (click)="goCheckout()">Finalizar</button>
+<div id="loading" class="class-hide">
+    <div class="loading">
+        <img src="assets/icons/loading_icon.gif" alt="">
     </div>
 </div>

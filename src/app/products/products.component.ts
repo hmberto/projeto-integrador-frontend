@@ -95,6 +95,6 @@ export class ProductsComponent implements OnInit {
   }
 
   productClick(product: Product): void {
-    this.router.navigate(['adicionar'], { queryParams: { id: product.id } });
+    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pharmacy: product.pharmacy } });
   }
 }
