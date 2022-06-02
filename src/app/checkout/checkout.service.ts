@@ -118,9 +118,8 @@ export class CheckoutService {
         let city = address['localidade'];
         let newCep = address['cep'];
 
-        
         let newAddress = street + ", " + numero + " - " + complemento + " - " + district + ", " + city + " - " + state + ", " + newCep;
-        if(complemento == "") {
+        if(complemento == "" || complemento == "NULL") {
           newAddress = street + ", " + numero + " - " + district + ", " + city + " - " + state + ", " + newCep;
         }
 

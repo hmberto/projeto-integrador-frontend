@@ -2,6 +2,11 @@
     min-height: 50vh;
 }
 
+#deliveryInfo, #detalhes {
+    max-width: 1366px;
+    margin: auto;
+}
+
 .products {
     margin: auto;
     display: block;

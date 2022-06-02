@@ -5,9 +5,9 @@
 </div>
 
 <div class="container">
-  <div>
+  <div *ngFor="let order of order">
     <span class="txt">Previsão de entrega</span>
-    <span class="time">14:23 - 14:33</span>
+    <span class="time">{{order.tempoEntrega}}</span>
   </div>
   <div>
     <span class="txt">O pedido está sendo preparado e logo saírá para entrega</span>
@@ -22,11 +22,11 @@
 </div>
 
 <div class="container">
-  <div>
+  <div *ngFor="let order of order">
     <span class="txt">A entrega do seu pedido será feita por um entregador parceiro</span>
     <span class="txtTitle">Entrega em</span>
 
-    <span class="txt">Avenida Paulista, 119 - AP 23 - Bela Vista, São Paulo - SP, 01311-903</span>
+    <span class="txt">{{order.localEntrega}}</span>
     
   </div>
 </div>
@@ -39,10 +39,10 @@
 </div>
 
 <div class="container">
-  <div class="detalhes">
-    <span class="txt txt-a">Total Produtos: R$ 33,16</span>
-    <span class="txt-a">Entrega: R$ 6,71</span>
-    <span class="txt-a">Total: R$ 39,87</span>
+  <div class="detalhes" *ngFor="let order of order">
+    <span class="txt txt-a">Total Produtos: R$ {{order.totalProdutos}}</span>
+    <span class="txt-a">Entrega: R$ {{order.valorEntrega}}</span>
+    <span class="txt-a">Total: R$ {{order.totalPedido}}</span>
   </div>
 </div>
 
