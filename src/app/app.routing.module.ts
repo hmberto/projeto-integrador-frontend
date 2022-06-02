@@ -16,7 +16,7 @@ import { RecoveryComponent } from './recovery/recovery.component';
 import { UserPComponent } from './user-profile/user.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { OrderComponent } from './order/order.component';
+import { TrackOrderComponent } from './track-order/track-order.component';
 import { MyOrderComponent } from './my-order/my-order.component';
 
 const appRoutes: Routes = [
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     { path: 'faleConosco', component: ContactUsComponent },
     { path: 'pesquisar', component: SearchComponent },
     { path: 'checkout', component: CheckoutComponent },
-    { path: 'pedido', component: OrderComponent },
+    { path: 'pedido', component: TrackOrderComponent },
     { path: 'myOrder', component: MyOrderComponent },
     { path: '', component: HomeComponent },
     //     canActivate: [AuthGuard] 

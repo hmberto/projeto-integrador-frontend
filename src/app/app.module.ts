@@ -33,8 +33,8 @@ import { SearchComponent } from './search/search.component';
 import { SearchService } from './search/search.service';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutService } from './checkout/checkout.service';
-import { OrderComponent } from './order/order.component';
-import { OrderService } from './order/order.service';
+import { TrackOrderComponent } from './track-order/track-order.component';
+import { TrackOrderService } from './track-order/track-order.service';
 import { MyOrderComponent } from './my-order/my-order.component';
 import { MyOrderService } from './my-order/my-order.service';
 import { ApiService } from '../services/api.service';
@@ -59,7 +59,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ContactUsComponent,
     SearchComponent,
     CheckoutComponent,
-    OrderComponent,
+    TrackOrderComponent,
     MyOrderComponent
   ],
   imports: [
@@ -85,7 +85,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ContactUsService,
     SearchService,
     CheckoutService,
-    OrderService,
+    TrackOrderService,
     MyOrderService,
     ApiService
   ],
