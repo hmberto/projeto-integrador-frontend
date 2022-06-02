@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Order } from '../../models/order';
+import { MyOrderService } from './my-order.service';
 
 @Component({
   selector: 'app-my-order',
@@ -8,13 +10,22 @@ import { Router } from '@angular/router';
 })
 export class MyOrderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: MyOrderService) { }
 
   ngOnInit() {
+    const session = window.localStorage.getItem("session");
+    if(session == null || session == "null") {
+      this.router.navigate(['login'], { queryParams: { checkout: 'true' } });
+    }
+
+    this.service.orderData(session);
   }
 
-  trackOrder() {
-    this.router.navigate(['pedido']);
+  get orders(): Order[] {
+    return this.service.myOrders();
   }
 
+  trackOrder(orderId: string) {
+    this.router.navigate(['pedido'], { queryParams: { orderId: orderId } });
+  }
 }

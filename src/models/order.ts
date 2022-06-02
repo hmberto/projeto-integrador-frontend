@@ -14,4 +14,5 @@ export interface Order {
     status: string;
     totalProdutos: string;
     totalPedido: string;
+    products: any[];
 }

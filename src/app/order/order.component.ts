@@ -49,4 +49,8 @@ export class OrderComponent implements OnInit {
     this.newPrice.push(myParam);
     return this.newPrice;
   }
+
+  backClick() {
+    this.router.navigate(['myOrder']);
+  }
 }

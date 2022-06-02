@@ -36,6 +36,11 @@ import { CheckoutService } from './checkout/checkout.service';
 import { OrderComponent } from './order/order.component';
 import { OrderService } from './order/order.service';
 import { MyOrderComponent } from './my-order/my-order.component';
+import { MyOrderService } from './my-order/my-order.service';
+import { ApiService } from '../services/api.service';
+
+import { MatExpansionModule } from '@angular/material/expansion';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -59,9 +64,12 @@ import { MyOrderComponent } from './my-order/my-order.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule,
+    MatExpansionModule
   ],
   providers: [
     AuthService,
@@ -77,7 +85,9 @@ import { MyOrderComponent } from './my-order/my-order.component';
     ContactUsService,
     SearchService,
     CheckoutService,
-    OrderService
+    OrderService,
+    MyOrderService,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

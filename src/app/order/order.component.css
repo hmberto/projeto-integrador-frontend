@@ -117,3 +117,17 @@
         font-size: 14px;
     }
 }
+
+.back-btn {
+    display: flex;
+    justify-content: center;
+    margin: 0.5vw;
+}
+
+button {
+    height: 4.5vh;
+    width: 10vw;
+    background-color: #9700a5;
+    color: white;
+    font-weight: 700;
+}

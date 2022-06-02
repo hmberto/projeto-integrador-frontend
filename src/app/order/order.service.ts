@@ -49,7 +49,8 @@ export class OrderService {
           totalProdutos: jsonOrder['totalProdutos'].replace(".", ","),
           totalPedido: jsonOrder['totalPedido'].replace(".", ","),
           dataEntrega: jsonOrder['dataEntrega'],
-          status: jsonOrder['status']
+          status: jsonOrder['status'],
+          products: jsonOrder['products']
         }
 
         console.log(item)
