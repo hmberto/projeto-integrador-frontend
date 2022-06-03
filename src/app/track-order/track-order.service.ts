@@ -20,8 +20,13 @@ export class TrackOrderService {
       loading.classList.add("class-hide");
 
       container.classList.remove("class-hide");
-      
+
       const order = result[`order-${orderId}`];
+      
+      const deliveryTime = order['tempoEntrega'];
+      const splitedTime = deliveryTime.split("-");
+      
+      order.tempoEntrega = this.userTime(order['dataCompra'], splitedTime[0]) + " - " + this.userTime(order['dataCompra'], splitedTime[1]);
       this.order = <Order>order;
     });
   }

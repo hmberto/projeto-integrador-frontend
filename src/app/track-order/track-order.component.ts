@@ -36,6 +36,6 @@ export class TrackOrderComponent implements OnInit {
   }
 
   backClick() {
-    this.router.navigate(['myOrder']);
+    this.router.navigate(['pedidos']);
   }
 }

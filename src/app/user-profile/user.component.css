@@ -9,10 +9,6 @@
     padding: 0 10px;
 }
 
-.btn {
-    margin: 0 10px;
-}
-
 #sex {
     display: block;
     border: none;
@@ -102,4 +98,37 @@
 
 .class-flex {
     display: flex;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #9700a5;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c100d3;
+    transition: .2s;
+}
+
+#orders {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(78, 78, 78);
+    float: left;
+    padding-top: 8px;
+}
+
+#orderBtn {
+    float: right;
+}
+
+#divorders {
+    
 }

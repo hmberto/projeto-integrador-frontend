@@ -46,6 +46,10 @@ export class UserPComponent implements OnInit {
     this.userPService.getUser(this.register);
   }
 
+  myOrders() {
+    this.router.navigate(['pedidos']);
+  }
+
   saveUser() {
     let t = this.userPService.checkData(this.register);
     if(t['__zone_symbol__value'] == true) {
