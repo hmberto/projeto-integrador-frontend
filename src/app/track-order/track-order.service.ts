@@ -13,6 +13,14 @@ export class TrackOrderService {
     const url = "https://projeto-integrador-myorder.herokuapp.com/orders/" + orderId + "/" + session;
 
     this.apiService.get(url).then((result: any) => {
+      const loading = (<HTMLSelectElement>document.getElementById("loadingA"));
+      const container = (<HTMLSelectElement>document.getElementById("container"));
+
+      loading.classList.remove("class-flex");
+      loading.classList.add("class-hide");
+
+      container.classList.remove("class-hide");
+      
       const order = result[`order-${orderId}`];
       this.order = <Order>order;
     });

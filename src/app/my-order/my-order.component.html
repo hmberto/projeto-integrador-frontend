@@ -1,76 +1,84 @@
-<h3>
-  Meus Pedidos
-</h3>
-
-<mat-accordion class="my-order" *ngFor="let order of orders">
-  <mat-expansion-panel>
-    <mat-expansion-panel-header class="header">
-      <mat-panel-title class="header-title">
-        Pedido: {{ order.idCompra }}
-      </mat-panel-title>
-      <mat-panel-description class="header-description">
-        Status: {{ order.status }}
-      </mat-panel-description>
-      <div class="track-btn-section">
-        <button type="button" (click)="trackOrder(order.idCompra)">
-          Rastrear o pedido
-        </button>
+<div id="container" class="class-hide">
+  <h3>
+    Meus Pedidos
+  </h3>
+  
+  <mat-accordion class="my-order" *ngFor="let order of orders">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header class="header">
+        <mat-panel-title class="header-title">
+          Pedido: {{ order.idCompra }}
+        </mat-panel-title>
+        <mat-panel-description class="header-description">
+          Status: {{ order.status }}
+        </mat-panel-description>
+        <div class="track-btn-section">
+          <button type="button" (click)="trackOrder(order.idCompra)">
+            Rastrear o pedido
+          </button>
+        </div>
+      </mat-expansion-panel-header>
+      <div class="section">
+        <span class="title">
+          Produtos comprados
+        </span>
+        <table>
+          <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+          </tr>
+          <tr *ngFor="let product of order.products">
+            <td>{{ product.nomeProduto }}</td>
+            <td>{{ product.quantidade }} unidade</td>
+            <td>R${{ product.valorTotalItem }}</td>
+          </tr>
+        </table>
       </div>
-    </mat-expansion-panel-header>
-    <div class="section">
-      <span class="title">
-        Produtos comprados
-      </span>
-      <table>
-        <tr>
-          <th>Produto</th>
-          <th>Quantidade</th>
-          <th>Valor</th>
-        </tr>
-        <tr *ngFor="let product of order.products">
-          <td>{{ product.nomeProduto }}</td>
-          <td>{{ product.quantidade }} unidade</td>
-          <td>R${{ product.valorTotalItem }}</td>
-        </tr>
-      </table>
-    </div>
+  
+      <div class="section">
+        <span class="title">
+          Resumo do pedido
+        </span>
+        <table>
+          <tr>
+            <th>Valor Produtos</th>
+            <th>Frete</th>
+            <th>Total</th>
+            <th>Bandeira</th>
+            <th>Número do Cartão</th>
+          </tr>
+          <tr>
+            <td>R$ {{order.totalProdutos}}</td>
+            <td>R$ {{order.valorEntrega}}</td>
+            <td>R$ {{order.totalPedido}}</td>
+            <td>{{order.bandeiraCartao}}</td>
+            <td>{{order.numeroCartao}}</td>
+          </tr>
+        </table>
+      </div>
+  
+      <div class="section">
+        <span class="title">
+          Informações da entrega
+        </span>
+        <table>
+          <tr>
+            <th>localEntrega</th>
+            <th>Tempo de entrega</th>
+          </tr>
+          <tr>
+            <td>{{ order.localEntrega }}</td>
+            <td>{{ order.tempoEntrega }} min</td>
+          </tr>
+        </table>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
 
-    <div class="section">
-      <span class="title">
-        Resumo do pedido
-      </span>
-      <table>
-        <tr>
-          <th>Valor Produtos</th>
-          <th>Frete</th>
-          <th>Total</th>
-          <th>Bandeira</th>
-          <th>Número do Cartão</th>
-        </tr>
-        <tr>
-          <td>R$ {{order.totalProdutos}}</td>
-          <td>R$ {{order.valorEntrega}}</td>
-          <td>R$ {{order.totalPedido}}</td>
-          <td>{{order.bandeiraCartao}}</td>
-          <td>{{order.numeroCartao}}</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="section">
-      <span class="title">
-        Informações da entrega
-      </span>
-      <table>
-        <tr>
-          <th>localEntrega</th>
-          <th>Tempo de entrega</th>
-        </tr>
-        <tr>
-          <td>{{ order.localEntrega }}</td>
-          <td>{{ order.tempoEntrega }} min</td>
-        </tr>
-      </table>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
+<div id="loading" class="class-flex">
+  <div class="loading">
+      <img src="assets/icons/loading_icon.gif" alt="">
+  </div>
+</div>

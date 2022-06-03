@@ -28,6 +28,14 @@ export class MyOrderService {
           });
       });
 
+      const loading = (<HTMLSelectElement>document.getElementById('loading'));
+      const container = (<HTMLSelectElement>document.getElementById('container'));
+
+      loading.classList.add("class-hide");
+      loading.classList.remove("class-flex");
+
+      container.classList.remove("class-hide");
+
       this.orders = <Order[]>array;
     });
   }

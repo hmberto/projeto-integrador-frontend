@@ -15,14 +15,13 @@ export class TrackOrderComponent implements OnInit {
 
   ngOnInit() {
     const session = window.localStorage.getItem("session");
-    if (!session) {
-      this.router.navigate(['login'], { queryParams: { checkout: 'true' } });
-    }
-
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('orderId');
-    if (!myParam) {
+    if(myParam == null || myParam == "null") {
       this.router.navigate(['']);
+    }
+    if(session == null || session == "null") {
+      this.router.navigate(['login'], { queryParams: { orderId: myParam } });
     }
     
     this.orderData(myParam, session);

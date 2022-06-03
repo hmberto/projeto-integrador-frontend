@@ -1,58 +1,66 @@
-<div class="price price-top">
-  <div class="price-box">
-      <span class="price-span">Pedido #{{order.idCompra}}</span>
+<div id="container" class="class-hide">
+  <div class="price price-top">
+    <div class="price-box">
+        <span class="price-span">Pedido #{{order.idCompra}}</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div>
+      <span class="txt">Previsão de entrega</span>
+      <span class="time">{{order.tempoEntrega}} min</span>
+    </div>
+    <div>
+      <span class="txt">O pedido está sendo preparado e logo saírá para entrega</span>
+    </div>
+  </div>
+
+  <div class="price price-top">
+    <div class="price-box">
+      <img class="img-location" src="assets/icons/location1.png" alt="">
+      <span class="price-span">Entrega</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div>
+      <span class="txt">A entrega do seu pedido será feita por um entregador parceiro</span>
+      <span class="txtTitle">Entrega em</span>
+
+      <span class="txt">{{order.localEntrega}}</span>
+    </div>
+  </div>
+
+  <div class="price price-top">
+    <div class="price-box">
+      <img class="img-list" src="assets/icons/list.png" alt="">
+      <span class="price-span">Detalhes</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="detalhes">
+      <span class="txt txt-a">Total Produtos: R$ {{order.totalProdutos}}</span>
+      <span class="txt-a">Entrega: R$ {{order.valorEntrega}}</span>
+      <span class="txt-a">Total: R$ {{order.totalPedido}}</span>
+    </div>
+  </div>
+
+  <div id="loading" class="class-hide">
+    <div class="loading">
+        <img src="assets/icons/loading_icon.gif" alt="">
+    </div>
+  </div>
+
+  <div class="back-btn">
+    <button type="button" (click)="backClick()">
+      Voltar
+    </button>
   </div>
 </div>
 
-<div class="container">
-  <div>
-    <span class="txt">Previsão de entrega</span>
-    <span class="time">{{order.tempoEntrega}} min</span>
-  </div>
-  <div>
-    <span class="txt">O pedido está sendo preparado e logo saírá para entrega</span>
-  </div>
-</div>
-
-<div class="price price-top">
-  <div class="price-box">
-    <img class="img-location" src="assets/icons/location1.png" alt="">
-    <span class="price-span">Entrega</span>
-  </div>
-</div>
-
-<div class="container">
-  <div>
-    <span class="txt">A entrega do seu pedido será feita por um entregador parceiro</span>
-    <span class="txtTitle">Entrega em</span>
-
-    <span class="txt">{{order.localEntrega}}</span>
-  </div>
-</div>
-
-<div class="price price-top">
-  <div class="price-box">
-    <img class="img-list" src="assets/icons/list.png" alt="">
-    <span class="price-span">Detalhes</span>
-  </div>
-</div>
-
-<div class="container">
-  <div class="detalhes">
-    <span class="txt txt-a">Total Produtos: R$ {{order.totalProdutos}}</span>
-    <span class="txt-a">Entrega: R$ {{order.valorEntrega}}</span>
-    <span class="txt-a">Total: R$ {{order.totalPedido}}</span>
-  </div>
-</div>
-
-<div id="loading" class="class-hide">
-  <div class="loading">
+<div id="loadingA" class="class-flex">
+  <div class="loadingA">
       <img src="assets/icons/loading_icon.gif" alt="">
   </div>
-</div>
-
-<div class="back-btn">
-  <button type="button" (click)="backClick()">
-    Voltar
-  </button>
 </div>

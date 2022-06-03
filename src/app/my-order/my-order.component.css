@@ -1,3 +1,8 @@
+#container {
+    padding: 0 60px;
+    min-height: 100vh;
+}
+
 .my-order {
     background: aliceblue;
 }
@@ -16,6 +21,7 @@
 .header-description {
     justify-content: flex-end;
     align-items: center;
+    font-size: 12px;
 }
 
 .order-status {
@@ -61,8 +67,58 @@
 }
 
 button {
-    height: 2.5vh;
-    background-color: #9700a5;
-    color: white;
-    font-weight: 700;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #9700a5;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    background: #c100d3;
+    transition: .2s;
+}
+
+.class-hide {
+    display: none;
+}
+
+.class-flex {
+    display: flex;
+}
+
+#loading {
+    min-height: 100vh;
+    margin: auto;
+    width: auto;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.loading img {
+    margin: auto;
+    width: 200px;
+    display: block;
+}
+
+@media(max-width: 900px) {
+    #container {
+        margin: 0 20px;
+    }
+}
+
+@media(max-width: 320px) {
+    #container {
+        margin: 0 15px;
+    }
 }
