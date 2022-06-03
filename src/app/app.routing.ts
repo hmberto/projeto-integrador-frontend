@@ -33,7 +33,7 @@ const APP_ROUTES: Routes = [
     { path: 'pesquisar', component: SearchComponent },
     { path: 'checkout', component: CheckoutComponent },
     { path: 'pedido', component: TrackOrderComponent },
-    { path: 'myOrder', component: MyOrderComponent },
+    { path: 'pedidos', component: MyOrderComponent },
     { path: '', component: HomeComponent }
 ];
 
