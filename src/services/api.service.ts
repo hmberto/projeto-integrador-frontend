@@ -4,7 +4,6 @@ import { Http, RequestOptionsArgs, Response } from '@angular/http';
 import { HttpErrorResponse } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
-// @inheritdoc
 @Injectable()
 export class ApiService {
     constructor(

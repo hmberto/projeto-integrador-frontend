@@ -37,6 +37,8 @@ import { TrackOrderComponent } from './track-order/track-order.component';
 import { TrackOrderService } from './track-order/track-order.service';
 import { MyOrderComponent } from './my-order/my-order.component';
 import { MyOrderService } from './my-order/my-order.service';
+import { PharmacyComponent } from './pharmacy/pharmacy.component';
+import { PharmacyService } from './pharmacy/pharmacy.service';
 import { ApiService } from '../services/api.service';
 
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -60,7 +62,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     SearchComponent,
     CheckoutComponent,
     TrackOrderComponent,
-    MyOrderComponent
+    MyOrderComponent,
+    PharmacyComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     CheckoutService,
     TrackOrderService,
     MyOrderService,
-    ApiService
+    ApiService,
+    PharmacyService
   ],
   bootstrap: [AppComponent]
 })

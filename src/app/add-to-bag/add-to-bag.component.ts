@@ -35,7 +35,6 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   }
 
   getProduct(id: string, pharmacy: string): Product {
-    console.log(pharmacy);
     return this.productService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy);
   }
 
@@ -54,7 +53,6 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   }
 
   getItems() {
-    // console.log(this.cartService.getItems());
   }
 
   cancelButton(): void {

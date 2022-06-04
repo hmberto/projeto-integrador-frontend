@@ -35,6 +35,7 @@ export class HomeService {
           let orderTime = json[product]['time'].split("-");
 
           const item: Pharmacy = {
+            idPharmacy: json[product]['idPharmacy'],
             name: json[product]['name'],
             image: "assets/pharmacies/" + json[product]['imgpath'],
             distance: json[product]['distance'],

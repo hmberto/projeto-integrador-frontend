@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { HomeService } from '../home/home.service';
 import { Pharmacy } from '../../models/pharmacy';
@@ -12,7 +13,8 @@ import { AppComponent } from '../app.component';
 export class HomeComponent {
 
   constructor(private appComponent: AppComponent,
-  private homeService: HomeService) { }
+  private homeService: HomeService,
+  private router: Router) { }
 
   newPharmacies = [];
   orderPharmacies = [];
@@ -23,14 +25,15 @@ export class HomeComponent {
     this.validate();
   }
 
+  goPharmacy(idPharmacy) {
+    this.router.navigate(['farmacia'], { queryParams: { id: idPharmacy } });
+  }
+
   validate() {
     const session = window.localStorage.getItem("session");
 
     const userCep = window.localStorage.getItem("userCep");
-
-    // window.localStorage.setItem("latitude", null);
-    // window.localStorage.setItem("longitude", null);
-
+    
     const latitude = window.localStorage.getItem("latitude");
     const longitude = window.localStorage.getItem("longitude");
 

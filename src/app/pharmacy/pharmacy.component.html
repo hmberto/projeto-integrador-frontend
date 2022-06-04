@@ -1,0 +1,141 @@
+<div id="max-width-banner">
+    <div id="welcome">
+        <div class="div-img-welcome">
+            <img id="welcome-img" src="assets/pharmacies/drogasil.png" alt="">
+            <div class="div-img-welcome">
+                <span class="welcome-text">Drogaria São Paulo</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="box-products" class="class-hide">
+    <div class="max-width-parceiros">
+        <h2 class="pharmacy-name">Drogaria São Paulo</h2>
+        <div class="line"></div>
+        <div class="pharmacies equalHMVWrap eqWrap">
+            <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of drogariaSpProducts">
+                <img class="product-image" [src]="product.image" alt="">
+                <span class="product-name">
+                    {{product.name}}
+                </span>
+                <span class="product-amount">
+                    {{product.amount}}
+                </span>
+                <span class="product-price">
+                    {{product.price}}
+                </span>
+            </div>
+            <div class="pharmacy equalHMV eq" (click)="productClick(product)">
+                <div class="div-see-more">
+                    <div class="see-more">
+                        <div class="div-see">
+                            <img class="see-more-img" src="assets/icons/view-more.png" alt="">
+                            <span class="span-see-more">VER MAIS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-width-parceiros">
+        <h2 class="pharmacy-name">Ultrafarma</h2>
+        <div class="line"></div>
+        <div class="pharmacies equalHMVWrap eqWrap">
+            <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of ultrafarmaProducts">
+                <img class="product-image" [src]="product.image" alt="">
+                <span class="product-name">
+                    {{product.name}}
+                </span>
+                <span class="product-amount">
+                    {{product.amount}}
+                </span>
+                <span class="product-price">
+                    {{product.price}}
+                </span>
+            </div>
+            <div class="pharmacy equalHMV eq" (click)="productClick(product)">
+                <div class="div-see-more">
+                    <div class="see-more">
+                        <div class="div-see">
+                            <img class="see-more-img" src="assets/icons/view-more.png" alt="">
+                            <span class="span-see-more">VER MAIS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-width-parceiros">
+        <h2 class="pharmacy-name">Pague Menos</h2>
+        <div class="line"></div>
+        <div class="pharmacies equalHMVWrap eqWrap">
+            <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of pagueMenosProducts">
+                <img class="product-image" [src]="product.image" alt="">
+                <span class="product-name">
+                    {{product.name}}
+                </span>
+                <span class="product-amount">
+                    {{product.amount}}
+                </span>
+                <span class="product-price">
+                    {{product.price}}
+                </span>
+            </div>
+            <div class="pharmacy equalHMV eq" (click)="productClick(product)">
+                <div class="div-see-more">
+                    <div class="see-more">
+                        <div class="div-see">
+                            <img class="see-more-img" src="assets/icons/view-more.png" alt="">
+                            <span class="span-see-more">VER MAIS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-width-parceiros">
+        <h2 class="pharmacy-name">Droga Raia</h2>
+        <div class="line"></div>
+        <div class="pharmacies equalHMVWrap eqWrap">
+            <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of drogaRaiaProducts">
+                <img class="product-image" [src]="product.image" alt="">
+                <span class="product-name">
+                    {{product.name}}
+                </span>
+                <span class="product-amount">
+                    {{product.amount}}
+                </span>
+                <span class="product-price">
+                    {{product.price}}
+                </span>
+            </div>
+            <div class="pharmacy equalHMV eq" (click)="productClick(product)">
+                <div class="div-see-more">
+                    <div class="see-more">
+                        <div class="div-see">
+                            <img class="see-more-img" src="assets/icons/view-more.png" alt="">
+                            <span class="span-see-more">VER MAIS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="not-location" class="class-hide">
+    <div class="not-location">
+        <img src="assets/icons/maps-icon.png" alt="">
+        <span>Opssss! Não encontramos sua localização.</span>
+    </div>
+</div>
+
+<div id="loading" class="class-flex">
+    <div class="loading">
+        <img src="assets/icons/loading_icon.gif" alt="">
+    </div>
+</div>

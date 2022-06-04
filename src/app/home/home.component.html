@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="pharmacies equalHMVWrap eqWrap">
-      <div class="pharmacy equalHMV eq" *ngFor="let pharmacy of gettedPharmacies">
+      <div class="pharmacy equalHMV eq" (click)="goPharmacy(pharmacy.idPharmacy)" *ngFor="let pharmacy of gettedPharmacies">
         <div class="pharmacy-box">
           <img class="pharmacy-image" [src]="pharmacy.image" alt="">
           <div class="pharmacy-info">

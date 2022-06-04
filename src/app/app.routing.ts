@@ -17,6 +17,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { MyOrderComponent } from './my-order/my-order.component';
+import { PharmacyComponent } from './pharmacy/pharmacy.component';
 
 const APP_ROUTES: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -34,6 +35,7 @@ const APP_ROUTES: Routes = [
     { path: 'checkout', component: CheckoutComponent },
     { path: 'pedido', component: TrackOrderComponent },
     { path: 'pedidos', component: MyOrderComponent },
+    { path: 'farmacia', component: PharmacyComponent },
     { path: '', component: HomeComponent }
 ];
 
