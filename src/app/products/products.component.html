@@ -19,7 +19,7 @@
         <div class="line"></div>
         <div class="pharmacies equalHMVWrap eqWrap">
             <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of drogariaSpProducts">
-                <img class="product-image" [src]="product.image">
+                <img class="product-image" [src]="product.image" alt="">
                 <span class="product-name">
                     {{product.name}}
                 </span>
@@ -48,7 +48,7 @@
         <div class="line"></div>
         <div class="pharmacies equalHMVWrap eqWrap">
             <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of ultrafarmaProducts">
-                <img class="product-image" [src]="product.image">
+                <img class="product-image" [src]="product.image" alt="">
                 <span class="product-name">
                     {{product.name}}
                 </span>
@@ -77,7 +77,7 @@
         <div class="line"></div>
         <div class="pharmacies equalHMVWrap eqWrap">
             <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of pagueMenosProducts">
-                <img class="product-image" [src]="product.image">
+                <img class="product-image" [src]="product.image" alt="">
                 <span class="product-name">
                     {{product.name}}
                 </span>
@@ -106,7 +106,7 @@
         <div class="line"></div>
         <div class="pharmacies equalHMVWrap eqWrap">
             <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of drogaRaiaProducts">
-                <img class="product-image" [src]="product.image">
+                <img class="product-image" [src]="product.image" alt="">
                 <span class="product-name">
                     {{product.name}}
                 </span>
@@ -142,4 +142,4 @@
     <div class="loading">
         <img src="assets/icons/loading_icon.gif" alt="">
     </div>
-  </div>
+</div>

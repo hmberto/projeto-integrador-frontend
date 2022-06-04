@@ -8,7 +8,7 @@
     <div class="products">
         <div class="container">
             <div class="product" *ngFor="let product of getCart">
-                <img class="product-image" [src]="product.image">
+                <img class="product-image" [src]="product.image" alt="">
                 <div class="info">
                     <span class="product-name">
                         {{product.name}}
