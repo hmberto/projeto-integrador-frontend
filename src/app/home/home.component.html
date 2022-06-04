@@ -5,7 +5,7 @@
         <h1 class="welcome-text-1">aqui tem</h1>
         <h1 class="welcome-text-3">farmácias</h1>
       </div>
-      <img class="welcome-image" src="assets/icons/logo2.png">
+      <img class="welcome-image" src="assets/icons/logo2.png" alt="">
       <div class="teste2">
         <span class="welcome-text-4">sem fila,</span><br>
         <span class="welcome-text-2">em </span>
@@ -21,14 +21,13 @@
       <div id="filter">
         <span id="order-1" class="order order-a" (click)="newFilter('1')">Original</span>
         <span id="order-2" class="order order-a" (click)="newFilter('2')">Taxa de Entrega</span>
-        <!-- <span id="order-3" class="order" (click)="newFilter('3')">Distância</span> -->
         <span id="order-4" class="order order-a" (click)="newFilter('4')">Tempo de Entrega</span>
       </div>
     </div>
     <div class="pharmacies equalHMVWrap eqWrap">
       <div class="pharmacy equalHMV eq" *ngFor="let pharmacy of gettedPharmacies">
         <div class="pharmacy-box">
-          <img class="pharmacy-image" [src]="pharmacy.image">
+          <img class="pharmacy-image" [src]="pharmacy.image" alt="">
           <div class="pharmacy-info">
             <span class="pharmacy-name">{{pharmacy.name}}</span>
             <span class="pharmacy-distance">{{pharmacy.time}} | {{pharmacy.distance}}</span>

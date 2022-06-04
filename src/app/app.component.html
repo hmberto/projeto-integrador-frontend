@@ -1,6 +1,6 @@
-<nav id="hide-nav-1">
+<nav id="hide-nav-1" aria-label="Menu">
     <div class="nav-wrapper wrapper-f">
-        <img id="nav-menu-logo-1" class="" src="assets/icons/ico1.png">
+        <img id="nav-menu-logo-1" class="" src="assets/icons/ico1.png" alt="">
         <ul id="nav-mobile" class="left testando">
             <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Início</a></li>
             <li routerLinkActive="active"><a routerLink="/produtos">Produtos</a></li> 
@@ -13,20 +13,25 @@
             <li routerLinkActive="active"><a id="logged1" routerLink="/login">Login</a></li>
             <li routerLinkActive="active"><a id="logged2" class="show-cadastro" routerLink="/usuario">Cadastro</a></li>
             <li routerLinkActive="active"><a id="logged5" class="show-cadastro" routerLink="/logout">Sair</a></li>
-            <li routerLinkActive="active"><a id="cart-h" routerLink="/carrinho"><img id="cart-header" src="assets/icons/cart.png" alt=""><span class="cart-items" *ngFor="let product of getQnt">{{qnt}}</span></a></li>
+            <li routerLinkActive="active"><a id="cart-h" routerLink="/carrinho">
+                <img id="cart-header" src="assets/icons/cart.png" alt="">
+                <span class="cart-items" *ngFor="let product of getQnt">{{qnt}}</span></a>
+            </li>
         </ul>
     </div>
 </nav>
 
-<nav id="hide-nav-2">
+<nav id="hide-nav-2" aria-label="Menu">
     <div class="nav-wrapper">
         <div id="nav-imgs">
-            <img id="nav-menu-ico" class="" src="assets/icons/img-manu.png">
-            <img id="nav-menu-logo" class="wdt-a" src="assets/icons/ico1.png">
+            <img id="nav-menu-ico" src="assets/icons/img-manu.png" alt="">
+            <img id="nav-menu-logo" class="wdt-a" src="assets/icons/ico1.png" alt="">
             <div>
-                <img id="nav-menu-search" (click)="showSearch()" src="assets/icons/search.png">
+                <img id="nav-menu-search" (click)="showSearch()" src="assets/icons/search.png" alt="">
             </div>
-            <span id="nav-menu-cart" routerLink="/carrinho"><img id="cart-header" src="assets/icons/cart.png" alt=""><span class="cart-items" *ngFor="let product of getQnt">{{qnt}}</span></span>
+            <span id="nav-menu-cart" routerLink="/carrinho">
+                <img id="cart-header" src="assets/icons/cart.png" alt="">
+                <span class="cart-items" *ngFor="let product of getQnt">{{qnt}}</span></span>
         </div>
         <div class="nav-wrapper-2">
             <ul id="nav-mobile-2" class="hide-menu-mobile">
@@ -37,7 +42,9 @@
                 <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/notFound">Farmácias</a></li> 
                 <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/produtos">Produtos</a></li>
                 <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/notFound">Pedidos</a></li>
-                <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/carrinho">Carrinho <span class="cart-items" *ngFor="let product of getQnt">{{qnt}}</span></a></li>
+                <li class="li-menu-mobile" routerLinkActive="active"><a routerLink="/carrinho">Carrinho
+                    <span class="cart-items" *ngFor="let product of getQnt">{{qnt}}</span></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -57,7 +64,7 @@
 <div class="line-footer"></div>
 <footer>
     <div class="footer-1">
-        <img class="footer-menu-logo-1" class="" src="assets/icons/ico1.png">
+        <img class="footer-menu-logo-1" src="assets/icons/ico1.png" alt="">
         <span>© Copyright 2022 | Entrega de Farmácias | Todos os direitos reservados | Entrega de Farmácias Online S.A.</span>
     </div>
     <div class="footer-2">
