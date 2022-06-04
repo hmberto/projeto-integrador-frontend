@@ -113,12 +113,12 @@ button:hover {
 
 @media(max-width: 900px) {
     #container {
-        margin: 0 20px;
+        padding: 0 20px;
     }
 }
 
 @media(max-width: 320px) {
     #container {
-        margin: 0 15px;
+        padding: 0 15px;
     }
 }

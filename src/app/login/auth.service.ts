@@ -109,9 +109,17 @@ export class AuthService {
         window.localStorage.setItem("newLogin", "false");
 
         const urlParams = new URLSearchParams(window.location.search);
-        const myParam = urlParams.get('checkout');
-        if(myParam != null) {
+        const checkout = urlParams.get('checkout');
+        const orderId = urlParams.get('orderId');
+        const pedidos = urlParams.get('pedidos');
+        if(checkout == "true") {
           this.router.navigate(['checkout']);
+        }
+        else if(orderId != "null" && orderId != null) {
+          this.router.navigate(['pedido'], { queryParams: { orderId: orderId } });
+        }
+        else if(pedidos == "true") {
+          this.router.navigate(['pedidos']);
         }
         else {
           this.router.navigate(['']);

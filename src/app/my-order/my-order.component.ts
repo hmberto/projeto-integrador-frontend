@@ -17,10 +17,11 @@ export class MyOrderComponent implements OnInit {
   ngOnInit() {
     const session = window.localStorage.getItem("session");
     if(session == null || session == "null") {
-      this.router.navigate(['login'], { queryParams: { checkout: 'true' } });
+      this.router.navigate(['login'], { queryParams: { pedidos: 'true' } });
     }
-
-    this.service.orderData(session);
+    else {
+      this.service.orderData(session);
+    }
   }
 
   get orders(): Order[] {
