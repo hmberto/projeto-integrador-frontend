@@ -45,11 +45,11 @@ export class PharmacyComponent implements OnInit {
       this.router.navigate(['']);
     }
     else {
-      this.getData();
+      this.getData(pharmacyId);
     }
   }
 
-  getData() {
+  getData(pharmacyId) {
     const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
     const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
@@ -62,47 +62,24 @@ export class PharmacyComponent implements OnInit {
     notLocation.classList.add("class-hide");
     notLocation.classList.remove("class-flex");
 
-    const session = window.localStorage.getItem("session");
-
-    const userCep = window.localStorage.getItem("userCep");
-
-    const latitude = window.localStorage.getItem("latitude");
-    const longitude = window.localStorage.getItem("longitude");
-
-    if(session != null && session != "null") {
-      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + session;
-      this.pharmacyService.getProducts(url);
-    }
-    else if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
-      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + latitude + "/" + longitude;
-      this.pharmacyService.getProducts(url);
-    }
-    else if(userCep != null && userCep != "null") {
-      this.pharmacyService.getByCep();
-    }
-    else {
-      this.pharmacyService.showLocationNotFound();
-    }
+    const url = "https://projeto-integrador-pharmacy.herokuapp.com/pharmacy/" + pharmacyId;
+    this.pharmacyService.getProducts(url);
   }
 
   getProducts(url) {
     this.pharmacyService.getProducts(url);
   }
 
-  get drogariaSpProducts(): Product[] {
-    return this.pharmacyService.gettedProducts.filter((product) => product.pharmacy === 'Drogaria São Paulo');
+  get pharmacyName() {
+    return this.pharmacyService.pharmacyName;
   }
 
-  get ultrafarmaProducts(): Product[] {
-    return this.pharmacyService.gettedProducts.filter(product => product.pharmacy === 'Ultrafarma');
+  get pharmacyImg() {
+    return this.pharmacyService.pharmacyImg;
   }
 
-  get pagueMenosProducts(): Product[] {
-    return this.pharmacyService.gettedProducts.filter(product => product.pharmacy === 'Pague Menos');
-  }
-
-  get drogaRaiaProducts(): Product[] {
-    return this.pharmacyService.gettedProducts.filter(product => product.pharmacy === 'Droga Raia');
+  get products(): Product[] {
+    return this.pharmacyService.gettedProducts;
   }
 
   productClick(product: Product): void {

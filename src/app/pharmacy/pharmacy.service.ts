@@ -4,6 +4,8 @@ import { Product } from '../../models/product';
 @Injectable()
 export class PharmacyService {
   gettedProducts: Product[] = [];
+  pharmacyName = [];
+  pharmacyImg = [];
 
   imgColor(imgPath) {
     let handleEventColorHex = (c) => {
@@ -59,9 +61,7 @@ export class PharmacyService {
   }
   
   getProducts(url) {
-    this.gettedProducts = [];
     const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
-    const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
     
     var xhttp = new XMLHttpRequest();
@@ -69,29 +69,32 @@ export class PharmacyService {
     xhttp.send();
 
     xhttp.addEventListener('loadend', () => {
+      this.gettedProducts = [];
+      this.pharmacyName = [];
+      this.pharmacyImg = [];
       if(xhttp.status == 200) {
         const json = JSON.parse(xhttp.response);
-        const pharmaciesCounter = Object.keys(json);
 
-        for(let i = 0; i < pharmaciesCounter.length; i++) {
-          const pharmacies = json[pharmaciesCounter[i]];
-          const productsCounter = Object.keys(pharmacies);
+        this.pharmacyImg.push(json['pharmacyImage']);
+        this.pharmacyName.push(json['pharmacyName']);
 
-          productsCounter.forEach(function(product) {
-            const item: Product = {
-              id: pharmacies[product]['id'],
-              name: pharmacies[product]['name'],
-              pharmacy: pharmacies[product]['pharmacy'],
-              price: pharmacies[product]['price'],
-              amount: pharmacies[product]['amount'],
-              image: pharmacies[product]['image'],
-              description: pharmacies[product]['description'],
-              qnt: "0"
-            }
+        const pharmacies = json['products'];
+        const productsCounter = Object.keys(pharmacies);
 
-            handleEvent(<any>item);
-          });
-        }
+        productsCounter.forEach(function(product) {
+          const item: Product = {
+            id: pharmacies[product]['id'],
+            name: pharmacies[product]['name'],
+            pharmacy: pharmacies[product]['pharmacy'],
+            price: pharmacies[product]['price'],
+            amount: pharmacies[product]['amount'],
+            image: pharmacies[product]['image'],
+            description: pharmacies[product]['description'],
+            qnt: "0"
+          }
+
+          handleEvent(<any>item);
+        });
 
         contaiver.classList.remove("class-hide");
 
