@@ -126,11 +126,9 @@ export class AppComponent {
     const search1 = (<HTMLSelectElement>document.getElementById('txtSearch'));
     const search2 = (<HTMLSelectElement>document.getElementById('txtSearchMobile'));
     if(search1.value.length > 0) {
-      // this.router.navigate(['pesquisar'], { queryParams: { pesquisa: search1.value } });
       window.location.href = window.location.protocol + "//" + window.location.host + "/pesquisar?pesquisa=" + search1.value
     }
     else if(search2.value.length) {
-      // this.router.navigate(['pesquisar'], { queryParams: { pesquisa: search2.value } });
       window.location.href = window.location.protocol + "//" + window.location.host + "/pesquisar?pesquisa=" + search2.value
     }
   }

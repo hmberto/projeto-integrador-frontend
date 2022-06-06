@@ -284,6 +284,18 @@ export class CadastroService {
       notfication.classList.remove("hide-div-not");
       return false;
     }
+    else {
+      if(testName[0].length < 3) {
+        notficationText.innerText="NOME MUITO PEQUENO";
+        notfication.classList.remove("hide-div-not");
+        return false;
+      }
+      else if(testName[testName.length - 1].length < 3) {
+        notficationText.innerText="SOBRENOME MUITO PEQUENO";
+        notfication.classList.remove("hide-div-not");
+        return false;
+      }
+    }
 
     var re = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ \\s]+?$/i;
     let nameRegex = re.test(register.name);

@@ -20,11 +20,12 @@ export class TrackOrderComponent implements OnInit {
     if(myParam == null || myParam == "null") {
       this.router.navigate(['']);
     }
-    if(session == null || session == "null") {
+    else if(session == null || session == "null") {
       this.router.navigate(['login'], { queryParams: { orderId: myParam } });
     }
-    
-    this.orderData(myParam, session);
+    else {
+      this.orderData(myParam, session);
+    }
   }
 
   get order(): Order {
@@ -36,6 +37,6 @@ export class TrackOrderComponent implements OnInit {
   }
 
   backClick() {
-    this.router.navigate(['myOrder']);
+    this.router.navigate(['pedidos']);
   }
 }

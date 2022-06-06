@@ -18,6 +18,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { MyOrderComponent } from './my-order/my-order.component';
+import { PharmacyComponent } from './pharmacy/pharmacy.component';
 
 const appRoutes: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -34,10 +35,8 @@ const appRoutes: Routes = [
     { path: 'checkout', component: CheckoutComponent },
     { path: 'pedido', component: TrackOrderComponent },
     { path: 'pedidos', component: MyOrderComponent },
+    { path: 'farmacia', component: PharmacyComponent },
     { path: '', component: HomeComponent },
-    //     canActivate: [AuthGuard] 
-    // },
-    // { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
 

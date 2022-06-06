@@ -35,6 +35,7 @@ export class HomeService {
           let orderTime = json[product]['time'].split("-");
 
           const item: Pharmacy = {
+            idPharmacy: json[product]['idPharmacy'],
             name: json[product]['name'],
             image: "assets/pharmacies/" + json[product]['imgpath'],
             distance: json[product]['distance'],
@@ -57,6 +58,7 @@ export class HomeService {
         contaiver.classList.add("class-hide");
         askcep.classList.remove("class-hide");
         askcep.classList.add("class-flex");
+        this.askForCep();
       }
       loading.classList.remove("class-flex");
       loading.classList.add("class-hide");
@@ -70,24 +72,33 @@ export class HomeService {
   askForCep() {
     const askcep = (<HTMLSelectElement>document.getElementById('askcep'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
+    const cepfield = (<HTMLSelectElement>document.getElementById('cepfield'));
     
     askcep.classList.remove("class-hide");
     askcep.classList.add("class-flex");
 
     loading.classList.remove("class-flex");
     loading.classList.add("class-hide");
+    
+    cepfield.value = "";
+    cepfield.focus();
   }
 
   getByCep() {
     let cep = "";
     const userCep = window.localStorage.getItem("userCep");
-    if(userCep != null && userCep != "null") {
+    const cepfield = (<HTMLSelectElement>document.getElementById('cepfield'));
+
+    if(cepfield.value.length == 8 || cepfield.value.length == 9) {
+      cep = cepfield.value;
+    }
+    else if(userCep != null && userCep != "null") {
       cep = userCep;
     }
     else {
-      const cepfield = (<HTMLSelectElement>document.getElementById('cepfield'));
-      cep = cepfield.value;
+      return;
     }
+
     const url = "https://viacep.com.br/ws/" + cep + "/json/";
     
     var xhttp = new XMLHttpRequest();
@@ -104,7 +115,7 @@ export class HomeService {
         let state = address['uf'];
         let city = address['localidade'];
 
-        window.localStorage.setItem("userCep", cep);
+        window.localStorage.setItem("userCep", endereco['cep']);
 
         const url = "https://projeto-integrador-pharmacy.herokuapp.com/pharmacy/home/20/" + street + "/" + district + "/" + state + "/" + city;
         this.getPharmacies(url);

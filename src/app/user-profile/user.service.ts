@@ -22,7 +22,8 @@ export class UserPService {
     const sexField = (<HTMLSelectElement>document.getElementById('sex'));
     const sendBtn = (<HTMLSelectElement>document.getElementById('sendBtn'));
 
-    const contaiver = (<HTMLSelectElement>document.getElementById('register-box'));
+    const container = (<HTMLSelectElement>document.getElementById('register-box'));
+    const divorders = (<HTMLSelectElement>document.getElementById('divorders'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
     const notfication = (<HTMLSelectElement>document.getElementById('div-not'));
@@ -53,7 +54,8 @@ export class UserPService {
       complement2 = register.complement;
     }
 
-    contaiver.classList.add("class-hide");
+    container.classList.add("class-hide");
+    divorders.classList.add("class-hide");
 
     loading.classList.add("class-flex");
     loading.classList.remove("class-hide");
@@ -87,7 +89,8 @@ export class UserPService {
     
     xhttp.addEventListener('loadend', () => {
       if(xhttp.status == 204) {
-        contaiver.classList.remove("class-hide");
+        container.classList.remove("class-hide");
+        divorders.classList.remove("class-hide");
 
         loading.classList.remove("class-flex");
         loading.classList.add("class-hide");
@@ -105,7 +108,8 @@ export class UserPService {
         sendBtn.disabled = false;
       }
       else {
-        contaiver.classList.remove("class-hide");
+        container.classList.remove("class-hide");
+        divorders.classList.remove("class-hide");
 
         loading.classList.remove("class-flex");
         loading.classList.add("class-hide");
@@ -135,10 +139,12 @@ export class UserPService {
     cepFild.disabled = true;
 
     xhttp.addEventListener('loadend', () => {
-      const contaiver = (<HTMLSelectElement>document.getElementById('register-box'));
+      const container = (<HTMLSelectElement>document.getElementById('register-box'));
+      const divorders = (<HTMLSelectElement>document.getElementById('divorders'));
       const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
-      contaiver.classList.remove("class-hide");
+      container.classList.remove("class-hide");
+      divorders.classList.remove("class-hide");
 
       loading.classList.remove("class-flex");
       loading.classList.add("class-hide");

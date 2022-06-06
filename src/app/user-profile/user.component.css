@@ -3,14 +3,31 @@
     max-width: 700px;
     text-align: center;
     margin: auto;
+    padding-top: 35px;
+}
+
+#divorders {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    padding: 0 12px;
+}
+
+#orders {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(78, 78, 78);
+    float: left;
+    padding-top: 8px;
+}
+
+#orderBtn {
+    float: right;
 }
 
 .pad {
     padding: 0 10px;
-}
-
-.btn {
-    margin: 0 10px;
 }
 
 #sex {
@@ -30,12 +47,13 @@
     font-size: 14px;
     color: #fff;
     font-weight: bold;
+    line-height: 62px;
 }
 
 .div-notification {
-    padding: 10px 20px;
     border-radius: 10px;
-    margin: 12px;
+    margin: 0 12px;
+    margin-bottom: 15px;
 }
 
 .red-c {
@@ -102,4 +120,21 @@
 
 .class-flex {
     display: flex;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #9700a5;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c100d3;
+    transition: .2s;
 }

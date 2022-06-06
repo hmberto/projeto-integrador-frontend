@@ -1,3 +1,11 @@
+<div id="divorders" class="pad">
+  <span id="orders">Meus pedidos:</span>
+  <button id="orderBtn" type="button" (click)="myOrders()">
+    Ver todos
+  </button>
+</div>
+
+
 <div id="register-box">
   <h5 class="pad">Sua conta</h5>
 
@@ -90,9 +98,8 @@
     </div>
   </div>
 
-  <button id="sendBtn" class="btn waves-effect waves-light" type="submit" name="action" (click)="saveUser()">
+  <button id="sendBtn" type="submit" name="action" (click)="saveUser()">
     ATUALIZAR
-    <em class="material-icons right"></em>
   </button><br><br><br>
 </div>
 <div id="loading" class="class-hide">

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { CheckoutService } from './checkout.service';
 import { AppComponent } from '../app.component';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-cart',
@@ -80,7 +79,12 @@ export class CheckoutComponent implements OnInit {
       }
     }
 
-    this.checkoutService.validateCartDB(this.itemsId, pharmacyName);
+    if(pharmacyName == "") {
+      this.router.navigate(['carrinho']);
+    }
+    else {
+      this.checkoutService.validateCartDB(this.itemsId, pharmacyName);
+    }
   }
 
   addToCart(product: Product) {

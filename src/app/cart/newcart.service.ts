@@ -11,11 +11,6 @@ export class NewCartService {
 
   constructor(private cartService: CartService) { }
 
-  // async getCart() {
-  //   console.log("TESTE")
-  //   return this.cartService.getItems();
-  // }
-
   get userAuthenticated(): boolean {
     return this.isUserAuthenticated;
   }

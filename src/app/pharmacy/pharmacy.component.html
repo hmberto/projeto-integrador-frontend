@@ -1,0 +1,46 @@
+<div id="container">
+    <div id="max-width-banner">
+        <div id="welcome">
+            <div class="div-img-welcome">
+                <img id="welcome-img" src="assets/pharmacies/{{pharmacyImg}}" alt="">
+                <div class="div-img-welcome">
+                    <span class="welcome-text">{{pharmacyName}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="box-products">
+        <div class="max-width-parceiros">
+            <h2 class="pharmacy-name">Produtos</h2>
+            <div class="line"></div>
+            <div class="pharmacies equalHMVWrap eqWrap">
+                <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of products">
+                    <img class="product-image" [src]="product.image" alt="">
+                    <span class="product-name">
+                        {{product.name}}
+                    </span>
+                    <span class="product-amount">
+                        {{product.amount}}
+                    </span>
+                    <span class="product-price">
+                        {{product.price}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="not-location" class="class-hide">
+    <div class="not-location">
+        <img src="assets/icons/maps-icon.png" alt="">
+        <span>Opssss! Não encontramos sua localização.</span>
+    </div>
+</div>
+
+<div id="loading" class="class-flex">
+    <div class="loading">
+        <img src="assets/icons/loading_icon.gif" alt="">
+    </div>
+</div>

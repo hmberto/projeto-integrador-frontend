@@ -72,7 +72,6 @@ export class ChangePassService {
     xhttp.send(body);
 
     xhttp.addEventListener('loadend', () => {
-      // if(xhttp.status == 204) {
         usuario.disabled = false;
         btnLogin.disabled = false;
 
@@ -88,7 +87,6 @@ export class ChangePassService {
         notfication.classList.remove("hide-div-not");
         notfication.classList.remove("red-c");
         notfication.classList.add("green-c");
-      // }
     });
   }
 

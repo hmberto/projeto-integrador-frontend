@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Order } from '../../models/order';
 import { ApiService } from '../../services/api.service';
@@ -7,22 +8,36 @@ import { AuthService } from '../login/auth.service';
 export class TrackOrderService {
   order: Order;
 
-  constructor(private apiService: ApiService, private authenticatedService: AuthService) { }
+  constructor(private apiService: ApiService, 
+    private authenticatedService: AuthService,
+    private router: Router) { }
 
   orderData(orderId, session) {
     const url = "https://projeto-integrador-myorder.herokuapp.com/orders/" + orderId + "/" + session;
 
     this.apiService.get(url).then((result: any) => {
-      const loading = (<HTMLSelectElement>document.getElementById("loadingA"));
-      const container = (<HTMLSelectElement>document.getElementById("container"));
-
-      loading.classList.remove("class-flex");
-      loading.classList.add("class-hide");
-
-      container.classList.remove("class-hide");
+      const keys = Object.keys(result);
       
-      const order = result[`order-${orderId}`];
-      this.order = <Order>order;
+      if(keys.length < 1) {
+        this.router.navigate(['usuario']);
+      }
+      else {
+        const loading = (<HTMLSelectElement>document.getElementById("loadingA"));
+        const container = (<HTMLSelectElement>document.getElementById("container"));
+
+        loading.classList.remove("class-flex");
+        loading.classList.add("class-hide");
+
+        container.classList.remove("class-hide");
+
+        const order = result[`order-${orderId}`];
+        
+        const deliveryTime = order['tempoEntrega'];
+        const splitedTime = deliveryTime.split("-");
+        
+        order.tempoEntrega = this.userTime(order['dataCompra'], splitedTime[0]) + " - " + this.userTime(order['dataCompra'], splitedTime[1]);
+        this.order = <Order>order;
+      }
     });
   }
 

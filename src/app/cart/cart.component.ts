@@ -21,14 +21,14 @@ export class CartComponent implements OnInit {
 
   showEmptycart() {
     const emptyCart = (<HTMLSelectElement>document.getElementsByClassName("empty-cart"));
-    const total = (<HTMLSelectElement>document.getElementsByClassName("price"));
+    const container = (<HTMLSelectElement>document.getElementById("container"));
+
     if(this.cartService.cartTotal() == "0.00") {
       emptyCart[0].classList.remove("hide-empty-box");
-      total[0].classList.add("hide-empty-box");
-      total[1].classList.add("hide-empty-box");
+      container.classList.add("hide-empty-box");
     }
     else {
-      total[0].classList.remove("hide-empty-box");
+      container.classList.remove("hide-empty-box");
     }
   }
 

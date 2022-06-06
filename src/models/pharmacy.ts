@@ -1,4 +1,5 @@
 export interface Pharmacy {
+    idPharmacy: string;
     name: string;
     image: string;
     distance: string;

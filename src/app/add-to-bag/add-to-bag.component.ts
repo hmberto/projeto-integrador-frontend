@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
 import { ProductService } from '../products/product.service';
+import { PharmacyService } from '../pharmacy/pharmacy.service';
 import { filter } from 'rxjs-compat/operator/filter';
 
 @Component({
@@ -20,13 +21,16 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute,
     private cartService: CartService,
     private router: Router,
-    private productService: ProductService) { }
+    private productService: ProductService,
+    private pharmacyService: PharmacyService) { }
 
   ngOnInit() {
     this.subscription = this.activatedRoute.queryParams.subscribe(params => {
       const id = params['id'];
       const pharmacy = params['pharmacy'];
-      this.product = this.getProduct(id, pharmacy);
+      const pharmacyId = params['pharmacyId'];
+      const pharmacyPage = params['pharmacyPage'];
+      this.product = this.getProduct(id, pharmacy, pharmacyId, pharmacyPage);
     });
   }
 
@@ -34,19 +38,37 @@ export class AddToBagComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  getProduct(id: string, pharmacy: string): Product {
-    console.log(pharmacy);
-    return this.productService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy);
+  getProduct(id: string, pharmacy: string, pharmacyId: string, pharmacyPage: string): Product {
+    const productA = this.productService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy && product.pharmacyId === pharmacyId);
+    const productB = this.pharmacyService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy && product.pharmacyId === pharmacyId);
+    if(productA != undefined) {
+      return productA;
+    }
+    else if(productB != undefined) {
+      return productB;
+    }
+    else {
+      if(pharmacyPage == "true") {
+        this.router.navigate(['farmacia'], { queryParams: { id: pharmacyId } });
+      }
+      else {
+        this.router.navigate(['produtos']);
+      }
+    }
   }
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
 
     const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get('pesquisa');
-    
-    if(myParam != null) {
-      this.router.navigate(['pesquisar'], { queryParams: { pesquisa: myParam } });
+    const pesquisa = urlParams.get('pesquisa');
+    const pharmacyPage = urlParams.get('pharmacyPage');
+
+    if(pesquisa != null) {
+      this.router.navigate(['pesquisar'], { queryParams: { pesquisa: pesquisa } });
+    }
+    else if(pharmacyPage == "true") {
+      this.router.navigate(['farmacia'], { queryParams: { id: product.pharmacyId } });
     }
     else {
       this.router.navigate(['produtos']);
@@ -54,15 +76,19 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   }
 
   getItems() {
-    // console.log(this.cartService.getItems());
   }
 
   cancelButton(): void {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('pesquisa');
+    const pharmacyPage = urlParams.get('pharmacyPage');
+    const pharmacyId = urlParams.get('pharmacyId');
 
     if(myParam != null) {
       this.router.navigate(['pesquisar'], { queryParams: { pesquisa: myParam } });
+    }
+    else if(pharmacyPage == "true") {
+      this.router.navigate(['farmacia'], { queryParams: { id: pharmacyId } });
     }
     else {
       this.router.navigate(['produtos']);
