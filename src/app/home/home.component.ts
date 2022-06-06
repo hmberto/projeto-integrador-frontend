@@ -37,53 +37,57 @@ export class HomeComponent {
     const latitude = window.localStorage.getItem("latitude");
     const longitude = window.localStorage.getItem("longitude");
 
-    if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
+    const cepfield = (<HTMLSelectElement>document.getElementById('cepfield'));
+
+    if(session != null && session != "null") {
+      const url = "https://projeto-integrador-pharmacy.herokuapp.com/pharmacy/home/20/" + session;
+      this.homeService.getPharmacies(url);
+    }
+    else if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
       const url = "https://projeto-integrador-pharmacy.herokuapp.com/pharmacy/home/20/" + latitude + "/" + longitude;
       this.homeService.getPharmacies(url);
     }
     else if(userCep != null && userCep != "null") {
       this.getByCep();
     }
-    else if(session != null && session != "null") {
-      const url = "https://projeto-integrador-pharmacy.herokuapp.com/pharmacy/home/20/" + session;
-      this.homeService.getPharmacies(url);
-    }
     else {
       this.homeService.askForCep();
 
-      const cepfield = (<HTMLSelectElement>document.getElementById('cepfield'));
-
-      let getByCep = () => {
-        this.getByCep();
-      };
-
-      cepfield.addEventListener('keyup', function(e){
-        var key = e.which || e.keyCode;
-
-        var re = /^[0-9]{8}?$/i;
-        let cep1Regex = re.test(cepfield.value);
-
-        var re = /^[0-9]{5}[-][0-9]{3}?$/i;
-        let cep2Regex = re.test(cepfield.value);
-
-        if (key == 13 && cepfield.value.length == 8 && cep1Regex || key == 13 && cepfield.value.length == 9 && cep2Regex) {
-          getByCep();
-        }
-      });
-
-      cepfield.focus();  
+      cepfield.focus();
     }
+
+    let getByCep = () => {
+      this.getByCep();
+    };
+
+    cepfield.addEventListener('keyup', function(e){
+      var key = e.which || e.keyCode;
+
+      var re = /^[0-9]{8}?$/i;
+      let cep1Regex = re.test(cepfield.value);
+
+      var re = /^[0-9]{5}[-][0-9]{3}?$/i;
+      let cep2Regex = re.test(cepfield.value);
+
+      if (key == 13 && cepfield.value.length == 8 && cep1Regex || key == 13 && cepfield.value.length == 9 && cep2Regex) {
+        getByCep();
+      }
+    });
   }
 
   getByCep() {
     let cep = "";
     const userCep = window.localStorage.getItem("userCep");
-    if(userCep != null && userCep != "null") {
+    const cepfield = (<HTMLSelectElement>document.getElementById('cepfield'));
+    
+    if(cepfield.value.length == 8 || cepfield.value.length == 9) {
+      cep = cepfield.value;
+    }
+    else if(userCep != null && userCep != "null") {
       cep = userCep;
     }
     else {
-      const cepfield = (<HTMLSelectElement>document.getElementById('cepfield'));
-      cep = cepfield.value;
+      return;
     }
 
     if (cep.length == 8 || cep.length == 9) {

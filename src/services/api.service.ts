@@ -56,7 +56,7 @@ export class ApiService {
     private getResponse<T>(request: Observable<Response>): Promise<T> {
         return request.toPromise().then((response: Response) => {
             if (!response.ok) {
-                throw response;
+                this.redirect(response.status);
             }
             return response.json();
         })

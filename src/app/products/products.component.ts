@@ -58,16 +58,16 @@ export class ProductsComponent implements OnInit {
     const latitude = window.localStorage.getItem("latitude");
     const longitude = window.localStorage.getItem("longitude");
 
-    if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
+    if(session != null && session != "null") {
+      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + session;
+      this.productService.getProducts(url);
+    }
+    else if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
       const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + latitude + "/" + longitude;
       this.productService.getProducts(url);
     }
     else if(userCep != null && userCep != "null") {
       this.productService.getByCep();
-    }
-    else if(session != null && session != "null") {
-      const url = "https://projeto-integrador-products.herokuapp.com/product/all-products/20/" + session;
-      this.productService.getProducts(url);
     }
     else {
       this.productService.showLocationNotFound();

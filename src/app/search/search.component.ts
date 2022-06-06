@@ -66,16 +66,16 @@ export class SearchComponent implements OnInit {
     const latitude = window.localStorage.getItem("latitude");
     const longitude = window.localStorage.getItem("longitude");
 
-    if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
+    if(session != null && session != "null") {
+      const url = "https://projeto-integrador-products.herokuapp.com/product/search/20/" + session + "/" + myParam;
+      this.productService.getProducts(url);
+    }
+    else if(latitude != null && latitude != "null" && longitude != null && longitude != "null") {
       const url = "https://projeto-integrador-products.herokuapp.com/product/search/20/" + latitude + "/" + longitude + "/" + myParam;
       this.productService.getProducts(url);
     }
     else if(userCep != null && userCep != "null") {
       this.productService.getByCep();
-    }
-    else if(session != null && session != "null") {
-      const url = "https://projeto-integrador-products.herokuapp.com/product/search/20/" + session + "/" + myParam;
-      this.productService.getProducts(url);
     }
     else {
       this.productService.showLocationNotFound();

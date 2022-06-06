@@ -190,6 +190,8 @@ export class CadastroService {
     const notficationText = (<HTMLSelectElement>document.getElementById('notification'));
     notfication.classList.add("hide-div-not");
 
+    console.log(register)
+
     if(register.email == undefined || register.email == "" ||
       register.pass == undefined || register.pass == "" ||
       register.name == undefined || register.name == "" ||
@@ -283,6 +285,18 @@ export class CadastroService {
       notficationText.innerText="INSIRA SEU SOBRENOME";
       notfication.classList.remove("hide-div-not");
       return false;
+    }
+    else {
+      if(testName[0].length < 3) {
+        notficationText.innerText="NOME MUITO PEQUENO";
+        notfication.classList.remove("hide-div-not");
+        return false;
+      }
+      else if(testName[testName.length - 1].length < 3) {
+        notficationText.innerText="SOBRENOME MUITO PEQUENO";
+        notfication.classList.remove("hide-div-not");
+        return false;
+      }
     }
 
     var re = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ \\s]+?$/i;
