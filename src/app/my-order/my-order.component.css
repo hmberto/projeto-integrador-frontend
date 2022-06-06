@@ -1,6 +1,12 @@
 #container {
     padding: 0 60px;
     min-height: 100vh;
+    margin-bottom: 20px;
+}
+
+.pad {
+    padding: 0 10px;
+    text-align: center;
 }
 
 .my-order {
@@ -8,7 +14,8 @@
 }
 
 .header {
-    margin-left: 0.5vw;
+    margin-left: 0vw;
+    padding: 15px 5px;
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
@@ -16,6 +23,7 @@
 
 .header-title {
     align-items: center;
+    white-space: nowrap;
 }
 
 .header-description {
@@ -76,7 +84,8 @@ button {
     border: none;
     text-decoration: none;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 0px;
+    margin-right: 5px;
 }
 
 button:hover {
@@ -114,6 +123,21 @@ button:hover {
 @media(max-width: 900px) {
     #container {
         padding: 0 20px;
+    }
+}
+
+@media(max-width: 700px) {
+    button {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .header-title {
+        font-size: 12px;
+    }
+
+    .header-description {
+        font-size: 10px;
     }
 }
 

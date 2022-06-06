@@ -6,7 +6,7 @@ import { UserPService } from './user.service';
 import { Register } from '../../models/register';
 
 @Component({
-  selector: 'app-cadastro',
+  selector: 'app-user-profile',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
@@ -18,15 +18,22 @@ export class UserPComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    const contaiver = (<HTMLSelectElement>document.getElementById('register-box'));
-    const loading = (<HTMLSelectElement>document.getElementById('loading'));
-
     const session = window.localStorage.getItem("session");
     if(session == null || session == "null") {
       this.router.navigate(['']);
     }
+    else {
+      this.getUser();
+    }
+  }
 
-    contaiver.classList.add("class-hide");
+  getUser() {
+    const container = (<HTMLSelectElement>document.getElementById('register-box'));
+    const divorders = (<HTMLSelectElement>document.getElementById('divorders'));
+    const loading = (<HTMLSelectElement>document.getElementById('loading'));
+
+    container.classList.add("class-hide");
+    divorders.classList.add("class-hide");
 
     loading.classList.add("class-flex");
     loading.classList.remove("class-hide");
