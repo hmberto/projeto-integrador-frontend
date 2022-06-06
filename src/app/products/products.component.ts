@@ -79,22 +79,26 @@ export class ProductsComponent implements OnInit {
   }
 
   get drogariaSpProducts(): Product[] {
-    return this.productService.gettedProducts.filter((product) => product.pharmacy === 'Drogaria São Paulo');
+    return this.productService.gettedProducts.filter((product) => product.pharmacy === 'Drogaria São Paulo' && product.pharmacyId === '14');
   }
 
   get ultrafarmaProducts(): Product[] {
-    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Ultrafarma');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Ultrafarma' && product.pharmacyId === '24');
   }
 
   get pagueMenosProducts(): Product[] {
-    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Pague Menos');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Pague Menos' && product.pharmacyId === '34');
   }
 
   get drogaRaiaProducts(): Product[] {
-    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Droga Raia');
+    return this.productService.gettedProducts.filter(product => product.pharmacy === 'Droga Raia' && product.pharmacyId === '4');
   }
 
   productClick(product: Product): void {
-    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pharmacy: product.pharmacy } });
+    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pharmacyId: product.pharmacyId, pharmacy: product.pharmacy, pharmacyPage: false } });
+  }
+
+  seePharmacy(product: Product): void {
+    this.router.navigate(['farmacia'], { queryParams: { id: product[0].pharmacyId } });
   }
 }

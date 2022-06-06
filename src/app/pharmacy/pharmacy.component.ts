@@ -51,10 +51,10 @@ export class PharmacyComponent implements OnInit {
 
   getData(pharmacyId) {
     const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
-    const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const container = (<HTMLSelectElement>document.getElementById('container'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
-    contaiver.classList.add("class-hide");
+    container.classList.add("class-hide");
 
     loading.classList.add("class-flex");
     loading.classList.remove("class-hide");
@@ -83,6 +83,6 @@ export class PharmacyComponent implements OnInit {
   }
 
   productClick(product: Product): void {
-    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pharmacy: product.pharmacy } });
+    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pharmacyId: product.pharmacyId, pharmacy: product.pharmacy, pharmacyPage: true } });
   }
 }

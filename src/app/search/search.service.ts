@@ -29,6 +29,7 @@ export class SearchService {
               id: pharmacies[product]['id'],
               name: pharmacies[product]['name'],
               pharmacy: pharmacies[product]['pharmacy'],
+              pharmacyId: pharmacies[product]['pharmacyId'],
               price: pharmacies[product]['price'],
               amount: pharmacies[product]['amount'],
               image: pharmacies[product]['image'],

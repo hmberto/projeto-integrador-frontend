@@ -9,7 +9,7 @@ export class CartService {
   
   addToCart(newProduct: Product) {
     let qnt = this.items.filter((product) => product.id === newProduct.id).length;
-    let loja = this.items.filter((product) => product.pharmacy === newProduct.pharmacy).length;
+    let loja = this.items.filter((product) => product.pharmacy === newProduct.pharmacy && product.pharmacyId === newProduct.pharmacyId).length;
     
     if(loja == 0) {
       this.clearCart();

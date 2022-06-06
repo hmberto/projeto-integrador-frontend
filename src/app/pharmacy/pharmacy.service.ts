@@ -61,7 +61,7 @@ export class PharmacyService {
   }
   
   getProducts(url) {
-    const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const container = (<HTMLSelectElement>document.getElementById('container'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
     
     var xhttp = new XMLHttpRequest();
@@ -86,17 +86,18 @@ export class PharmacyService {
             id: pharmacies[product]['id'],
             name: pharmacies[product]['name'],
             pharmacy: pharmacies[product]['pharmacy'],
+            pharmacyId: pharmacies[product]['pharmacyId'],
             price: pharmacies[product]['price'],
             amount: pharmacies[product]['amount'],
             image: pharmacies[product]['image'],
             description: pharmacies[product]['description'],
             qnt: "0"
           }
-
+          console.log(item)
           handleEvent(<any>item);
         });
 
-        contaiver.classList.remove("class-hide");
+        container.classList.remove("class-hide");
 
         loading.classList.remove("class-flex");
         loading.classList.add("class-hide");
@@ -148,14 +149,14 @@ export class PharmacyService {
 
   showLocationNotFound() {
     const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
-    const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const container = (<HTMLSelectElement>document.getElementById('container'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
     notLocation.classList.remove("class-hide");
     notLocation.classList.add("class-flex");
 
-    contaiver.classList.remove("class-flex");
-    contaiver.classList.add("class-hide");
+    container.classList.remove("class-flex");
+    container.classList.add("class-hide");
 
     loading.classList.remove("class-flex");
     loading.classList.add("class-hide");

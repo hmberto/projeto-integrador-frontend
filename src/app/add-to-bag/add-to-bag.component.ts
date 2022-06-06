@@ -26,7 +26,8 @@ export class AddToBagComponent implements OnInit, OnDestroy {
     this.subscription = this.activatedRoute.queryParams.subscribe(params => {
       const id = params['id'];
       const pharmacy = params['pharmacy'];
-      this.product = this.getProduct(id, pharmacy);
+      const pharmacyId = params['pharmacyId'];
+      this.product = this.getProduct(id, pharmacy, pharmacyId);
     });
   }
 
@@ -34,18 +35,22 @@ export class AddToBagComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  getProduct(id: string, pharmacy: string): Product {
-    return this.productService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy);
+  getProduct(id: string, pharmacy: string, pharmacyId: string): Product {
+    return this.productService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy && product.pharmacyId === pharmacyId);
   }
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
 
     const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get('pesquisa');
-    
-    if(myParam != null) {
-      this.router.navigate(['pesquisar'], { queryParams: { pesquisa: myParam } });
+    const pesquisa = urlParams.get('pesquisa');
+    const pharmacyPage = urlParams.get('pharmacyPage');
+
+    if(pesquisa != null) {
+      this.router.navigate(['pesquisar'], { queryParams: { pesquisa: pesquisa } });
+    }
+    else if(pharmacyPage == "true") {
+      this.router.navigate(['farmacia'], { queryParams: { id: product.pharmacyId } });
     }
     else {
       this.router.navigate(['produtos']);
@@ -58,9 +63,14 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   cancelButton(): void {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('pesquisa');
+    const pharmacyPage = urlParams.get('pharmacyPage');
+    const pharmacyId = urlParams.get('pharmacyId');
 
     if(myParam != null) {
       this.router.navigate(['pesquisar'], { queryParams: { pesquisa: myParam } });
+    }
+    else if(pharmacyPage == "true") {
+      this.router.navigate(['farmacia'], { queryParams: { id: pharmacyId } });
     }
     else {
       this.router.navigate(['produtos']);
