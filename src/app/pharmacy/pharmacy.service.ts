@@ -93,7 +93,7 @@ export class PharmacyService {
             description: pharmacies[product]['description'],
             qnt: "0"
           }
-          console.log(item)
+          
           handleEvent(<any>item);
         });
 

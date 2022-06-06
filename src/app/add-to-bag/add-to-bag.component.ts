@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
 import { ProductService } from '../products/product.service';
+import { PharmacyService } from '../pharmacy/pharmacy.service';
 import { filter } from 'rxjs-compat/operator/filter';
 
 @Component({
@@ -20,14 +21,16 @@ export class AddToBagComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute,
     private cartService: CartService,
     private router: Router,
-    private productService: ProductService) { }
+    private productService: ProductService,
+    private pharmacyService: PharmacyService) { }
 
   ngOnInit() {
     this.subscription = this.activatedRoute.queryParams.subscribe(params => {
       const id = params['id'];
       const pharmacy = params['pharmacy'];
       const pharmacyId = params['pharmacyId'];
-      this.product = this.getProduct(id, pharmacy, pharmacyId);
+      const pharmacyPage = params['pharmacyPage'];
+      this.product = this.getProduct(id, pharmacy, pharmacyId, pharmacyPage);
     });
   }
 
@@ -35,8 +38,23 @@ export class AddToBagComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  getProduct(id: string, pharmacy: string, pharmacyId: string): Product {
-    return this.productService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy && product.pharmacyId === pharmacyId);
+  getProduct(id: string, pharmacy: string, pharmacyId: string, pharmacyPage: string): Product {
+    const productA = this.productService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy && product.pharmacyId === pharmacyId);
+    const productB = this.pharmacyService.gettedProducts.find(product => product.id === id && product.pharmacy === pharmacy && product.pharmacyId === pharmacyId);
+    if(productA != undefined) {
+      return productA;
+    }
+    else if(productB != undefined) {
+      return productB;
+    }
+    else {
+      if(pharmacyPage == "true") {
+        this.router.navigate(['farmacia'], { queryParams: { id: pharmacyId } });
+      }
+      else {
+        this.router.navigate(['produtos']);
+      }
+    }
   }
 
   addToCart(product: Product) {
