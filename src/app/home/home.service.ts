@@ -99,8 +99,6 @@ export class HomeService {
       return;
     }
 
-    console.log(cep)
-
     const url = "https://viacep.com.br/ws/" + cep + "/json/";
     
     var xhttp = new XMLHttpRequest();

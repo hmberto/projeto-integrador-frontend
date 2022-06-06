@@ -56,7 +56,6 @@ export class PharmacyService {
       }
 
       banner.style.backgroundColor = corMaisComum;
-      console.log(corMaisComum);
     };
   }
   

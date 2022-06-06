@@ -190,8 +190,6 @@ export class CadastroService {
     const notficationText = (<HTMLSelectElement>document.getElementById('notification'));
     notfication.classList.add("hide-div-not");
 
-    console.log(register)
-
     if(register.email == undefined || register.email == "" ||
       register.pass == undefined || register.pass == "" ||
       register.name == undefined || register.name == "" ||
