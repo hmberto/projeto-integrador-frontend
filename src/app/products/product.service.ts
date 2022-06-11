@@ -7,7 +7,7 @@ export class ProductService {
 
   getProducts(url) {
     this.gettedProducts = [];
-    const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const container = (<HTMLSelectElement>document.getElementById('container'));
     const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
     
@@ -41,7 +41,7 @@ export class ProductService {
           });
         }
 
-        contaiver.classList.remove("class-hide");
+        container.classList.remove("class-hide");
 
         loading.classList.remove("class-flex");
         loading.classList.add("class-hide");
