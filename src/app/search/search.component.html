@@ -1,34 +1,36 @@
-<div class="max-width-banner">
-    <div class="welcome">
-    <div class="teste1">
-        <h1 class="welcome-text-1">aqui tem</h1>
-        <h1 class="welcome-text-3">descontões</h1>
+<div id="container" class="class-hide">
+    <div class="max-width-banner">
+        <div class="welcome">
+        <div class="teste1">
+            <h1 class="welcome-text-1">aqui tem</h1>
+            <h1 class="welcome-text-3">descontões</h1>
+        </div>
+        <img class="welcome-image" src="assets/icons/logo.png" alt="">
+        <div class="teste2">
+            <span class="welcome-text-4">ofertas</span><br>
+            <span class="welcome-text-5">especiais</span><br>
+            <span class="welcome-text-4">todos os dias</span>
+        </div>
+        </div>
     </div>
-    <img class="welcome-image" src="assets/icons/logo.png" alt="">
-    <div class="teste2">
-        <span class="welcome-text-4">ofertas</span><br>
-        <span class="welcome-text-5">especiais</span><br>
-        <span class="welcome-text-4">todos os dias</span>
-    </div>
-    </div>
-</div>
-
-<div id="box-products" class="class-hide">
-    <div class="max-width-parceiros">
-        <h2 id="search-name" class="pharmacy-name"></h2>
-        <div class="line"></div>
-        <div class="pharmacies equalHMVWrap eqWrap">
-            <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of productsGetted">
-                <img class="product-image" [src]="product.image" alt="">
-                <span class="product-name">
-                    {{product.name}}
-                </span>
-                <span class="product-amount">
-                    {{product.amount}}
-                </span>
-                <span class="product-price">
-                    {{product.price}}
-                </span>
+    
+    <div id="box-products">
+        <div class="max-width-parceiros">
+            <h2 id="search-name" class="pharmacy-name"></h2>
+            <div class="line"></div>
+            <div class="pharmacies equalHMVWrap eqWrap">
+                <div class="pharmacy equalHMV eq" (click)="productClick(product)" *ngFor="let product of productsGetted">
+                    <img class="product-image" [src]="product.image" alt="">
+                    <span class="product-name">
+                        {{product.name}}
+                    </span>
+                    <span class="product-amount">
+                        {{product.amount}}
+                    </span>
+                    <span class="product-price">
+                        {{product.price}}
+                    </span>
+                </div>
             </div>
         </div>
     </div>

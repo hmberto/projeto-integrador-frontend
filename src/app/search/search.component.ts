@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit {
 
   validate() {
     const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
-    const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const container = (<HTMLSelectElement>document.getElementById('container'));
     const h2name = (<HTMLSelectElement>document.getElementById('search-name'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
@@ -51,7 +51,7 @@ export class SearchComponent implements OnInit {
     
     h2name.textContent="Pesquisando por: " + myParam
 
-    contaiver.classList.add("class-hide");
+    container.classList.add("class-hide");
 
     loading.classList.add("class-flex");
     loading.classList.remove("class-hide");
@@ -94,6 +94,6 @@ export class SearchComponent implements OnInit {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('pesquisa');
     
-    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pharmacy: product.pharmacy, pesquisa: myParam } });
+    this.router.navigate(['adicionar'], { queryParams: { id: product.id, pharmacy: product.pharmacy, pharmacyId: product.pharmacyId, pesquisa: myParam } });
   }
 }

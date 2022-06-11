@@ -40,10 +40,10 @@ export class ProductsComponent implements OnInit {
 
   validate() {
     const notLocation = (<HTMLSelectElement>document.getElementById('not-location'));
-    const contaiver = (<HTMLSelectElement>document.getElementById('box-products'));
+    const container = (<HTMLSelectElement>document.getElementById('container'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
-    contaiver.classList.add("class-hide");
+    container.classList.add("class-hide");
 
     loading.classList.add("class-flex");
     loading.classList.remove("class-hide");
