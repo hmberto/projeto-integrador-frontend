@@ -1,0 +1,56 @@
+<div id="register-box">
+  <h5 class="pad">Seja parceiro</h5>
+
+  <div id="div-not" class="div-notification hide-div-not">
+    <span id="notification">DADOS INVÁLIDOS</span><br>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input [(ngModel)]="deliveryman.name" id="name" type="text" class="validate">
+      <label class="active" for="name">Nome</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input [(ngModel)]="deliveryman.cpf" id="cpf" type="text" class="validate">
+      <label class="active" for="cpf">CPF</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input [(ngModel)]="deliveryman.cnh" id="cnh" type="text" class="validate">
+      <label class="active" for="cnh">CNH</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <select [(ngModel)]="deliveryman.category" id="category" type="text" class="validate">
+        <option value="A" [value]="'A'">A - Motos e Triciclos</option>
+        <option value="B">B - Carros de Passeio</option>
+      </select>
+      <label class="active" for="category">Categoria da CNH</label>
+    </div>
+  </div>
+  
+  <button id="sendBtn" class="btn waves-effect waves-light" type="submit" name="action" (click)="makeSignup()">
+    Criar
+    <em class="material-icons right"></em>
+  </button>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <span>Já tem uma conta? </span>
+      <a routerLink="/parceiros/entregador/login">Entre aqui</a>
+    </div>
+  </div>
+</div>
+
+<div id="loading" class="class-hide">
+  <div class="loading">
+      <img src="assets/icons/loading_icon.gif" alt="">
+  </div>
+</div>
