@@ -22,6 +22,7 @@ import { PharmacyComponent } from './pharmacy/pharmacy.component';
 import { RegisterDeliverymanComponent } from './register-deliveryman/register-deliveryman.component';
 import { LoginDeliverymanComponent } from './login-deliveryman/login-deliveryman.component';
 import { PartnersComponent } from './partners/partners.component';
+import { DeliverymanComponent } from './deliveryman/deliveryman.component';
 
 const appRoutes: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     { path: 'parceiros', component: PartnersComponent },
     { path: 'parceiros/entregador/cadastro', component: RegisterDeliverymanComponent },
     { path: 'parceiros/entregador/login', component: LoginDeliverymanComponent },
+    { path: 'parceiros/entregador/entregar', component: DeliverymanComponent },
     { path: '', component: HomeComponent },
     { path: '**', component: PageNotFoundComponent }
 ];

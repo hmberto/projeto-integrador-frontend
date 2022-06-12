@@ -19,6 +19,11 @@ export class RegisterDeliverymanComponent implements OnInit {
     this.deliveryman.category = 'A';
 
     document.getElementById('name').focus();
+    
+    const deliverymanID = window.localStorage.getItem("deliverymanID");
+    if(deliverymanID != null) {
+      this.router.navigate(['parceiros/entregador/entregar']);
+    }
   }
 
   makeSignup() {

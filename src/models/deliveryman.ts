@@ -1,5 +1,6 @@
 export class Deliveryman {
-    name: string;
+    id: string;
+	name: string;
 	cpf: string;
 	cnh: string;
 	category: string;

@@ -38,13 +38,13 @@ export class RegisterDeliverymanService {
     cpfField.disabled = true;
     cmhField.disabled = true;
 
-    const url = 'https://projeto-integrador-user.herokuapp.com/user/';
+    const url = "https://projeto-integrador-user.herokuapp.com/deliveryman/signup";
     const json = JSON.stringify({
       name:deliveryman.name,
       cpf:deliveryman.cpf,
       cnh:deliveryman.cnh,
       category:deliveryman.category
-  });
+    });
 
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", url, true);
@@ -53,7 +53,7 @@ export class RegisterDeliverymanService {
 
     xhttp.addEventListener('loadend', () => {
       if(xhttp.status == 201) {
-        this.router.navigate(['login']);
+        this.router.navigate(['parceiros/entregador/login']);
       }
       else {
         container.classList.remove("class-hide");

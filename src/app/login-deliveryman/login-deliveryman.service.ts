@@ -66,7 +66,7 @@ export class LoginDeliverymanService {
       notfication.classList.remove("hide-div-not");
       return;
     }
-    console.log(deliveryman.cpf)
+    
     const container = (<HTMLSelectElement>document.getElementById('container'));
     const loading = (<HTMLSelectElement>document.getElementById('loading'));
 
@@ -80,7 +80,6 @@ export class LoginDeliverymanService {
     const senha = (<HTMLSelectElement>document.getElementById('senha'));
     const btnLogin = (<HTMLSelectElement>document.getElementById('btn-login'));
     usuario.disabled = true;
-    senha.disabled = true;
     btnLogin.disabled = true;
 
     var newLogin = window.localStorage.getItem("newLogin");
@@ -91,9 +90,9 @@ export class LoginDeliverymanService {
       newLogin = "true"
     }
 
-    const loginEndPoint = 'https://projeto-integrador-user.herokuapp.com/user/login';
+    const loginEndPoint = "https://projeto-integrador-user.herokuapp.com/deliveryman/login";
     const body = JSON.stringify({
-      cpf: deliveryman.name
+      cpf: deliveryman.cpf
     });
     
     var xhttp = new XMLHttpRequest();
@@ -103,31 +102,15 @@ export class LoginDeliverymanService {
 
     xhttp.addEventListener('loadend', () => {
       if(xhttp.status == 200) {
-        let session = JSON.parse(xhttp.response);
+        const session = JSON.parse(xhttp.response);
+        const stringJson = JSON.stringify(session);
+        
+        window.localStorage.setItem("deliverymanID", stringJson);
 
-        window.localStorage.setItem("session", session['session']);
-        window.localStorage.setItem("newLogin", "false");
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const checkout = urlParams.get('checkout');
-        const orderId = urlParams.get('orderId');
-        const pedidos = urlParams.get('pedidos');
-        if(checkout == "true") {
-          this.router.navigate(['checkout']);
-        }
-        else if(orderId != "null" && orderId != null) {
-          this.router.navigate(['pedido'], { queryParams: { orderId: orderId } });
-        }
-        else if(pedidos == "true") {
-          this.router.navigate(['pedidos']);
-        }
-        else {
-          this.router.navigate(['']);
-        }
+        this.router.navigate(['parceiros/entregador/entregar']);
       }
       else {
         usuario.disabled = false;
-        senha.disabled = false;
         btnLogin.disabled = false;
 
         container.classList.remove("class-hide");

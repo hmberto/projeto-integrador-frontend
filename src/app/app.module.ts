@@ -45,6 +45,8 @@ import { LoginDeliverymanComponent } from './login-deliveryman/login-deliveryman
 import { LoginDeliverymanService } from './login-deliveryman/login-deliveryman.service';
 import { PartnersComponent } from './partners/partners.component';
 import { PartnersService } from './partners/partners.service';
+import { DeliverymanComponent } from './deliveryman/deliveryman.component';
+import { DeliverymanService } from './deliveryman/deliveryman.service';
 import { ApiService } from '../services/api.service';
 
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -72,7 +74,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     PharmacyComponent,
     RegisterDeliverymanComponent,
     LoginDeliverymanComponent,
-    PartnersComponent
+    PartnersComponent,
+    DeliverymanComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +106,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     PharmacyService,
     RegisterDeliverymanService,
     LoginDeliverymanService,
-    PartnersService
+    PartnersService,
+    DeliverymanService
   ],
   bootstrap: [AppComponent]
 })

@@ -16,6 +16,11 @@ export class LoginDeliverymanComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    const deliverymanID = window.localStorage.getItem("deliverymanID");
+    if(deliverymanID != null) {
+      this.router.navigate(['parceiros/entregador/entregar']);
+    }
+    
     const userField = document.getElementById("usuario");
     userField.focus();
 
