@@ -18,6 +18,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { MyOrderComponent } from './my-order/my-order.component';
 import { PharmacyComponent } from './pharmacy/pharmacy.component';
+import { RegisterDeliverymanComponent } from './register-deliveryman/register-deliveryman.component';
+import { LoginDeliverymanComponent } from './login-deliveryman/login-deliveryman.component';
+import { PartnersComponent } from './partners/partners.component';
+import { DeliverymanComponent } from './deliveryman/deliveryman.component';
 
 const APP_ROUTES: Routes = [
     { path: 'produtos', component: ProductsComponent },
@@ -36,6 +40,10 @@ const APP_ROUTES: Routes = [
     { path: 'pedido', component: TrackOrderComponent },
     { path: 'pedidos', component: MyOrderComponent },
     { path: 'farmacia', component: PharmacyComponent },
+    { path: 'parceiros', component: PartnersComponent },
+    { path: 'parceiros/entregador/cadastro', component: RegisterDeliverymanComponent },
+    { path: 'parceiros/entregador/login', component: LoginDeliverymanComponent },
+    { path: 'parceiros/entregador/entregar', component: DeliverymanComponent },
     { path: '', component: HomeComponent }
 ];
 

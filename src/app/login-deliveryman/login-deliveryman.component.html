@@ -1,0 +1,34 @@
+<div id="container" class="class-flex">
+  <div id="login-box">
+    <h5>Iniciar sessão</h5>
+  
+    <div id="div-not" class="div-notification hide-div-not">
+      <span id="notification">DADOS INVÁLIDOS</span><br>
+    </div>
+  
+    <div class="row">
+      <div class="input-field col s12">
+        <input [(ngModel)]="deliveryman.cpf" id="usuario" type="text" class="validate">
+        <label class="active" for="user">CPF</label>
+      </div>
+    </div>
+  
+    <button id="btn-login" class="btn waves-effect waves-light" type="submit" name="action" (click)="makeLogin()">
+      Login
+      <em class="material-icons right"></em>
+    </button>
+  
+    <div class="row">
+      <div class="input-field col s12">
+        <span>Ainda não se cadastrou?</span><br>
+        <a routerLink="/parceiros/entregador/cadastro">Registre-se aqui</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="loading" class="class-hide">
+  <div class="loading">
+      <img src="assets/icons/loading_icon.gif" alt="">
+  </div>
+</div>

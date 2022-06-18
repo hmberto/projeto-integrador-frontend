@@ -1,0 +1,85 @@
+#container {
+    min-height: 100vh;
+    margin: auto;
+}
+
+#loading {
+    min-height: 100vh;
+    margin: auto;
+    width: auto;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.loading img {
+    margin: auto;
+    width: 200px;
+    display: block;
+}
+
+.class-hide {
+    display: none;
+}
+
+.class-flex {
+    display: flex;
+}
+
+a {
+    color: #9700a5;
+}
+
+a:hover {
+    color: #c100d3;
+}
+
+.title {
+    display: block;
+    text-align: center;
+}
+
+.box-partners {
+    padding: 20px;
+    display: flex;
+    background-image: url("assets/icons/partner1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+}
+
+.deliveryman, .pharmacies {
+    width: 50%;
+    text-align: center;
+    height: 200px;
+    flex-direction: column;
+    margin: auto;
+    padding: 5px;
+    display: flex;
+}
+
+.deliveryman a, .pharmacies a {
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #9700a5;
+    white-space: nowrap;
+}
+
+@media (max-width: 550px) {
+    .deliveryman, .pharmacies {
+        width: 100%;
+    }
+
+    .box-partners {
+        display: block;
+    }
+}

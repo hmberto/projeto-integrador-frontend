@@ -39,6 +39,14 @@ import { MyOrderComponent } from './my-order/my-order.component';
 import { MyOrderService } from './my-order/my-order.service';
 import { PharmacyComponent } from './pharmacy/pharmacy.component';
 import { PharmacyService } from './pharmacy/pharmacy.service';
+import { RegisterDeliverymanComponent } from './register-deliveryman/register-deliveryman.component';
+import { RegisterDeliverymanService } from './register-deliveryman/register-deliveryman.service';
+import { LoginDeliverymanComponent } from './login-deliveryman/login-deliveryman.component';
+import { LoginDeliverymanService } from './login-deliveryman/login-deliveryman.service';
+import { PartnersComponent } from './partners/partners.component';
+import { PartnersService } from './partners/partners.service';
+import { DeliverymanComponent } from './deliveryman/deliveryman.component';
+import { DeliverymanService } from './deliveryman/deliveryman.service';
 import { ApiService } from '../services/api.service';
 
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -63,7 +71,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     CheckoutComponent,
     TrackOrderComponent,
     MyOrderComponent,
-    PharmacyComponent
+    PharmacyComponent,
+    RegisterDeliverymanComponent,
+    LoginDeliverymanComponent,
+    PartnersComponent,
+    DeliverymanComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +103,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     TrackOrderService,
     MyOrderService,
     ApiService,
-    PharmacyService
+    PharmacyService,
+    RegisterDeliverymanService,
+    LoginDeliverymanService,
+    PartnersService,
+    DeliverymanService
   ],
   bootstrap: [AppComponent]
 })
