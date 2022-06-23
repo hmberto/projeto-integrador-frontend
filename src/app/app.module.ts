@@ -4,53 +4,51 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { CartComponent } from './cart/cart.component';
-import { CadastroComponent } from './register/cadastro.component';
-import { RecoveryComponent } from './recovery/recovery.component';
-import { ChangePassComponent } from './change-pass/change-pass.component';
-import { AppRoutingModule } from './app.routing.module';
-import { AuthService } from './login/auth.service';
-import { LogoutService } from './logout/logout.service';
-import { CadastroService } from './register/cadastro.service';
-import { RecoveryService } from './recovery/recovery.service';
-import { ChangePassService } from './change-pass/change-pass.service';
-import { NewCartService } from './cart/newcart.service';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthGuard } from './guards/auth.guard';
-import { ProductsComponent } from './products/products.component';
-import { AddToBagComponent } from './add-to-bag/add-to-bag.component';
-import { HttpClientModule } from '@angular/common/http';
-import { UserPComponent } from './user-profile/user.component';
-import { UserPService } from './user-profile/user.service';
-import { ProductService } from './products/product.service';
-import { HomeService } from './home/home.service';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { ContactUsService } from './contact-us/contact-us.service';
-import { SearchComponent } from './search/search.component';
-import { SearchService } from './search/search.service';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { CheckoutService } from './checkout/checkout.service';
-import { TrackOrderComponent } from './track-order/track-order.component';
-import { TrackOrderService } from './track-order/track-order.service';
-import { MyOrderComponent } from './my-order/my-order.component';
-import { MyOrderService } from './my-order/my-order.service';
-import { PharmacyComponent } from './pharmacy/pharmacy.component';
-import { PharmacyService } from './pharmacy/pharmacy.service';
-import { RegisterDeliverymanComponent } from './register-deliveryman/register-deliveryman.component';
-import { RegisterDeliverymanService } from './register-deliveryman/register-deliveryman.service';
-import { LoginDeliverymanComponent } from './login-deliveryman/login-deliveryman.component';
-import { LoginDeliverymanService } from './login-deliveryman/login-deliveryman.service';
-import { PartnersComponent } from './partners/partners.component';
-import { PartnersService } from './partners/partners.service';
-import { DeliverymanComponent } from './deliveryman/deliveryman.component';
-import { DeliverymanService } from './deliveryman/deliveryman.service';
-import { ApiService } from '../services/api.service';
+
+import { ApiService } from '../core/services/api.service';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { CadastroComponent } from './components/register/cadastro.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ProductsComponent } from './components/products/products.component';
+import { CartComponent } from './components/cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app.routing.module';
+import { AddToBagComponent } from './components/add-to-bag/add-to-bag.component';
+import { ChangePassComponent } from './components/change-pass/change-pass.component';
+import { ChangePassService } from './components/change-pass/change-pass.service';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutService } from './components/checkout/checkout.service';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { DeliverymanComponent } from './components/deliveryman/deliveryman.component';
+import { DeliverymanService } from './components/deliveryman/deliveryman.service';
+import { AuthGuard } from './components/guards/auth.guard';
+import { HomeService } from './components/home/home.service';
+import { LoginDeliverymanComponent } from './components/login-deliveryman/login-deliveryman.component';
+import { LoginDeliverymanService } from './components/login-deliveryman/login-deliveryman.service';
+import { AuthService } from './components/login/auth.service';
+import { LogoutService } from './components/logout/logout.service';
+import { MyOrderComponent } from './components/my-order/my-order.component';
+import { MyOrderService } from './components/my-order/service/my-order.service';
+import { PartnersComponent } from './components/partners/partners.component';
+import { PharmacyComponent } from './components/pharmacy/pharmacy.component';
+import { PharmacyService } from './components/pharmacy/pharmacy.service';
+import { ProductService } from './components/products/product.service';
+import { RecoveryComponent } from './components/recovery/recovery.component';
+import { RecoveryService } from './components/recovery/recovery.service';
+import { RegisterDeliverymanComponent } from './components/register-deliveryman/register-deliveryman.component';
+import { RegisterDeliverymanService } from './components/register-deliveryman/register-deliveryman.service';
+import { CadastroService } from './components/register/cadastro.service';
+import { SearchComponent } from './components/search/search.component';
+import { SearchService } from './components/search/search.service';
+import { TrackOrderComponent } from './components/track-order/track-order.component';
+import { TrackOrderService } from './components/track-order/track-order.service';
+import { UserPComponent } from './components/user-profile/user.component';
+import { UserPService } from './components/user-profile/user.service';
 
 @NgModule({
   declarations: [
@@ -91,13 +89,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     CadastroService,
     LogoutService,
     AuthGuard,
-    NewCartService,
     ChangePassService,
     RecoveryService,
     UserPService,
     ProductService,
     HomeService,
-    ContactUsService,
     SearchService,
     CheckoutService,
     TrackOrderService,
@@ -106,7 +102,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     PharmacyService,
     RegisterDeliverymanService,
     LoginDeliverymanService,
-    PartnersService,
     DeliverymanService
   ],
   bootstrap: [AppComponent]

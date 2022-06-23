@@ -1,28 +1,28 @@
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddToBagComponent } from './components/add-to-bag/add-to-bag.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ChangePassComponent } from './components/change-pass/change-pass.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { DeliverymanComponent } from './components/deliveryman/deliveryman.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginDeliverymanComponent } from './components/login-deliveryman/login-deliveryman.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { MyOrderComponent } from './components/my-order/my-order.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PartnersComponent } from './components/partners/partners.component';
+import { PharmacyComponent } from './components/pharmacy/pharmacy.component';
+import { ProductsComponent } from './components/products/products.component';
+import { RecoveryComponent } from './components/recovery/recovery.component';
+import { RegisterDeliverymanComponent } from './components/register-deliveryman/register-deliveryman.component';
+import { CadastroComponent } from './components/register/cadastro.component';
+import { SearchComponent } from './components/search/search.component';
+import { TrackOrderComponent } from './components/track-order/track-order.component';
+import { UserPComponent } from './components/user-profile/user.component';
 
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { CadastroComponent } from './register/cadastro.component';
-import { SearchComponent } from './search/search.component';
-import { CartComponent } from './cart/cart.component';
-import { AuthGuard } from './guards/auth.guard';
-import { ProductsComponent } from './products/products.component';
-import { AddToBagComponent } from './add-to-bag/add-to-bag.component';
-import { ChangePassComponent } from './change-pass/change-pass.component';
-import { RecoveryComponent } from './recovery/recovery.component';
-import { UserPComponent } from './user-profile/user.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { TrackOrderComponent } from './track-order/track-order.component';
-import { MyOrderComponent } from './my-order/my-order.component';
-import { PharmacyComponent } from './pharmacy/pharmacy.component';
-import { RegisterDeliverymanComponent } from './register-deliveryman/register-deliveryman.component';
-import { LoginDeliverymanComponent } from './login-deliveryman/login-deliveryman.component';
-import { PartnersComponent } from './partners/partners.component';
-import { DeliverymanComponent } from './deliveryman/deliveryman.component';
+
 
 const appRoutes: Routes = [
     { path: 'produtos', component: ProductsComponent },
