@@ -30,6 +30,14 @@
     display: flex;
 }
 
+a {
+    color: #9700a5;
+}
+
+a:hover {
+    color: #c100d3;
+}
+
 .title {
     display: block;
     text-align: center;
@@ -65,80 +73,6 @@
     background: #9700a5;
     white-space: nowrap;
 }
-
-#orderInfo {
-    margin: 50px 60px;
-    font-size: 16px;
-}
-
-.ordersInfo {
-    display: block;
-}
-
-button {
-    border-radius: 10px;
-    padding: 10px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background: #9700a5;
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #c100d3;
-    transition: .2s;
-}
-
-#delivery-nav {
-    width: 100%;
-    padding: 30px 0px;
-    display: flex;
-}
-
-.btn-1 {
-    margin-left: 60px;
-    margin-right: 2px;
-}
-
-.btn-2 {
-    margin-right: 60px;
-    margin-left: 2px;
-    background-color: #fbc6ff;
-}
-
-.btn-1, .btn-2 {
-    width: 50%;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-}
-
-.btn-1:hover, .btn-2:hover {
-    background-color: #fbc6ff;
-    color: #c100d3;
-}
-
-.btn-1 p, .btn-2 p {
-    margin: auto;
-    color: #9700a5;
-}
-
-a {
-    color: #9700a5;
-}
-
-a:hover {
-    color: #c100d3;
-}
-
 
 @media (max-width: 550px) {
     .deliveryman, .pharmacies {

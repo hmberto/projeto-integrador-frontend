@@ -24,10 +24,8 @@ import { ChangePassService } from './components/change-pass/change-pass.service'
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CheckoutService } from './components/checkout/checkout.service';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { DeliverymanComponent } from './components/deliveryman-deliveries/deliveryman-deliveries.component';
-import { DeliverymanService } from './components/deliveryman-deliveries/deliveryman-deliveries.service';
-import { DeliverymanNewsComponent } from './components/deliveryman-news/deliveryman.component';
-import { DeliverymanNewsService } from './components/deliveryman-news/deliveryman.service';
+import { DeliverymanComponent } from './components/deliveryman/deliveryman.component';
+import { DeliverymanService } from './components/deliveryman/deliveryman.service';
 import { AuthGuard } from './components/guards/auth.guard';
 import { HomeService } from './components/home/home.service';
 import { LoginDeliverymanComponent } from './components/login-deliveryman/login-deliveryman.component';
@@ -75,8 +73,7 @@ import { UserPService } from './components/user-profile/user.service';
     RegisterDeliverymanComponent,
     LoginDeliverymanComponent,
     PartnersComponent,
-    DeliverymanComponent,
-    DeliverymanNewsComponent
+    DeliverymanComponent
   ],
   imports: [
     BrowserModule,
@@ -105,8 +102,7 @@ import { UserPService } from './components/user-profile/user.service';
     PharmacyService,
     RegisterDeliverymanService,
     LoginDeliverymanService,
-    DeliverymanService,
-    DeliverymanNewsService
+    DeliverymanService
   ],
   bootstrap: [AppComponent]
 })

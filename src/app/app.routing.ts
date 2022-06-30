@@ -5,8 +5,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { DeliverymanComponent } from './components/deliveryman-deliveries/deliveryman-deliveries.component';
-import { DeliverymanNewsComponent } from './components/deliveryman-news/deliveryman.component';
+import { DeliverymanComponent } from './components/deliveryman/deliveryman.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginDeliverymanComponent } from './components/login-deliveryman/login-deliveryman.component';
 import { LoginComponent } from './components/login/login.component';
@@ -45,7 +44,6 @@ const APP_ROUTES: Routes = [
     { path: 'parceiros/entregador/cadastro', component: RegisterDeliverymanComponent },
     { path: 'parceiros/entregador/login', component: LoginDeliverymanComponent },
     { path: 'parceiros/entregador/entregar', component: DeliverymanComponent },
-    { path: 'parceiros/entregador/novas', component: DeliverymanNewsComponent },
     { path: '', component: HomeComponent }
 ];
 
